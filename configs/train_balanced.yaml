@@ -1,0 +1,76 @@
+seed: 42
+epochs: 3000
+model_config: configs/model/dexcg.yaml
+batch_size_per_gpu: 128
+num_workers: 4
+gradient_accumulation_steps: 1
+mixed_precision: bf16
+gradient_clip_norm: 1.0
+
+data:
+  paths:
+    - data/dexart-balanced/faucet_expert.zarr
+    - data/dexart-balanced/bucket_expert.zarr
+    - data/dexart-balanced/laptop_expert.zarr
+    - data/dexart-balanced/toilet_expert.zarr
+  obs_horizon: 2
+  action_horizon: 16
+
+optimizer:
+  learning_rate: 2.0e-4
+  weight_decay: 1.0e-6
+  betas: [0.95, 0.999]
+  warmup_steps: 250
+  scheduler: cosine
+
+diffusion:
+  num_train_timesteps: 100
+  num_inference_steps: 10
+  beta_start: 1.0e-4
+  beta_end: 2.0e-2
+  beta_schedule: squaredcos_cap_v2
+  prediction_type: epsilon
+
+loss:
+  coefficient: 1.0
+  reconstruction: 1.0
+  gate: 1.0
+  alignment: 1.0
+  contact: 0.0
+  action_likelihood_std: 1.0
+  gate_alpha: 2.0
+  gate_alpha0: 0.5
+  gate_kappa: 20.0
+
+contact_training:
+  enabled: false
+
+checkpoint:
+  interval_epochs: 10
+  keep_top: 5
+  use_ema: true
+  ema_decay: 0.9998
+
+evaluation:
+  split: seen
+  first_epoch: 900
+  interval_epochs: 100
+  seeds: [1000, 1001, 1002, 1003, 1004]
+  episodes_per_seed: 20
+  action_steps: 8
+  tasks:
+    faucet:
+      instruction: Grasp the faucet handle with the palm and fingers to secure it.
+      max_steps: 50
+    bucket:
+      instruction: Grasp the bucket rim with the thumb and fingers to secure it.
+      max_steps: 100
+    laptop:
+      instruction: Grasp the laptop lid edge with the palm and fingertips.
+      max_steps: 50
+    toilet:
+      instruction: Grasp the toilet lid with the thumb and fingertips to lift it upwards.
+      max_steps: 50
+
+output_dir: outputs/qwen-frozen-balanced
+resume: false

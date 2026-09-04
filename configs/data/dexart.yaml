@@ -1,0 +1,33 @@
+tasks:
+  faucet:
+    task_id: faucet_open
+    checkpoint: checkpoints/dexart_experts/faucet_nopretrain_0.zip
+    output: data/dexart/faucet_expert.zarr
+  bucket:
+    task_id: bucket_lift
+    checkpoint: checkpoints/dexart_experts/bucket_nopretrain_0.zip
+    output: data/dexart/bucket_expert.zarr
+  laptop:
+    task_id: laptop_open
+    checkpoint: checkpoints/dexart_experts/laptop_nopretrain_0.zip
+    output: data/dexart/laptop_expert.zarr
+  toilet:
+    task_id: toilet_lid_open
+    checkpoint: checkpoints/dexart_experts/toilet_nopretrain_0.zip
+    output: data/dexart/toilet_expert.zarr
+
+collection:
+  successful_episodes: 150
+  split: seen
+  seed: 0
+  image_size: 84
+  point_count: 1024
+  contact_impulse_threshold: 1.0e-2
+  stable_contact: first_state_3
+
+contact_tokens:
+  tokenizer: checkpoints/qwen2.5-0.5b-instruct
+  max_length: 66
+  position_bins: 256
+  min_position: -0.4
+  max_position: 0.4

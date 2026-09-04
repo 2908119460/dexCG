@@ -1,0 +1,26 @@
+dexCG
+Copyright (c) 2026 dexCG contributors
+
+This project contains independent adaptations of ideas and implementation
+patterns from the following research codebases:
+
+- 3D Diffusion Policy (DP3), Columbia Artificial Intelligence and Robotics Lab.
+  DP3 is distributed under the MIT License. A copy is included at
+  third_party/licenses/DP3-MIT.txt.
+- DextER, https://github.com/junha-l/dexter. The contact planner architecture
+  and PartField/Qwen checkpoint format follow that project. Files originating
+  from third parties retain their original copyright notices.
+- Qwen2.5-0.5B-Instruct tokenizer and configuration files. The Qwen license is
+  included at third_party/licenses/Qwen2.5-LICENSE.txt.
+- Abstracting Robot Manipulation Skills via Mixture-of-Experts Diffusion
+  Policies. The SMP decomposition implemented here follows the equations in
+  that paper.
+
+The pretrained model artifacts under checkpoints/ are not covered by dexCG's
+MIT License.
+This project includes code and assets derived from DexArt, distributed under
+the terms preserved in third_party/dexart/LICENSE.
+
+This project includes a customized Stable-Baselines3 implementation bundled
+with DexArt. Its upstream license notice is preserved at
+third_party/licenses/Stable-Baselines3-MIT.txt.

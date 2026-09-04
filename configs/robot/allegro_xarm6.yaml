@@ -1,0 +1,29 @@
+name: allegro_xarm6
+coordinate_frame: robot_base
+urdf: third_party/dexart/assets/robot/xarm6_description/xarm6_allegro_wrist_mounted_rotate.urdf
+root_link: link_base
+arm_action_link: palm_center
+arm_dof: 6
+hand_dof: 16
+action_dim: 22
+agent_pos_dim: 33
+imagined_robot_shape: [96, 7]
+
+# Fixed contact vocabulary, aligned with the links used by DP3/DexArt.
+contact_links:
+  - allegro_palm
+  - allegro_thumb_tip
+  - allegro_thumb_middle
+  - allegro_thumb_proximal
+  - allegro_index_tip
+  - allegro_index_distal
+  - allegro_index_middle
+  - allegro_index_proximal
+  - allegro_middle_tip
+  - allegro_middle_distal
+  - allegro_middle_middle
+  - allegro_middle_proximal
+  - allegro_ring_tip
+  - allegro_ring_distal
+  - allegro_ring_middle
+  - allegro_ring_proximal

@@ -1,0 +1,17 @@
+model_id: google/gemma-3-12b-it
+checkpoint: checkpoints/gemma-3-12b-it
+prompt: assets/prompts/grasp_instruction_annotation.txt
+revision: 96b6f1eccf38110c56df3a15bffe176da04bfd80
+torch_dtype: bfloat16
+do_sample: false
+max_new_tokens: 512
+n_queries: 1
+
+camera:
+  frame: robot_base
+  directions: [+X, -X, +Y, -Y, +Z]
+  resolution: [896, 896]
+  fov_degrees: 69.4
+  look_at: hand_object_union_bbox_center
+  distance: bounding_sphere
+  distance_margin: 1.2

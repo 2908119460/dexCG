@@ -1,0 +1,62 @@
+observation:
+  obs_horizon: 2
+  point_cloud_channels: 3
+  point_feature_dim: 64
+  point_mlp_dims: [64, 128, 256]
+  state_dim: 33
+  state_mlp_dims: [64, 64]
+  feature_dim: 256
+
+contact_planner:
+  checkpoint: checkpoints/dexter-qwen2.5-0.5B-dexgys
+  base_model: checkpoints/qwen2.5-0.5b-instruct
+  prompt: assets/prompts/contact_planner.txt
+  max_new_tokens: 66
+  temperature: 0.0
+  position_bins: 256
+  min_position: -0.4
+  max_position: 0.4
+  partfield:
+    variant: base
+    normalize_point_cloud: true
+    downsample_patch_embeddings: true
+
+contact_encoder:
+  feature_dim: 256
+  num_layers: 2
+  num_heads: 8
+  feedforward_dim: 1024
+  dropout: 0.0
+
+physgraph:
+  robot_config: configs/robot/allegro_xarm6.yaml
+  hidden_dim: 128
+  num_layers: 2
+  num_heads: 8
+  feedforward_dim: 512
+  dropout: 0.0
+  max_path_distance: 8
+  geometric_min_hops: 1
+  initial_bandwidth: 0.1
+  serial_heads: 2
+  synergy_heads: 2
+  initial_output_scale: 0.0
+
+smp:
+  action_dim: 22
+  action_horizon: 16
+  num_experts: 4
+  condition_dim: 256
+  basis_hidden_dim: 256
+  gate_hidden_dim: 256
+  min_concentration: 1.0e-4
+  global_initial_concentration: 2.0
+  coefficient_eps: 1.0e-3
+  experts:
+    down_dims: [64, 128, 256]
+    diffusion_step_embed_dim: 128
+    kernel_size: 3
+    num_groups: 8
+
+policy:
+  contact_update_interval: 8

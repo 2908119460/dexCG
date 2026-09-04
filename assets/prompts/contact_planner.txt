@@ -1,0 +1,2 @@
+First predict which Allegro hand links should contact where on the object to satisfy the grasp instruction. Return only the contact block. Query: {language}
+

@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+
+# Keep the project-local pretrained model out of version control.
+/checkpoints/*
+!/checkpoints/.gitkeep
+
+# Collected demonstrations are local experiment artifacts.
+/data/
+/data_visualize/
+/outputs/
+
+# Local editor and OS metadata.
+.idea/
+.vscode/
+.DS_Store
