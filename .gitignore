@@ -12,8 +12,7 @@ build/
 /checkpoints/*
 !/checkpoints/.gitkeep
 
-# Collected demonstrations are local experiment artifacts.
-/data/
+# Generated visualizations and training runs remain local.
 /data_visualize/
 /outputs/
 
