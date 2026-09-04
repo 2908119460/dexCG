@@ -1,0 +1,73 @@
+{
+    "agent_pos": {
+        "dimension": 33,
+        "native_32d_conversion": "insert_zero_before_time_progress",
+        "native_33d_conversion": "identity"
+    },
+    "annotation_failures": 0,
+    "camera": {
+        "directions": [
+            "+X",
+            "-X",
+            "+Y",
+            "-Y",
+            "+Z"
+        ],
+        "distance": "bounding_sphere",
+        "distance_margin": 1.2,
+        "fov_degrees": 69.4,
+        "frame": "robot_base",
+        "look_at": "hand_object_union_bbox_center",
+        "resolution": [
+            896,
+            896
+        ]
+    },
+    "collection_attempts": 224,
+    "contact_frame": "robot_base",
+    "contact_impulse_threshold": 0.01,
+    "contact_link_order": [
+        "allegro_palm",
+        "allegro_thumb_tip",
+        "allegro_thumb_middle",
+        "allegro_thumb_proximal",
+        "allegro_index_tip",
+        "allegro_index_distal",
+        "allegro_index_middle",
+        "allegro_index_proximal",
+        "allegro_middle_tip",
+        "allegro_middle_distal",
+        "allegro_middle_middle",
+        "allegro_middle_proximal",
+        "allegro_ring_tip",
+        "allegro_ring_distal",
+        "allegro_ring_middle",
+        "allegro_ring_proximal"
+    ],
+    "contact_tokenizer": {
+        "max_length": 66,
+        "max_position": 0.4,
+        "min_position": -0.4,
+        "position_bins": 256,
+        "tokenizer": "checkpoints/qwen2.5-0.5b-instruct"
+    },
+    "expert_checkpoint": "checkpoints/dexart_experts/bucket_nopretrain_0.zip",
+    "expert_sha256": "b08ba7a1f0f703ea3734797de708d84dca5709cf7c252e8ff438a00c4e2b5347",
+    "format": "dexcg.dexart.v1",
+    "language_annotation": {
+        "do_sample": false,
+        "max_new_tokens": 512,
+        "model_checkpoint": "/data/users/zhouyike/dexCG/checkpoints/gemma-3-12b-it",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "n_queries": 1,
+        "prompt_sha256": "c0718ce783d27e4113a3dd2bd21a997325c95acba38109cc1776c83b42fcd60e"
+    },
+    "precontact_target_fill": "stable_contact_inclusive",
+    "seed": 0,
+    "split": "seen",
+    "stable_contact": "first_state_3",
+    "successful_episodes": 150,
+    "successful_without_state_3": 0,
+    "task": "bucket",
+    "task_id": "bucket_lift"
+}
