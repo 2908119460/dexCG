@@ -1,0 +1,625 @@
+{
+    "agent_pos": {
+        "dimension": 33,
+        "native_32d_conversion": "insert_zero_before_time_progress",
+        "native_33d_conversion": "identity"
+    },
+    "annotation_failures": 0,
+    "balance": {
+        "expected_object_ids": [
+            102677,
+            102687,
+            102689,
+            102692,
+            102697,
+            102699,
+            102701,
+            102703,
+            102707,
+            102708,
+            103234,
+            102663,
+            102666,
+            102667,
+            102669,
+            102670,
+            102675
+        ],
+        "max_attempts_per_object": 200,
+        "objects": {
+            "102663": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 9,
+                "episode_indices": [
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107
+                ],
+                "episode_lengths": [
+                    21,
+                    25,
+                    20,
+                    25,
+                    25,
+                    23,
+                    43,
+                    22,
+                    22
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 226
+            },
+            "102666": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 10,
+                "episode_indices": [
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116
+                ],
+                "episode_lengths": [
+                    25,
+                    28,
+                    19,
+                    31,
+                    29,
+                    21,
+                    16,
+                    22,
+                    25
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 216
+            },
+            "102667": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 12,
+                "episode_indices": [
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125
+                ],
+                "episode_lengths": [
+                    25,
+                    21,
+                    19,
+                    43,
+                    36,
+                    17,
+                    55,
+                    18,
+                    20
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 254
+            },
+            "102669": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 17,
+                "episode_indices": [
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133,
+                    134
+                ],
+                "episode_lengths": [
+                    20,
+                    22,
+                    22,
+                    15,
+                    22,
+                    17,
+                    17,
+                    25,
+                    19
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 179
+            },
+            "102670": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 10,
+                "episode_indices": [
+                    135,
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143
+                ],
+                "episode_lengths": [
+                    14,
+                    32,
+                    56,
+                    33,
+                    82,
+                    23,
+                    24,
+                    32,
+                    23
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 319
+            },
+            "102675": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 99,
+                "episode_indices": [
+                    144,
+                    145,
+                    146,
+                    147,
+                    148,
+                    149,
+                    150,
+                    151,
+                    152
+                ],
+                "episode_lengths": [
+                    24,
+                    21,
+                    18,
+                    24,
+                    19,
+                    23,
+                    18,
+                    21,
+                    20
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 188
+            },
+            "102677": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 11,
+                "episode_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "episode_lengths": [
+                    23,
+                    21,
+                    72,
+                    19,
+                    22,
+                    18,
+                    24,
+                    27,
+                    81
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 307
+            },
+            "102687": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 9,
+                "episode_indices": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17
+                ],
+                "episode_lengths": [
+                    19,
+                    23,
+                    36,
+                    24,
+                    28,
+                    19,
+                    20,
+                    126,
+                    24
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 319
+            },
+            "102689": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 11,
+                "episode_indices": [
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26
+                ],
+                "episode_lengths": [
+                    22,
+                    24,
+                    27,
+                    32,
+                    23,
+                    23,
+                    232,
+                    19,
+                    26
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 428
+            },
+            "102692": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 17,
+                "episode_indices": [
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35
+                ],
+                "episode_lengths": [
+                    21,
+                    15,
+                    15,
+                    24,
+                    113,
+                    18,
+                    31,
+                    21,
+                    38
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 296
+            },
+            "102697": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 9,
+                "episode_indices": [
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                ],
+                "episode_lengths": [
+                    13,
+                    23,
+                    31,
+                    24,
+                    18,
+                    17,
+                    15,
+                    19,
+                    37
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 197
+            },
+            "102699": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 11,
+                "episode_indices": [
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53
+                ],
+                "episode_lengths": [
+                    22,
+                    21,
+                    28,
+                    19,
+                    20,
+                    40,
+                    70,
+                    26,
+                    36
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 282
+            },
+            "102701": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 11,
+                "episode_indices": [
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62
+                ],
+                "episode_lengths": [
+                    16,
+                    26,
+                    25,
+                    61,
+                    23,
+                    17,
+                    29,
+                    60,
+                    22
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 279
+            },
+            "102703": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 12,
+                "episode_indices": [
+                    63,
+                    64,
+                    65,
+                    66,
+                    67,
+                    68,
+                    69,
+                    70,
+                    71
+                ],
+                "episode_lengths": [
+                    21,
+                    23,
+                    24,
+                    34,
+                    24,
+                    19,
+                    25,
+                    19,
+                    17
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 206
+            },
+            "102707": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 12,
+                "episode_indices": [
+                    72,
+                    73,
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80
+                ],
+                "episode_lengths": [
+                    29,
+                    24,
+                    38,
+                    25,
+                    13,
+                    18,
+                    55,
+                    31,
+                    19
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 252
+            },
+            "102708": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 9,
+                "episode_indices": [
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87,
+                    88,
+                    89
+                ],
+                "episode_lengths": [
+                    19,
+                    143,
+                    21,
+                    22,
+                    26,
+                    24,
+                    26,
+                    21,
+                    15
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 317
+            },
+            "103234": {
+                "accepted_episodes": 9,
+                "annotation_failures": 0,
+                "attempts": 12,
+                "episode_indices": [
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98
+                ],
+                "episode_lengths": [
+                    163,
+                    15,
+                    15,
+                    30,
+                    16,
+                    24,
+                    18,
+                    30,
+                    23
+                ],
+                "quota": 9,
+                "simulator_successes": 9,
+                "successful_without_state_3": 0,
+                "timesteps": 334
+            }
+        },
+        "quota_per_object": 9
+    },
+    "camera": {
+        "directions": [
+            "+X",
+            "-X",
+            "+Y",
+            "-Y",
+            "+Z"
+        ],
+        "distance": "bounding_sphere",
+        "distance_margin": 1.2,
+        "fov_degrees": 69.4,
+        "frame": "robot_base",
+        "look_at": "hand_object_union_bbox_center",
+        "resolution": [
+            896,
+            896
+        ]
+    },
+    "collection_attempts": 281,
+    "contact_frame": "robot_base",
+    "contact_impulse_threshold": 0.01,
+    "contact_link_order": [
+        "allegro_palm",
+        "allegro_thumb_tip",
+        "allegro_thumb_middle",
+        "allegro_thumb_proximal",
+        "allegro_index_tip",
+        "allegro_index_distal",
+        "allegro_index_middle",
+        "allegro_index_proximal",
+        "allegro_middle_tip",
+        "allegro_middle_distal",
+        "allegro_middle_middle",
+        "allegro_middle_proximal",
+        "allegro_ring_tip",
+        "allegro_ring_distal",
+        "allegro_ring_middle",
+        "allegro_ring_proximal"
+    ],
+    "contact_tokenizer": {
+        "max_length": 66,
+        "max_position": 0.4,
+        "min_position": -0.4,
+        "position_bins": 256,
+        "tokenizer": "checkpoints/qwen2.5-0.5b-instruct"
+    },
+    "expert_checkpoint": "checkpoints/dexart_experts/toilet_nopretrain_0.zip",
+    "expert_sha256": "fff4ddf6b7992d616a28522bedcec12510ee1779d78cf52c417963c8fce5c0a7",
+    "format": "dexcg.dexart.v1",
+    "language_annotation": {
+        "do_sample": false,
+        "max_new_tokens": 512,
+        "model_checkpoint": "/data/users/zhouyike/dexCG/checkpoints/gemma-3-12b-it",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "n_queries": 1,
+        "prompt_sha256": "c0718ce783d27e4113a3dd2bd21a997325c95acba38109cc1776c83b42fcd60e"
+    },
+    "precontact_target_fill": "stable_contact_inclusive",
+    "seed": 0,
+    "split": "seen",
+    "stable_contact": "first_state_3",
+    "successful_episodes": 153,
+    "successful_without_state_3": 0,
+    "task": "toilet",
+    "task_id": "toilet_lid_open"
+}
