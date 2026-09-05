@@ -14,6 +14,7 @@ class TinyContactPlanner(nn.Module):
         self.embedding = nn.Embedding(32, 16)
 
     def plan(self, point_cloud: torch.Tensor, languages: list[str]) -> ContactPlan:
+        self.last_point_cloud = point_cloud
         batch_size = point_cloud.shape[0]
         ids = torch.tensor([2, 10, 20, 21, 22, 3], device=point_cloud.device)
         return ContactPlan(ids.expand(batch_size, -1), torch.ones(batch_size, 6, dtype=torch.bool))
@@ -68,3 +69,8 @@ def test_full_model_accepts_only_observation_and_language_task_information() -> 
     assert output.coefficient_prediction.shape == (2, 8, 4)
     assert output.prior_gate.shape == (2, 8, 4)
     assert output.posterior_gate.shape == (2, 8, 4)
+    planner_center = 0.5 * (
+        model.contact_planner.last_point_cloud.amin(dim=1)
+        + model.contact_planner.last_point_cloud.amax(dim=1)
+    )
+    torch.testing.assert_close(planner_center, torch.zeros_like(planner_center), atol=1e-6, rtol=0)

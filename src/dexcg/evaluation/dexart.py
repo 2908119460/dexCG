@@ -178,6 +178,7 @@ def evaluate_seen_tasks(
     device: torch.device,
     rank: int,
     world_size: int,
+    gather_group: torch.distributed.ProcessGroup | None = None,
 ) -> dict[str, Any] | None:
     import torch.distributed as dist
 
@@ -195,8 +196,17 @@ def evaluate_seen_tasks(
                 output_dir,
                 device,
             )
+    # SAPIEN may change the process-wide current CUDA device while evaluating.
+    # Restore the rank-local device before returning to distributed training.
+    torch.cuda.set_device(device)
+    if torch.cuda.current_device() != device.index:
+        raise RuntimeError(
+            f"rank {rank}: current CUDA device is {torch.cuda.current_device()}, "
+            f"expected {device.index}"
+        )
+
     gathered: list[dict[str, Any] | None] = [None] * world_size
-    dist.all_gather_object(gathered, local_results)
+    dist.all_gather_object(gathered, local_results, group=gather_group)
     if rank != 0:
         return None
     tasks = {task: result for shard in gathered for task, result in shard.items()}

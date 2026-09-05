@@ -8,6 +8,7 @@ from torch import nn
 
 from dexcg.common.config import ProjectConfig
 from dexcg.common.typing import ContactPlan, DexCGOutput
+from dexcg.models.contact.coordinates import center_point_cloud
 from dexcg.models.contact.planner import ContactPlanner
 from dexcg.models.contact.token_encoder import ContactTokenEncoder
 from dexcg.models.observation.dp3_encoder import DP3ObservationEncoder
@@ -98,7 +99,19 @@ class DexCG(nn.Module):
     def plan_contact(
         self, observation: Mapping[str, torch.Tensor], languages: list[str]
     ) -> ContactPlan:
-        return self.contact_planner.plan(observation["point_cloud"][:, -1], languages)
+        point_cloud, object_center = self.contact_planner_input(observation)
+        plan = self.contact_planner.plan(point_cloud, languages)
+        return ContactPlan(plan.token_ids, plan.attention_mask, object_center)
+
+    @staticmethod
+    def contact_planner_input(
+        observation: Mapping[str, torch.Tensor],
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        point_cloud = observation["point_cloud"][:, -1]
+        object_mask = observation.get("object_point_mask")
+        if object_mask is not None:
+            object_mask = object_mask[:, -1]
+        return center_point_cloud(point_cloud, object_mask)
 
     def encode_contact(self, contact_plan: ContactPlan) -> torch.Tensor:
         embeddings = self.contact_planner.embed_contact_tokens(contact_plan.token_ids)

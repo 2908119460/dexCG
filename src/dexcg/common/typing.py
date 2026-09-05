@@ -9,6 +9,7 @@ import torch
 class ContactPlan:
     token_ids: torch.Tensor
     attention_mask: torch.Tensor
+    object_center: torch.Tensor | None = None
 
 
 @dataclass

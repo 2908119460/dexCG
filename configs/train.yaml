@@ -73,4 +73,4 @@ evaluation:
       max_steps: 50
 
 output_dir: outputs/qwen-frozen
-resume: false
+resume: true

@@ -24,7 +24,7 @@
         ]
     },
     "collection_attempts": 194,
-    "contact_frame": "robot_base",
+    "contact_coordinate_contract": "object_aabb_center_v1",
     "contact_impulse_threshold": 0.01,
     "contact_link_order": [
         "allegro_palm",
@@ -44,6 +44,9 @@
         "allegro_ring_middle",
         "allegro_ring_proximal"
     ],
+    "contact_point_frame": "robot_base",
+    "contact_target_center_rule": "stable_frame_through_stable_step_else_current_frame",
+    "contact_token_frame": "object_aabb_center",
     "contact_tokenizer": {
         "max_length": 66,
         "max_position": 0.4,
@@ -53,7 +56,7 @@
     },
     "expert_checkpoint": "checkpoints/dexart_experts/toilet_nopretrain_0.zip",
     "expert_sha256": "fff4ddf6b7992d616a28522bedcec12510ee1779d78cf52c417963c8fce5c0a7",
-    "format": "dexcg.dexart.v1",
+    "format": "dexcg.dexart.v2",
     "language_annotation": {
         "do_sample": false,
         "max_new_tokens": 512,
@@ -62,6 +65,8 @@
         "n_queries": 1,
         "prompt_sha256": "c0718ce783d27e4113a3dd2bd21a997325c95acba38109cc1776c83b42fcd60e"
     },
+    "object_center_definition": "masked_observed_object_xyz_aabb_midpoint",
+    "point_cloud_frame": "robot_base",
     "precontact_target_fill": "stable_contact_inclusive",
     "seed": 0,
     "split": "seen",

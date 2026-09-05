@@ -11,6 +11,9 @@ import torch
 import zarr
 from torch.utils.data import Dataset
 
+from dexcg.data.dexart import TARGET_TOKEN_IDS, TARGET_TOKEN_MASK
+from dexcg.models.contact.coordinates import CONTACT_COORDINATE_CONTRACT
+
 
 class DexArtTrainingDataset(Dataset):
     """Sample observation/action windows without crossing episode boundaries."""
@@ -36,14 +39,22 @@ class DexArtTrainingDataset(Dataset):
             root = zarr.open_group(str(path), mode="r")
             if root.attrs.get("split") != "seen":
                 raise ValueError(f"Training dataset must be seen split: {path}")
+            contract = root.attrs.get("contact_coordinate_contract")
+            if contract != CONTACT_COORDINATE_CONTRACT:
+                raise ValueError(
+                    f"Training dataset {path} uses contact coordinate contract {contract!r}; "
+                    f"expected {CONTACT_COORDINATE_CONTRACT!r}. Migrate it before training."
+                )
             task = str(root.attrs["task"])
             episode_ends = np.asarray(root["meta/episode_ends"][:], dtype=np.int64)
             starts = np.concatenate((np.zeros(1, dtype=np.int64), episode_ends[:-1]))
+            center_valid = np.asarray(root["data/object_center_valid"][:], dtype=np.bool_)
             task_samples: list[tuple[int, int, int, int]] = []
             for episode_index, (start, end) in enumerate(zip(starts, episode_ends, strict=True)):
                 task_samples.extend(
                     (task_index, episode_index, int(start), step)
                     for step in range(int(start), int(end))
+                    if center_valid[step]
                 )
             self.tasks.append(task)
             self.samples.append(task_samples)
@@ -94,10 +105,10 @@ class DexArtTrainingDataset(Dataset):
                 np.asarray(root["data/action"][action_indices], dtype=np.float32)
             ),
             "contact_token_ids": torch.from_numpy(
-                np.asarray(root["data/contact_target_token_ids"][step], dtype=np.int64)
+                np.asarray(root[f"data/{TARGET_TOKEN_IDS}"][step], dtype=np.int64)
             ),
             "contact_token_mask": torch.from_numpy(
-                np.asarray(root["data/contact_target_token_mask"][step], dtype=np.bool_)
+                np.asarray(root[f"data/{TARGET_TOKEN_MASK}"][step], dtype=np.bool_)
             ),
             "language": str(root["meta/low_level_grasp_instruction"][episode_index]),
         }

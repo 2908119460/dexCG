@@ -378,13 +378,12 @@ def build_timeline_frame(
 
     raw_mask = episode["contact_raw_mask"][frame_index]
     target_mask = episode["contact_target_mask"][frame_index]
-    raw_tokens = int(episode["contact_raw_token_mask"][frame_index].sum())
     target_tokens = int(episode["contact_target_token_mask"][frame_index].sum())
     y = 450
     put_text(
         frame,
         f"phase={'stable/post-contact' if frame_index >= stable_step else 'pre-contact'} | "
-        f"raw tokens={raw_tokens} | target tokens={target_tokens}",
+        f"object-centered target tokens={target_tokens}",
         (655, y),
         0.43,
         TEXT,
@@ -483,7 +482,6 @@ def render_episode(
         "contact_raw_mask",
         "contact_target_points",
         "contact_target_mask",
-        "contact_raw_token_mask",
         "contact_target_token_mask",
     )
     episode = {key: np.asarray(data[key][start:end]) for key in keys}

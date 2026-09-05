@@ -16,9 +16,9 @@ tasks:
     checkpoint: checkpoints/dexart_experts/toilet_nopretrain_0.zip
     output: data/dexart/toilet_expert.zarr
 
-collection:
+collection: #关于数据收集的具体配置
   successful_episodes: 150
-  split: seen
+  split: seen #使用seen中的物体
   seed: 0
   image_size: 84
   point_count: 1024

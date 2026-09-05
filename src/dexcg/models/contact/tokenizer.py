@@ -49,7 +49,7 @@ def dexter_checkpoint_tokens(action_bins: int = 256, position_bins: int = 256) -
 
 
 class AllegroContactTokenizer:
-    """Tokenize `<link><x><y><z>` contact nodes in robot-base coordinates."""
+    """Tokenize `<link><x><y><z>` contact nodes in object-centered coordinates."""
 
     def __init__(
         self,
@@ -62,6 +62,10 @@ class AllegroContactTokenizer:
         self.position_bins = position_bins
         self.min_position = min_position
         self.max_position = max_position
+        self.position_boundaries = np.linspace(
+            min_position, max_position, position_bins, dtype=np.float32
+        )
+        self.position_centers = (self.position_boundaries[:-1] + self.position_boundaries[1:]) / 2.0
 
         vocabulary = base_tokenizer.get_vocab()
         self.link_to_id = {token: vocabulary[token] for token in ALLEGRO_CONTACT_TOKENS}
@@ -120,26 +124,39 @@ class AllegroContactTokenizer:
                 clipped = np.clip(
                     np.asarray(position, dtype=np.float32)[:3], self.min_position, self.max_position
                 )
-                scaled = (clipped - self.min_position) / (self.max_position - self.min_position)
-                bins = np.minimum(
-                    (scaled * self.position_bins).astype(np.int64), self.position_bins - 1
+                bins = (
+                    np.digitize(clipped, self.position_boundaries).clip(1, self.position_bins) - 1
                 )
                 ids.append(self.link_to_id[link_token])
                 ids.extend(self.position_token_ids[bins].tolist())
         ids.append(self.joint_end_id)
         return ids
 
-    def decode(self, token_ids: Sequence[int]) -> dict[str, list[list[float]]]:
+    def decode(
+        self,
+        token_ids: Sequence[int],
+        position_offset: Sequence[float] | None = None,
+    ) -> dict[str, list[list[float]]]:
         contacts: dict[str, list[list[float]]] = {}
         values = list(map(int, token_ids))
+        offset = (
+            np.zeros(3, dtype=np.float32)
+            if position_offset is None
+            else np.asarray(position_offset, dtype=np.float32)
+        )
+        if offset.shape != (3,):
+            raise ValueError(f"position_offset must have shape (3,), received {offset.shape}")
         start = values.index(self.joint_start_id) + 1
         end = values.index(self.joint_end_id, start)
         cursor = start
-        bin_width = (self.max_position - self.min_position) / self.position_bins
         while cursor < end:
             link_token = self.id_to_link[values[cursor]]
-            bins = [self.position_id_to_bin[values[cursor + offset]] for offset in (1, 2, 3)]
-            position = [self.min_position + (index + 0.5) * bin_width for index in bins]
-            contacts.setdefault(link_token[1:-1], []).append(position)
+            bins = [
+                self.position_id_to_bin[values[cursor + coordinate_offset]]
+                for coordinate_offset in (1, 2, 3)
+            ]
+            bins = np.clip(bins, 0, len(self.position_centers) - 1)
+            local_position = self.position_centers[bins]
+            contacts.setdefault(link_token[1:-1], []).append((local_position + offset).tolist())
             cursor += 4
         return contacts

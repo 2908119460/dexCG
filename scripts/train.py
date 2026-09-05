@@ -24,6 +24,7 @@ from torch.utils.data import DataLoader, DistributedSampler
 from dexcg.common.config import load_config
 from dexcg.data import DexArtTrainingDataset
 from dexcg.evaluation import evaluate_seen_tasks
+from dexcg.models.contact.coordinates import CONTACT_COORDINATE_CONTRACT
 from dexcg.models.dexcg import DexCG
 from dexcg.training import DexCGTrainingObjective
 
@@ -196,6 +197,7 @@ def save_latest(
             "torch_rng_state": torch.get_rng_state(),
             "numpy_rng_state": np.random.get_state(),
             "python_rng_state": random.getstate(),
+            "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
         },
         path,
     )
@@ -219,7 +221,12 @@ def save_top_checkpoint(
         return
     path = checkpoint_dir / f"epoch={epoch:04d}-seen_score={score:.3f}.ckpt"
     save_atomic(
-        {"epoch": epoch, "seen_score": score, "model": ema.state_dict()},
+        {
+            "epoch": epoch,
+            "seen_score": score,
+            "model": ema.state_dict(),
+            "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
+        },
         path,
     )
     existing.append((score, path))
@@ -255,6 +262,7 @@ def main() -> None:
     torch.cuda.set_device(local_rank)
     device = torch.device("cuda", local_rank)
     dist.init_process_group("nccl", timeout=timedelta(hours=24), device_id=device)
+    evaluation_group = dist.new_group(backend="gloo", timeout=timedelta(hours=24))
 
     seed = int(config["seed"])
     random.seed(seed + rank)
@@ -317,6 +325,13 @@ def main() -> None:
     latest_path = checkpoint_dir / "latest.ckpt"
     if bool(config["resume"]) and latest_path.exists():
         checkpoint = torch.load(latest_path, map_location=device, weights_only=False)
+        checkpoint_contract = checkpoint.get("contact_coordinate_contract")
+        if checkpoint_contract != CONTACT_COORDINATE_CONTRACT:
+            raise RuntimeError(
+                "checkpoint contact coordinate contract is "
+                f"{checkpoint_contract!r}, expected {CONTACT_COORDINATE_CONTRACT!r}; "
+                "start a fresh run with --no-resume and a new output directory"
+            )
         _load_compact_state_dict(
             objective,
             checkpoint["model"],
@@ -439,7 +454,14 @@ def main() -> None:
         if evaluation_due:
             ema.module.eval()
             result = evaluate_seen_tasks(
-                ema.module, config, epoch, output_dir, device, rank, world_size
+                ema.module,
+                config,
+                epoch,
+                output_dir,
+                device,
+                rank,
+                world_size,
+                evaluation_group,
             )
             if rank == 0:
                 score = float(result["mean_success_rate"])

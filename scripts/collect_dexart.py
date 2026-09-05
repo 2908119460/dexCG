@@ -534,7 +534,6 @@ def main() -> None:
             max_position=token_config["max_position"],
         )
         metadata = {
-            "format": "dexcg.dexart.v1",
             "task": args.task,
             "task_id": task_config["task_id"],
             "successful_episodes": len(episodes),
@@ -547,7 +546,6 @@ def main() -> None:
             "expert_sha256": sha256(checkpoint),
             "stable_contact": collection_config["stable_contact"],
             "contact_impulse_threshold": collection_config["contact_impulse_threshold"],
-            "contact_frame": "robot_base",
             "contact_link_order": [item.token_name for item in ALLEGRO_CONTACT_LINKS],
             "precontact_target_fill": "stable_contact_inclusive",
             "agent_pos": {

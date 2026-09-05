@@ -75,8 +75,9 @@ class DexCGTrainingObjective(nn.Module):
             return ContactPlan(target_ids, target_mask), use_prediction
 
         selected = use_prediction.nonzero(as_tuple=False).flatten()
-        predicted = self.model.contact_planner.plan(
-            observation["point_cloud"][selected, -1],
+        selected_observation = {name: value[selected] for name, value in observation.items()}
+        predicted = self.model.plan_contact(
+            selected_observation,
             [languages[index] for index in selected.tolist()],
         )
         predicted_ids = torch.full_like(
@@ -103,8 +104,9 @@ class DexCGTrainingObjective(nn.Module):
         target_mask = batch["contact_token_mask"].bool()
 
         if self.train_contact_planner:
+            planner_point_cloud, _ = self.model.contact_planner_input(observation)
             contact_loss, contact_metrics = self.model.contact_planner.training_loss(
-                observation["point_cloud"][:, -1],
+                planner_point_cloud,
                 languages,
                 target_ids,
                 target_mask,

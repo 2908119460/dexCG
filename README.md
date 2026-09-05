@@ -33,9 +33,11 @@ embodiment branch
 ```
 
 The contact graph is represented by an unordered set of contact nodes. Each
-node is one Allegro contact link paired with an XYZ contact position in the
-robot-base frame. The object is implicit in the point-cloud tokens, matching
-DextER's released contact representation.
+node is one Allegro contact link paired with an XYZ contact position relative
+to the axis-aligned bounding-box midpoint of the observed object points. The
+same center is subtracted from the planner point cloud. `ContactPlan.object_center`
+retains the origin needed to decode generated positions back into the
+robot-base frame. Metric scale is unchanged.
 
 The basis branch additionally constructs a physical graph from all URDF links
 and one object supernode. VLM-planned contact links add dynamic edges to that
@@ -112,8 +114,10 @@ their final time-progress value.
 The first transition into DexArt stage 3 is the grasp boundary. Its physical
 contact graph fills all targets through that transition; later targets use the
 current simulator contact graph. Contact manifold points belonging to the same
-Allegro link are averaged in the robot-base frame, matching DextER's training
-representation.
+Allegro link are stored in the robot-base frame for traceability. During data
+collection they are also encoded into object-centered target tokens. The Zarr
+contract records the center estimator and both coordinate frames; the training
+loader rejects datasets without that contract.
 
 Language annotations use five `896x896` robot-base views and
 `google/gemma-3-12b-it` with deterministic decoding. `task_id` is provided only

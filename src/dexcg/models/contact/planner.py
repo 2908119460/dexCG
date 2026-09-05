@@ -287,4 +287,19 @@ class ContactPlanner(nn.Module):
         attention_mask.scatter_(1, first_end.unsqueeze(1), True)
         return ContactPlan(token_ids=token_ids, attention_mask=attention_mask)
 
+    def decode_contacts(
+        self, contact_plan: ContactPlan, robot_base: bool = True
+    ) -> list[dict[str, list[list[float]]]]:
+        """Decode generated contacts in the local or robot-base coordinate frame."""
+        token_rows = contact_plan.token_ids.detach().cpu().tolist()
+        centers = None
+        if robot_base:
+            if contact_plan.object_center is None:
+                raise ValueError("robot-base decoding requires ContactPlan.object_center")
+            centers = contact_plan.object_center.detach().float().cpu().tolist()
+        return [
+            self.contact_tokenizer.decode(row, None if centers is None else centers[index])
+            for index, row in enumerate(token_rows)
+        ]
+
     forward = plan

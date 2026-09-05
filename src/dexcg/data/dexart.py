@@ -9,8 +9,16 @@ from typing import Any, Mapping, Sequence
 
 import numpy as np
 
+from dexcg.models.contact.coordinates import (
+    CONTACT_COORDINATE_CONTRACT,
+    OBJECT_CENTER_DEFINITION,
+    object_aabb_center_numpy,
+)
 from dexcg.models.contact.tokenizer import AllegroContactTokenizer
 from dexcg.robots.allegro import ALLEGRO_CONTACT_LINKS
+
+TARGET_TOKEN_IDS = "contact_target_token_ids"
+TARGET_TOKEN_MASK = "contact_target_token_mask"
 
 
 @dataclass
@@ -39,17 +47,33 @@ class DexArtEpisode:
         return target_points, target_masks
 
 
-def _encode_graphs(
+def encode_contact_graphs(
     tokenizer: AllegroContactTokenizer,
     points: np.ndarray,
     masks: np.ndarray,
+    centers: np.ndarray,
     max_length: int,
 ) -> tuple[np.ndarray, np.ndarray]:
     token_ids = np.full((len(points), max_length), tokenizer.joint_end_id, dtype=np.int64)
     attention_mask = np.zeros((len(points), max_length), dtype=np.bool_)
-    for row, (graph_points, graph_mask) in enumerate(zip(points, masks, strict=True)):
+    for row, (graph_points, graph_mask, center) in enumerate(
+        zip(points, masks, centers, strict=True)
+    ):
+        local_points = graph_points - center
+        valid_positions = local_points[graph_mask]
+        if valid_positions.size and (
+            np.any(valid_positions < tokenizer.min_position)
+            or np.any(valid_positions > tokenizer.max_position)
+        ):
+            minimum = float(valid_positions.min())
+            maximum = float(valid_positions.max())
+            raise ValueError(
+                "Object-centered contact coordinate would be clipped: "
+                f"range [{minimum:.6f}, {maximum:.6f}], tokenizer range "
+                f"[{tokenizer.min_position}, {tokenizer.max_position}]"
+            )
         contacts = {
-            link.token_name: [graph_points[index]]
+            link.token_name: [local_points[index]]
             for index, link in enumerate(ALLEGRO_CONTACT_LINKS)
             if graph_mask[index]
         }
@@ -59,6 +83,28 @@ def _encode_graphs(
         token_ids[row, : len(encoded)] = encoded
         attention_mask[row, : len(encoded)] = True
     return token_ids, attention_mask
+
+
+def episode_coordinate_arrays(
+    episode: DexArtEpisode,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Return current centers, validity, and target-frame centers for one episode."""
+    point_cloud = np.stack(episode.observations["point_cloud"])
+    object_mask = np.stack(episode.observations["object_point_mask"]).astype(np.bool_)
+    valid = object_mask.any(axis=-1)
+    centers = np.full((len(point_cloud), 3), np.nan, dtype=np.float32)
+    if valid.any():
+        centers[valid] = object_aabb_center_numpy(point_cloud[valid], object_mask[valid])
+    if not valid.all():
+        invalid = np.flatnonzero(~valid).tolist()
+        raise ValueError(f"episode has no observed object points at steps {invalid}")
+    if not 0 <= episode.stable_contact_step < len(centers):
+        raise ValueError(
+            f"stable contact step {episode.stable_contact_step} is outside the episode"
+        )
+    target_centers = centers.copy()
+    target_centers[: episode.stable_contact_step + 1] = centers[episode.stable_contact_step]
+    return centers, valid, target_centers
 
 
 def _stack_steps(episodes: Sequence[DexArtEpisode], key: str) -> np.ndarray:
@@ -86,14 +132,17 @@ def write_dexart_dataset(
         raise FileExistsError(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    coordinate_arrays = [episode_coordinate_arrays(item) for item in episodes]
+    object_centers = np.concatenate([item[0] for item in coordinate_arrays])
+    object_center_valid = np.concatenate([item[1] for item in coordinate_arrays])
+    target_centers = np.concatenate([item[2] for item in coordinate_arrays])
     raw_points = np.concatenate([np.stack(item.raw_contact_points) for item in episodes])
     raw_masks = np.concatenate([np.stack(item.raw_contact_masks) for item in episodes])
     target_graphs = [item.contact_targets() for item in episodes]
     target_points = np.concatenate([item[0] for item in target_graphs])
     target_masks = np.concatenate([item[1] for item in target_graphs])
-    raw_ids, raw_token_masks = _encode_graphs(tokenizer, raw_points, raw_masks, max_token_length)
-    target_ids, target_token_masks = _encode_graphs(
-        tokenizer, target_points, target_masks, max_token_length
+    target_ids, target_token_masks = encode_contact_graphs(
+        tokenizer, target_points, target_masks, target_centers, max_token_length
     )
 
     root = zarr.group(str(output_path))
@@ -112,14 +161,14 @@ def write_dexart_dataset(
         "state": _stack_steps(episodes, "state"),
         "agent_pos": _stack_steps(episodes, "agent_pos"),
         "action": np.concatenate([np.stack(item.actions) for item in episodes]),
+        "object_center": object_centers,
+        "object_center_valid": object_center_valid,
         "contact_raw_points": raw_points,
         "contact_raw_mask": raw_masks,
         "contact_target_points": target_points,
         "contact_target_mask": target_masks,
-        "contact_raw_token_ids": raw_ids,
-        "contact_raw_token_mask": raw_token_masks,
-        "contact_target_token_ids": target_ids,
-        "contact_target_token_mask": target_token_masks,
+        TARGET_TOKEN_IDS: target_ids,
+        TARGET_TOKEN_MASK: target_token_masks,
     }
     for name, values in step_arrays.items():
         chunks = (time_chunk, *values.shape[1:])
@@ -168,4 +217,18 @@ def write_dexart_dataset(
         chunks=(1, *extrinsics.shape[1:]),
         compressor=compressor,
     )
-    root.attrs.update(json.loads(json.dumps(dict(attributes))))
+    dataset_attributes = dict(attributes)
+    dataset_attributes.update(
+        {
+            "format": "dexcg.dexart.v2",
+            "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
+            "point_cloud_frame": "robot_base",
+            "contact_point_frame": "robot_base",
+            "contact_token_frame": "object_aabb_center",
+            "object_center_definition": OBJECT_CENTER_DEFINITION,
+            "contact_target_center_rule": (
+                "stable_frame_through_stable_step_else_current_frame"
+            ),
+        }
+    )
+    root.attrs.update(json.loads(json.dumps(dataset_attributes)))

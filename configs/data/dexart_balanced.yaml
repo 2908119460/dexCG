@@ -3,7 +3,7 @@ tasks:
     task_id: faucet_open
     checkpoint: checkpoints/dexart_experts/faucet_nopretrain_0.zip
     output: data/dexart-balanced/faucet_expert.zarr
-    quota_per_object: 14
+    quota_per_object: 14 # 每个object的配额数量
   bucket:
     task_id: bucket_lift
     checkpoint: checkpoints/dexart_experts/bucket_nopretrain_0.zip
