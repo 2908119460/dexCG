@@ -13,6 +13,13 @@ class ContactPlan:
 
 
 @dataclass
+class ActionPrediction:
+    actions: torch.Tensor
+    basis: torch.Tensor
+    contact_plan: ContactPlan
+
+
+@dataclass
 class DexCGOutput:
     observation_feature: torch.Tensor
     contact_feature: torch.Tensor

@@ -9,7 +9,7 @@ from diffusers import DDIMScheduler, DDPMScheduler
 from torch import nn
 from torch.nn import functional as F
 
-from dexcg.common.typing import ContactPlan
+from dexcg.common.typing import ActionPrediction, ContactPlan
 from dexcg.models.dexcg import DexCG
 from dexcg.models.smp.losses import router_alignment_loss, sticky_gate_loss
 
@@ -199,6 +199,21 @@ class DexCGTrainingObjective(nn.Module):
         num_inference_steps: int,
         action_steps: int,
     ) -> torch.Tensor:
+        return self.predict_action_with_diagnostics(
+            observation,
+            languages,
+            num_inference_steps,
+            action_steps,
+        ).actions
+
+    @torch.no_grad()
+    def predict_action_with_diagnostics(
+        self,
+        observation: Mapping[str, torch.Tensor],
+        languages: list[str],
+        num_inference_steps: int,
+        action_steps: int,
+    ) -> ActionPrediction:
         contact_plan = self.model.plan_contact(observation, languages)
         observation_feature = self.model.observation_encoder(
             self.normalize_observation(observation)
@@ -226,4 +241,8 @@ class DexCGTrainingObjective(nn.Module):
             coefficients = scheduler.step(prediction, timestep, coefficients).prev_sample
         action = self.model.smp.decode(basis, gate, coefficients)
         start = self.model.observation_encoder.obs_horizon - 1
-        return action[:, start : start + action_steps]
+        return ActionPrediction(
+            actions=action[:, start : start + action_steps],
+            basis=basis,
+            contact_plan=contact_plan,
+        )
