@@ -76,7 +76,9 @@ def coordinate2index(x, resolution):
         reso (int): defined resolution
         coord_type (str): coordinate type
     """
-    x = (x * resolution).long()
+    # The normalization upper bound can round back to exactly 1.0 in fp16/bf16.
+    # Clamp the integer grid coordinate so boundary points remain in the last cell.
+    x = torch.floor(x.float() * resolution).clamp_(0, resolution - 1).long()
     index = x[:, :, 0] + resolution * x[:, :, 1]
     index = index[:, None, :]
     return index

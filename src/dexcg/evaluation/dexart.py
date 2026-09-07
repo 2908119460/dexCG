@@ -78,6 +78,10 @@ def _frame(observation: Mapping[str, np.ndarray]) -> np.ndarray:
     return np.rint(np.clip(image, 0.0, 1.0) * 255.0).astype(np.uint8)
 
 
+def _has_object_points(observation: Mapping[str, np.ndarray]) -> bool:
+    return bool(np.asarray(observation["object_point_mask"]).any())
+
+
 def _wilson(successes: int, episodes: int) -> tuple[float, float]:
     rate = successes / episodes
     z = 1.959963984540054
@@ -105,6 +109,13 @@ def _evaluate_task(
     video_path = output_dir / "evaluation" / "videos" / f"{task}_epoch_{epoch:04d}.mp4"
     writer = None
     total_successes = 0
+    invalid_observation_episodes = 0
+    invalid_observation_frames = 0
+    initial_observation_retries = int(
+        evaluation_config.get("initial_observation_retries", 8)
+    )
+    if initial_observation_retries < 0:
+        raise ValueError("initial_observation_retries must be non-negative")
     try:
         for seed_index, seed_value in enumerate(evaluation_config["seeds"]):
             seed = int(seed_value)
@@ -117,7 +128,24 @@ def _evaluate_task(
             try:
                 for episode_index in range(episodes_per_seed):
                     raw_observation = adapter.reset()
-                    history = deque([DexArtAdapter.observation(raw_observation)], maxlen=2)
+                    current_observation = DexArtAdapter.observation(raw_observation)
+                    invalid_observation = False
+                    for retry in range(initial_observation_retries + 1):
+                        if _has_object_points(current_observation):
+                            break
+                        invalid_observation = True
+                        invalid_observation_frames += 1
+                        if retry == initial_observation_retries:
+                            current_observation = None
+                            break
+                        raw_observation = adapter.observe()
+                        current_observation = DexArtAdapter.observation(raw_observation)
+
+                    if current_observation is None:
+                        invalid_observation_episodes += 1
+                        continue
+
+                    history = deque([current_observation], maxlen=2)
                     record_video = seed_index == 0 and episode_index == 0
                     if record_video:
                         first_frame = _frame(raw_observation)
@@ -136,7 +164,13 @@ def _evaluate_task(
                             )[0]
                         for action in actions.float().cpu().numpy():
                             raw_observation, _, done, _ = adapter.step(action)
-                            history.append(DexArtAdapter.observation(raw_observation))
+                            next_observation = DexArtAdapter.observation(raw_observation)
+                            if _has_object_points(next_observation):
+                                history.append(next_observation)
+                            else:
+                                # Advance the environment, but keep the last valid model history.
+                                invalid_observation = True
+                                invalid_observation_frames += 1
                             if record_video:
                                 writer.append(_frame(raw_observation))
                             steps += 1
@@ -145,6 +179,7 @@ def _evaluate_task(
                                 break
                         if done:
                             break
+                    invalid_observation_episodes += int(invalid_observation)
                     seed_successes += int(success)
                     total_successes += int(success)
                     if record_video:
@@ -164,6 +199,8 @@ def _evaluate_task(
         "successes": total_successes,
         "episodes": episodes,
         "success_rate": total_successes / episodes,
+        "invalid_observation_episodes": invalid_observation_episodes,
+        "invalid_observation_frames": invalid_observation_frames,
         "seed_std": float(np.std(seed_rates, ddof=1)) if len(seed_rates) > 1 else 0.0,
         "ci95": [low, high],
         "successes_by_seed": successes_by_seed,

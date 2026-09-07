@@ -101,6 +101,10 @@ class DexArtAdapter:
         self.object_links = set(self.environment.instance_links)
         return observation
 
+    def observe(self) -> Mapping[str, np.ndarray]:
+        """Capture another sensor observation without advancing the simulator."""
+        return self.environment.get_observation()
+
     def step(self, action: np.ndarray):
         return self.environment.step(action)
 
