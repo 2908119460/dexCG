@@ -1,0 +1,181 @@
+{
+    "action_semantics": {
+        "0:3": "normalized base-frame end-link center-of-mass linear velocity",
+        "3:6": "normalized base-frame end-link angular velocity",
+        "6:22": "normalized hand joint target angles",
+        "execution": "DexArt recover_action and IK",
+        "range": [
+            -1,
+            1
+        ]
+    },
+    "agent_pos_layout": "33D state; non-bucket inserts zero at index 31",
+    "annotation_camera_extrinsics": "maps SAPIEN camera local (+X forward) to robot-base",
+    "camera_to_robot_base": "maps OpenGL camera XYZ to robot-base XYZ",
+    "committed_episodes": 1,
+    "complete": true,
+    "config_sha256": "b6918741e744b881c77257a083cd443e015ede04abf1cd7ea951cd1b470a26e9",
+    "contact_coordinate_contract": "dexart_robot_base_metric_v1",
+    "contact_impulse_threshold": 0.01,
+    "contact_point_frame": "robot_base",
+    "contact_target_rule": "stable contact through stable step inclusive, then current contact",
+    "contact_token_frame": "robot_base",
+    "contact_tokenizer": {
+        "max_length": 66,
+        "max_position": 1.2,
+        "min_position": -1.0,
+        "position_bins": 256,
+        "tokenizer": "checkpoints/qwen2.5-0.5b-instruct"
+    },
+    "depth_reconstruction_tolerance_m": 0.0001,
+    "expected_object_ids": [
+        148
+    ],
+    "expert_checkpoint": "checkpoints/dexart_experts/faucet_nopretrain_0.zip",
+    "expert_observations": "unmodified native DexArt including world-frame state and noisy scene cloud",
+    "expert_sha256": "f17b05a73aafa8a91ece6d1e8ad0d65b87448dff432b5a7917e25e5653b0c224",
+    "extraction_selection": "first simulator_success=True episode",
+    "extraction_source": "/home/zhouyike/data/dexCG/data/dexart-object-balanced-10000-point/faucet_expert.zarr",
+    "extraction_source_attributes": {
+        "action_semantics": {
+            "0:3": "normalized base-frame end-link center-of-mass linear velocity",
+            "3:6": "normalized base-frame end-link angular velocity",
+            "6:22": "normalized hand joint target angles",
+            "execution": "DexArt recover_action and IK",
+            "range": [
+                -1,
+                1
+            ]
+        },
+        "agent_pos_layout": "33D state; non-bucket inserts zero at index 31",
+        "annotation_camera_extrinsics": "maps SAPIEN camera local (+X forward) to robot-base",
+        "camera_to_robot_base": "maps OpenGL camera XYZ to robot-base XYZ",
+        "committed_episodes": 250,
+        "complete": true,
+        "config_sha256": "b6918741e744b881c77257a083cd443e015ede04abf1cd7ea951cd1b470a26e9",
+        "contact_coordinate_contract": "dexart_robot_base_metric_v1",
+        "contact_impulse_threshold": 0.01,
+        "contact_point_frame": "robot_base",
+        "contact_target_rule": "stable contact through stable step inclusive, then current contact",
+        "contact_token_frame": "robot_base",
+        "contact_tokenizer": {
+            "max_length": 66,
+            "max_position": 1.2,
+            "min_position": -1.0,
+            "position_bins": 256,
+            "tokenizer": "checkpoints/qwen2.5-0.5b-instruct"
+        },
+        "depth_reconstruction_tolerance_m": 0.0001,
+        "expected_object_ids": [
+            148,
+            693,
+            822,
+            857,
+            991,
+            1011,
+            1053,
+            1288,
+            1343,
+            1370,
+            1466
+        ],
+        "expert_checkpoint": "checkpoints/dexart_experts/faucet_nopretrain_0.zip",
+        "expert_observations": "unmodified native DexArt including world-frame state and noisy scene cloud",
+        "expert_sha256": "f17b05a73aafa8a91ece6d1e8ad0d65b87448dff432b5a7917e25e5653b0c224",
+        "format": "dexcg.dexart.object_robot_base.v1",
+        "image_depth_semantics": "RGB uint8; depth is positive camera optical-axis distance in metres",
+        "language_annotation": {
+            "do_sample": false,
+            "max_new_tokens": 512,
+            "model_checkpoint": "/data/users/zhouyike/dexCG/checkpoints/gemma-3-12b-it",
+            "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+            "n_queries": 1,
+            "prompt_sha256": "c0718ce783d27e4113a3dd2bd21a997325c95acba38109cc1776c83b42fcd60e"
+        },
+        "length_unit": "metre",
+        "minimum_distinct_object_pixels": 10000,
+        "object_center_definition": "full-resolution visible object AABB midpoint in robot_base",
+        "object_quotas": {
+            "1011": 22,
+            "1053": 23,
+            "1288": 23,
+            "1343": 23,
+            "1370": 23,
+            "1466": 23,
+            "148": 22,
+            "693": 23,
+            "822": 23,
+            "857": 22,
+            "991": 23
+        },
+        "pixel_reprojection_tolerance": 0.02,
+        "point_capture_resolution": [
+            1024,
+            1024
+        ],
+        "point_cloud_frame": "robot_base",
+        "point_cloud_source": "full-resolution visible instance_links actor IDs; no scene crop or noise",
+        "point_count": 10000,
+        "robot_base_definition": "DexArt robot.get_pose(); URDF root named world, not simulation world",
+        "seed": 0,
+        "sensor_contract": "aligned_rgbd_object_10000_v2",
+        "split": "seen",
+        "state_layout": {
+            "0:22": "joint qpos, radians",
+            "22:25": "palm linear velocity, base m/s",
+            "25:28": "palm angular velocity, base rad/s",
+            "28:31": "palm XYZ, base metres",
+            "31 (bucket only)": "palm local +X direction dot base +Z",
+            "last": "current_step / horizon"
+        },
+        "state_spatial_frame": "robot_base",
+        "successful_episodes": 250,
+        "task": "faucet",
+        "task_id": "faucet_open"
+    },
+    "extraction_source_episode_index": 0,
+    "extraction_source_frame_range": [
+        0,
+        94
+    ],
+    "format": "dexcg.dexart.object_robot_base.v1",
+    "image_depth_semantics": "RGB uint8; depth is positive camera optical-axis distance in metres",
+    "language_annotation": {
+        "do_sample": false,
+        "max_new_tokens": 512,
+        "model_checkpoint": "/data/users/zhouyike/dexCG/checkpoints/gemma-3-12b-it",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "n_queries": 1,
+        "prompt_sha256": "c0718ce783d27e4113a3dd2bd21a997325c95acba38109cc1776c83b42fcd60e"
+    },
+    "length_unit": "metre",
+    "minimum_distinct_object_pixels": 10000,
+    "object_center_definition": "full-resolution visible object AABB midpoint in robot_base",
+    "object_quotas": {
+        "148": 1
+    },
+    "pixel_reprojection_tolerance": 0.02,
+    "point_capture_resolution": [
+        1024,
+        1024
+    ],
+    "point_cloud_frame": "robot_base",
+    "point_cloud_source": "full-resolution visible instance_links actor IDs; no scene crop or noise",
+    "point_count": 10000,
+    "robot_base_definition": "DexArt robot.get_pose(); URDF root named world, not simulation world",
+    "seed": 0,
+    "sensor_contract": "aligned_rgbd_object_10000_v2",
+    "split": "seen",
+    "state_layout": {
+        "0:22": "joint qpos, radians",
+        "22:25": "palm linear velocity, base m/s",
+        "25:28": "palm angular velocity, base rad/s",
+        "28:31": "palm XYZ, base metres",
+        "31 (bucket only)": "palm local +X direction dot base +Z",
+        "last": "current_step / horizon"
+    },
+    "state_spatial_frame": "robot_base",
+    "successful_episodes": 1,
+    "task": "faucet",
+    "task_id": "faucet_open"
+}
