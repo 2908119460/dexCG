@@ -49,14 +49,14 @@ def dexter_checkpoint_tokens(action_bins: int = 256, position_bins: int = 256) -
 
 
 class AllegroContactTokenizer:
-    """Tokenize `<link><x><y><z>` contact nodes in object-centered coordinates."""
+    """Tokenize metric robot-base contacts with the DextER boundary convention."""
 
     def __init__(
         self,
         base_tokenizer,
         position_bins: int = 256,
-        min_position: float = -0.4,
-        max_position: float = 0.4,
+        min_position: float = -1.0,
+        max_position: float = 1.2,
     ) -> None:
         self.base_tokenizer = base_tokenizer
         self.position_bins = position_bins
@@ -87,8 +87,8 @@ class AllegroContactTokenizer:
         base_tokenizer,
         model=None,
         position_bins: int = 256,
-        min_position: float = -0.4,
-        max_position: float = 0.4,
+        min_position: float = -1.0,
+        max_position: float = 1.2,
     ) -> "AllegroContactTokenizer":
         """Prepare DextER's checkpoint vocabulary, then add the final Allegro tokens."""
         base_tokenizer.add_special_tokens(
@@ -121,9 +121,11 @@ class AllegroContactTokenizer:
         for link_token in ALLEGRO_CONTACT_TOKENS:
             token_name = link_token[1:-1]
             for position in contacts.get(token_name, ()):
-                clipped = np.clip(
-                    np.asarray(position, dtype=np.float32)[:3], self.min_position, self.max_position
-                )
+                clipped = np.asarray(position, dtype=np.float32)
+                if clipped.shape != (3,) or not np.isfinite(clipped).all():
+                    raise ValueError("contact position must be a finite XYZ vector")
+                if np.any(clipped < self.min_position) or np.any(clipped > self.max_position):
+                    raise ValueError("robot-base contact position exceeds the token range")
                 bins = (
                     np.digitize(clipped, self.position_boundaries).clip(1, self.position_bins) - 1
                 )
@@ -146,6 +148,8 @@ class AllegroContactTokenizer:
         )
         if offset.shape != (3,):
             raise ValueError(f"position_offset must have shape (3,), received {offset.shape}")
+        if not np.all(offset == 0):
+            raise ValueError("robot-base contact tokens must not receive a position offset")
         start = values.index(self.joint_start_id) + 1
         end = values.index(self.joint_end_id, start)
         cursor = start

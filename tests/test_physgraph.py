@@ -1,4 +1,5 @@
 from pathlib import Path
+from types import SimpleNamespace
 
 import torch
 from torch import nn
@@ -21,6 +22,10 @@ class EmbeddingOnlyPlanner(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         self.embedding = nn.Embedding(256, 16)
+        self.contact_tokenizer = SimpleNamespace(
+            link_token_ids=tuple(range(100, 116)), position_token_ids=tuple(range(20, 100)),
+            joint_start_id=1, joint_end_id=2,
+        )
 
     def embed_contact_tokens(self, token_ids: torch.Tensor) -> torch.Tensor:
         return self.embedding(token_ids)
@@ -41,7 +46,7 @@ def test_urdf_graph_maps_qpos_actions_and_contact_links() -> None:
     assert spec.qpos_dim == 22
     assert spec.action_dim == 22
     assert spec.contact_node_indices.shape == (16,)
-    assert spec.link_names[spec.action_node_indices[0]] == "palm_center"
+    assert spec.link_names[spec.action_node_indices[0]] == "link6"
     assert spec.link_names[spec.action_node_indices[6]] == "link_0.0"
 
 

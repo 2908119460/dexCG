@@ -9,6 +9,7 @@ from dexcg.visualization import (
     pixel_coordinates,
     rd_bu,
     render_basis_heatmap,
+    render_planner_frame,
 )
 
 
@@ -72,3 +73,29 @@ def test_predicted_contact_uses_cross_marker() -> None:
     center = canvas[40, 40]
     assert np.linalg.norm(center.astype(int) - np.asarray(PREDICTED_CONTACT)) < 10
     assert cv2.countNonZero(cv2.inRange(canvas, PREDICTED_CONTACT, PREDICTED_CONTACT)) > 1
+
+
+def test_planner_frame_keeps_rgb_and_contact_panels_without_basis() -> None:
+    frame = render_planner_frame(
+        image=np.full((24, 24, 3), 255, dtype=np.uint8),
+        point_cloud=np.zeros((1, 3), dtype=np.float32),
+        robot=np.zeros((1, 3), dtype=np.float32),
+        raw_points=np.zeros((16, 3), dtype=np.float32),
+        raw_mask=np.zeros(16, dtype=np.bool_),
+        predicted_points=np.zeros((16, 3), dtype=np.float32),
+        predicted_mask=np.zeros(16, dtype=np.bool_),
+        predicted_link_indices=np.full(16, -1, dtype=np.int16),
+        bounds=(np.asarray([-1.0, -1.0]), np.asarray([1.0, 1.0])),
+        task="bucket",
+        variant="qwen-10000",
+        object_id="100431",
+        instruction="Lift the bucket by its rim.",
+        episode_index=0,
+        frame_index=0,
+        frame_count=100,
+        prediction_step=0,
+        stable_step=76,
+    )
+
+    assert frame.shape == (720, 1280, 3)
+    np.testing.assert_array_equal(frame[200, 200], [255, 255, 255])

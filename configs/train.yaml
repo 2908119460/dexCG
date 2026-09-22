@@ -1,5 +1,5 @@
 seed: 42
-epochs: 3000
+epochs: 5000
 model_config: configs/model/dexcg.yaml
 batch_size_per_gpu: 128
 num_workers: 4

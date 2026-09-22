@@ -71,6 +71,9 @@ class DP3ObservationEncoder(nn.Module):
 
     def forward(self, observation: Mapping[str, torch.Tensor]) -> torch.Tensor:
         batch_size = observation["point_cloud"].shape[0]
-        flattened = take_observation_horizon(observation, self.obs_horizon)
+        flattened = take_observation_horizon(
+            {key: observation[key] for key in ("point_cloud", "imagin_robot", "agent_pos")},
+            self.obs_horizon,
+        )
         encoded = self.encoder(flattened).reshape(batch_size, -1)
         return self.temporal_fusion(encoded)

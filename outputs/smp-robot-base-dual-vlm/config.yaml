@@ -1,0 +1,114 @@
+seed: 42
+epochs: 3000
+model_config: configs/model/dexcg_planner_single_frame.yaml
+batch_size_per_gpu: 256
+global_batch_size: 1024
+num_workers: 4
+gradient_accumulation_steps: 1
+mixed_precision: bf16
+gradient_clip_norm: 1.0
+data:
+  paths:
+  - data/dexart-object-balanced-10000-point/faucet_expert.zarr
+  - data/dexart-object-balanced-10000-point/bucket_expert.zarr
+  - data/dexart-object-balanced-10000-point/laptop_expert.zarr
+  - data/dexart-object-balanced-10000-point/toilet_expert.zarr
+  split_manifest: outputs/qwen-partfield-frozen-10000/split_manifest.json
+  point_count: 1024
+  preload: true
+  obs_horizon: 2
+  action_horizon: 16
+optimizer:
+  learning_rate: 0.0002
+  weight_decay: 1.0e-06
+  betas:
+  - 0.95
+  - 0.999
+  warmup_steps: 250
+  scheduler: cosine
+diffusion:
+  num_train_timesteps: 100
+  num_inference_steps: 10
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_schedule: squaredcos_cap_v2
+  prediction_type: epsilon
+loss:
+  coefficient: 1.0
+  reconstruction: 1.0
+  gate: 1.0
+  alignment: 1.0
+  contact: 0.0
+  action_likelihood_std: 1.0
+  gate_alpha: 2.0
+  gate_alpha0: 0.5
+  gate_kappa: 20.0
+contact_training:
+  enabled: false
+checkpoint:
+  interval_epochs: 10
+  keep_top_per_variant: 2
+  use_ema: true
+  ema_decay: 0.9998
+evaluation:
+  enabled: true
+  smp_point_count: 1024
+  point_capture_resolution:
+  - 1024
+  - 1024
+  record_video: false
+  variants:
+    old_1024:
+      point_count: 1024
+      checkpoint: outputs/qwen-finetuned-balanced-20ep/checkpoints/epoch=0007-generation_score=0.498799217807.ckpt
+    new_10000:
+      point_count: 10000
+      checkpoint: outputs/qwen-partfield-frozen-10000/checkpoints/epoch=0012-generation_score=0.489804077136.ckpt
+  split: seen
+  first_epoch: 900
+  interval_epochs: 100
+  seeds:
+  - 1000
+  - 1001
+  - 1002
+  - 1003
+  - 1004
+  episodes_per_seed: 20
+  action_steps: 8
+  tasks:
+    faucet:
+      instruction: Rotate the faucet handle to open it.
+      max_steps: 50
+    bucket:
+      instruction: Lift the bucket by its rim.
+      max_steps: 100
+    laptop:
+      instruction: Open the laptop lid.
+      max_steps: 50
+    toilet:
+      instruction: Open the toilet lid.
+      max_steps: 50
+output_dir: /data/users/zhouyike/dexCG/outputs/smp-robot-base-dual-vlm
+resume: true
+benchmark:
+  warmup_updates: 5
+  measured_updates: 15
+  repetitions: 2
+  global_batches:
+  - 256
+  - 384
+  - 512
+  - 768
+  - 1024
+  micro_batches:
+  - 64
+  - 96
+  - 128
+  - 192
+  - 256
+  minimum_free_gib: 20
+runtime:
+  world_size: 4
+  global_batch_size: 1024
+  cuda_visible_devices: 3,2,7,1
+  updates_per_epoch: 75

@@ -1,0 +1,74 @@
+seed: 42
+epochs: 60
+model_config: configs/model/dexcg_planner_trajectory.yaml
+batch_size_per_gpu: 7
+num_workers: 8
+prefetch_factor: 2
+pin_memory: true
+mixed_precision: bf16
+gradient_accumulation_steps: 1
+gradient_clip_norm: 1.0
+
+data:
+  split: train
+  split_seed: 42
+  history_interval: 8
+  paths:
+    - data/dexart-balanced/faucet_expert.zarr
+    - data/dexart-balanced/bucket_expert.zarr
+    - data/dexart-balanced/laptop_expert.zarr
+    - data/dexart-balanced/toilet_expert.zarr
+  deployment_instructions:
+    faucet: Rotate the faucet handle to open it.
+    bucket: Lift the bucket by its rim.
+    laptop: Open the laptop lid.
+    toilet: Open the toilet lid.
+
+optimizer:
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-10
+  betas: [0.9, 0.95]
+  epsilon: 1.0e-8
+  warmup_steps: 1000
+  scheduler: cosine
+
+validation:
+  enabled: true
+  interval_epochs: 1
+
+checkpoint:
+  interval_epochs: 10
+  keep_top: 3
+
+policy_checkpoint: outputs/qwen-frozen-balanced/checkpoints/epoch=2200-seen_score=0.333.ckpt
+diffusion:
+  num_train_timesteps: 100
+  num_inference_steps: 10
+  beta_start: 1.0e-4
+  beta_end: 2.0e-2
+  beta_schedule: squaredcos_cap_v2
+  prediction_type: epsilon
+
+evaluation:
+  split: seen
+  first_epoch: 20
+  interval_epochs: 20
+  seeds: [1000, 1001, 1002, 1003, 1004]
+  episodes_per_seed: 20
+  action_steps: 8
+  tasks:
+    faucet:
+      instruction: Rotate the faucet handle to open it.
+      max_steps: 50
+    bucket:
+      instruction: Lift the bucket by its rim.
+      max_steps: 100
+    laptop:
+      instruction: Open the laptop lid.
+      max_steps: 50
+    toilet:
+      instruction: Open the toilet lid.
+      max_steps: 50
+
+output_dir: outputs/qwen-finetuned-balanced-dev
+resume: false

@@ -44,6 +44,7 @@ class RobotGraphSpec:
     parent_indices: torch.Tensor
     origin_xyz: torch.Tensor
     origin_rotation: torch.Tensor
+    position_offsets: torch.Tensor
     joint_axes: torch.Tensor
     joint_types: torch.Tensor
     q_indices: torch.Tensor
@@ -101,6 +102,7 @@ def load_robot_graph_spec(
         action_dim=int(config["action_dim"]),
         arm_action_link=str(config["arm_action_link"]),
         contact_link_names=contact_link_names,
+        arm_action_reference=str(config.get("arm_action_reference", "link_origin")),
     )
 
 
@@ -112,6 +114,7 @@ def _parse_urdf(
     action_dim: int,
     arm_action_link: str,
     contact_link_names: tuple[str, ...],
+    arm_action_reference: str = "link_origin",
 ) -> RobotGraphSpec:
     root = ET.parse(urdf_path).getroot()
     joints: list[dict[str, Any]] = []
@@ -210,11 +213,26 @@ def _parse_urdf(
         & levels[:, None].eq(levels[None, :])
     )
 
+    position_offsets = torch.zeros((len(ordered_links), 3), dtype=torch.float32)
+    if arm_action_reference == "center_of_mass":
+        action_link = next(
+            link for link in root.findall("link") if link.get("name") == arm_action_link
+        )
+        inertial = action_link.find("inertial")
+        if inertial is None:
+            raise ValueError("Action reference requires an explicit URDF inertial origin")
+        position_offsets[link_to_index[arm_action_link]] = torch.tensor(
+            _vector(inertial.find("origin"), "xyz", "0 0 0"), dtype=torch.float32
+        )
+    elif arm_action_reference != "link_origin":
+        raise ValueError(f"Unknown action reference {arm_action_reference!r}")
+
     return RobotGraphSpec(
         link_names=tuple(ordered_links),
         parent_indices=torch.tensor(parent_indices, dtype=torch.long),
         origin_xyz=torch.tensor(origin_xyz, dtype=torch.float32),
         origin_rotation=torch.stack(origin_rotation),
+        position_offsets=position_offsets,
         joint_axes=torch.tensor(axes, dtype=torch.float32),
         joint_types=torch.tensor(joint_types, dtype=torch.long),
         q_indices=torch.tensor(q_indices, dtype=torch.long),

@@ -6,29 +6,70 @@ import torch
 
 from dexcg.common.typing import ContactPlan
 from dexcg.models.contact.coordinates import (
-    center_point_cloud,
+    CONTACT_COORDINATE_CONTRACT,
+    MODEL_COORDINATE_CONTRACT,
     object_aabb_center_numpy,
-    restore_contact_positions,
+    partfield_grid_coordinates,
+    require_model_coordinates,
+    robot_base_point_cloud,
+    robot_state_in_base,
 )
 from dexcg.models.contact.planner import ContactPlanner
 from dexcg.models.contact.tokenizer import VISION_TOKENS, AllegroContactTokenizer
 from dexcg.robots.allegro import ALLEGRO_CONTACT_TOKENS
 
 
-def test_center_point_cloud_uses_only_masked_object_bounds() -> None:
+def test_object_selection_preserves_base_coordinates():
     points = torch.tensor([[[0.2, -0.1, 0.0], [0.6, 0.3, 0.4], [9.0, 9.0, 9.0]]])
     mask = torch.tensor([[True, True, False]])
-
-    centered, center = center_point_cloud(points, mask)
-
-    torch.testing.assert_close(center, torch.tensor([[0.4, 0.1, 0.2]]))
-    torch.testing.assert_close(centered[0, :2].amin(0), -centered[0, :2].amax(0))
-    torch.testing.assert_close(restore_contact_positions(centered[:, :2], center), points[:, :2])
-
-
-def test_center_point_cloud_rejects_empty_object_mask() -> None:
+    selected = robot_base_point_cloud(points, mask)
+    torch.testing.assert_close(selected, points[:, [0, 1, 0]])
     with pytest.raises(ValueError, match="at least one object point"):
-        center_point_cloud(torch.zeros(1, 4, 3), torch.zeros(1, 4, dtype=torch.bool))
+        robot_base_point_cloud(points, torch.zeros_like(mask))
+
+
+def test_state_transform_rotates_velocities_and_translates_positions():
+    from scipy.spatial.transform import Rotation
+
+    base = np.eye(4)
+    base[:3, :3] = Rotation.from_euler("z", 0.7).as_matrix()
+    base[:3, 3] = [-0.5, 0.2, 0.3]
+    palm = np.eye(4)
+    palm[:3, :3] = Rotation.from_euler("y", 0.4).as_matrix()
+    state = np.arange(33, dtype=np.float32) / 10
+    converted = robot_state_in_base(state, base, palm)
+    np.testing.assert_allclose(
+        base[:3, :3] @ converted[28:31] + base[:3, 3], state[28:31], atol=1e-6
+    )
+    for start in [22, 25]:
+        np.testing.assert_allclose(
+            base[:3, :3] @ converted[start : start + 3], state[start : start + 3], atol=1e-6
+        )
+    np.testing.assert_array_equal(converted[:22], state[:22])
+    assert converted[-1] == state[-1]
+    assert converted[31] == pytest.approx((base[:3, :3].T @ palm[:3, :3])[2, 0])
+
+
+def test_grid_encoding_preserves_origin_and_absolute_translation():
+    xyz = torch.tensor([[[0.0, 0.0, 0.0], [1.2, -0.8, 0.5]]])
+    grid = partfield_grid_coordinates(xyz)
+    torch.testing.assert_close(grid * 4, xyz)
+    torch.testing.assert_close(
+        partfield_grid_coordinates(xyz + 0.1) - grid, torch.full_like(grid, 0.025)
+    )
+    with pytest.raises(ValueError, match="refusing clipping"):
+        partfield_grid_coordinates(torch.tensor([[[2.0, 0.0, 0.0]]]))
+
+
+def test_checkpoint_rejects_old_model_semantics_even_with_base_contacts():
+    with pytest.raises(ValueError, match="coordinate contract"):
+        require_model_coordinates({"contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT})
+    require_model_coordinates(
+        {
+            "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
+            "model_coordinate_contract": MODEL_COORDINATE_CONTRACT,
+        }
+    )
 
 
 def test_numpy_object_center_supports_batches() -> None:
@@ -46,7 +87,7 @@ def test_numpy_object_center_supports_batches() -> None:
     np.testing.assert_array_equal(centers, [[1.0, 2.0, 3.0], [-1.0, -2.0, -3.0]])
 
 
-def test_decode_contacts_restores_robot_base_coordinates() -> None:
+def test_decode_contacts_are_already_in_robot_base() -> None:
     vocabulary = {token: index for index, token in enumerate(ALLEGRO_CONTACT_TOKENS)}
     start = len(vocabulary)
     vocabulary["<|joint_start|>"] = start
@@ -61,14 +102,13 @@ def test_decode_contacts_restores_robot_base_coordinates() -> None:
     plan = ContactPlan(
         torch.tensor([ids]),
         torch.ones(1, len(ids), dtype=torch.bool),
-        torch.tensor([[0.6, 0.2, -0.1]]),
     )
     planner = SimpleNamespace(contact_tokenizer=tokenizer)
 
     decoded = ContactPlanner.decode_contacts(planner, plan)[0]
 
     actual = np.asarray(decoded[ALLEGRO_CONTACT_TOKENS[0][1:-1]][0])
-    np.testing.assert_allclose(actual, local + [0.6, 0.2, -0.1], atol=0.002)
+    np.testing.assert_allclose(actual, local, atol=0.0044)
 
 
 def test_position_quantization_matches_dexter_boundary_convention() -> None:
@@ -79,7 +119,9 @@ def test_position_quantization_matches_dexter_boundary_convention() -> None:
     vocabulary[VISION_TOKENS[0]] = start + 2
     for index in range(256):
         vocabulary[f"<pos_bin_{index}>"] = start + 3 + index
-    tokenizer = AllegroContactTokenizer(SimpleNamespace(get_vocab=lambda: vocabulary))
+    tokenizer = AllegroContactTokenizer(
+        SimpleNamespace(get_vocab=lambda: vocabulary), min_position=-0.4, max_position=0.4
+    )
     link = ALLEGRO_CONTACT_TOKENS[0][1:-1]
 
     encoded = tokenizer.encode({link: [[0.0, 0.4, -0.4]]})

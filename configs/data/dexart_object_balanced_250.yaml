@@ -1,0 +1,27 @@
+tasks:
+  faucet:
+    task_id: faucet_open
+    checkpoint: checkpoints/dexart_experts/faucet_nopretrain_0.zip
+  bucket:
+    task_id: bucket_lift
+    checkpoint: checkpoints/dexart_experts/bucket_nopretrain_0.zip
+  laptop:
+    task_id: laptop_open
+    checkpoint: checkpoints/dexart_experts/laptop_nopretrain_0.zip
+  toilet:
+    task_id: toilet_lid_open
+    checkpoint: checkpoints/dexart_experts/toilet_nopretrain_0.zip
+collection:
+  output: data/dexart-object-balanced-250
+  split: seen
+  seed: 0
+  successful_episodes: 250
+  max_attempts_per_object: 200
+  point_count: 1024
+  contact_impulse_threshold: 0.01
+contact_tokens:
+  tokenizer: checkpoints/qwen2.5-0.5b-instruct
+  max_length: 66
+  position_bins: 256
+  min_position: -1.0
+  max_position: 1.2

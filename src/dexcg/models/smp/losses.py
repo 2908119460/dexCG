@@ -18,8 +18,19 @@ def dirichlet_kl(q: torch.Tensor, p: torch.Tensor) -> torch.Tensor:
     return normalizer + expectation
 
 
-def router_alignment_loss(posterior: torch.Tensor, prior: torch.Tensor) -> torch.Tensor:
-    return dirichlet_kl(posterior, prior).sum(dim=1).mean()
+def router_alignment_loss(
+    posterior: torch.Tensor,
+    prior: torch.Tensor,
+    valid_mask: torch.Tensor | None = None,
+) -> torch.Tensor:
+    values = dirichlet_kl(posterior, prior)
+    if valid_mask is None:
+        return values.sum(dim=1).mean()
+    mask = valid_mask.to(dtype=values.dtype)
+    return (
+        (values * mask).sum(dim=1).div(mask.sum(dim=1).clamp_min(1.0))
+        * values.shape[1]
+    ).mean()
 
 
 def sticky_gate_loss(
@@ -28,6 +39,7 @@ def sticky_gate_loss(
     alpha: float,
     alpha0: float,
     kappa: float,
+    valid_mask: torch.Tensor | None = None,
 ) -> torch.Tensor:
     """SMP's global, initial, and temporally sticky Dirichlet KL terms."""
     gates = posterior_concentration.float()
@@ -41,7 +53,14 @@ def sticky_gate_loss(
     initial_term = dirichlet_kl(gates[:, 0], alpha0 * theta_mean)
     if gates.shape[1] > 1:
         sticky_prior = kappa * gate_mean[:, :-1] + alpha0 * theta_mean.unsqueeze(1)
-        temporal_term = dirichlet_kl(gates[:, 1:], sticky_prior).sum(dim=1)
+        temporal = dirichlet_kl(gates[:, 1:], sticky_prior)
+        if valid_mask is None:
+            temporal_term = temporal.sum(dim=1)
+        else:
+            transition_mask = valid_mask[:, 1:].to(dtype=temporal.dtype) * valid_mask[:, :-1].to(dtype=temporal.dtype)
+            temporal_term = (temporal * transition_mask).sum(dim=1).div(
+                transition_mask.sum(dim=1).clamp_min(1.0)
+            ) * temporal.shape[1]
     else:
         temporal_term = torch.zeros_like(initial_term)
     return (global_term + initial_term + temporal_term).mean()

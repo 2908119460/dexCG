@@ -1,0 +1,83 @@
+{
+  "epoch": 3,
+  "mean_success_rate": 0.3125,
+  "split": "seen",
+  "tasks": {
+    "bucket": {
+      "ci95": [
+        0.2189488529493276,
+        0.3958485463334666
+      ],
+      "episodes": 100,
+      "invalid_observation_episodes": 1,
+      "invalid_observation_frames": 3,
+      "seed_std": 0.061237243569579436,
+      "success_rate": 0.3,
+      "successes": 30,
+      "successes_by_seed": {
+        "1000": 4,
+        "1001": 7,
+        "1002": 7,
+        "1003": 6,
+        "1004": 6
+      }
+    },
+    "faucet": {
+      "ci95": [
+        0.06999406437019488,
+        0.19812099426711421
+      ],
+      "episodes": 100,
+      "invalid_observation_episodes": 1,
+      "invalid_observation_frames": 2,
+      "seed_std": 0.027386127875258303,
+      "success_rate": 0.12,
+      "successes": 12,
+      "successes_by_seed": {
+        "1000": 2,
+        "1001": 2,
+        "1002": 3,
+        "1003": 2,
+        "1004": 3
+      }
+    },
+    "laptop": {
+      "ci95": [
+        0.2101483574912227,
+        0.3853889117557111
+      ],
+      "episodes": 100,
+      "invalid_observation_episodes": 0,
+      "invalid_observation_frames": 0,
+      "seed_std": 0.08944271909999159,
+      "success_rate": 0.29,
+      "successes": 29,
+      "successes_by_seed": {
+        "1000": 6,
+        "1001": 4,
+        "1002": 7,
+        "1003": 4,
+        "1004": 8
+      }
+    },
+    "toilet": {
+      "ci95": [
+        0.44264860323368227,
+        0.6343919169097589
+      ],
+      "episodes": 100,
+      "invalid_observation_episodes": 0,
+      "invalid_observation_frames": 0,
+      "seed_std": 0.15572411502397437,
+      "success_rate": 0.54,
+      "successes": 54,
+      "successes_by_seed": {
+        "1000": 10,
+        "1001": 9,
+        "1002": 11,
+        "1003": 16,
+        "1004": 8
+      }
+    }
+  }
+}

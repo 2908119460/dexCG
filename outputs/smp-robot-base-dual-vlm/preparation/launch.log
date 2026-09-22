@@ -1,0 +1,68 @@
+
+Restarting benchmark suite with user-requested micro batches 64 and 128.
+
+User clarification: per-GPU batches 64,96,128,192,256; global batch equals 4 times micro batch; no accumulation.
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Traceback (most recent call last):
+  File "/data/users/zhouyike/dexCG/scripts/train.py", line 764, in <module>
+    
+  File "/data/users/zhouyike/dexCG/scripts/train.py", line 464, in main
+    config["resume"] = False
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/scripts/train.py", line 419, in automatic_run
+    "--batch-size-per-gpu", str(selected["micro_batch"])]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Real simulation/save-load preflight failed; training was not started
+
+Fixed tokenizer array comparison; rerunning preflight and training.
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+Waiting for four GPUs with at least 30 GiB free
+
+User approved lowering the minimum free GPU memory to 20 GiB; restarting monitor.
+
+Layout migration verified. Resume from epoch 230 with new save layout.

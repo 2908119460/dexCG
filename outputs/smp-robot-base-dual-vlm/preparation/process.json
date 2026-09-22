@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/data/users/zhouyike/dexCG/.venv/bin/python",
+    "-B",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc_per_node=4",
+    "/data/users/zhouyike/dexCG/scripts/train.py",
+    "--config",
+    "/data/users/zhouyike/dexCG/outputs/smp-robot-base-dual-vlm/config.yaml",
+    "--output-dir",
+    "/data/users/zhouyike/dexCG/outputs/smp-robot-base-dual-vlm",
+    "--epochs",
+    "3000",
+    "--resume",
+    "--global-batch",
+    "1024",
+    "--batch-size-per-gpu",
+    "256"
+  ],
+  "gpus": [
+    {
+      "free_mib": 37342,
+      "index": 3,
+      "utilization": 33
+    },
+    {
+      "free_mib": 37338,
+      "index": 2,
+      "utilization": 77
+    },
+    {
+      "free_mib": 29240,
+      "index": 7,
+      "utilization": 74
+    },
+    {
+      "free_mib": 27108,
+      "index": 1,
+      "utilization": 0
+    }
+  ],
+  "pid": 3967701,
+  "stage": "train.log"
+}

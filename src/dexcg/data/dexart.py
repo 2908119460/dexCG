@@ -12,7 +12,6 @@ import numpy as np
 from dexcg.models.contact.coordinates import (
     CONTACT_COORDINATE_CONTRACT,
     OBJECT_CENTER_DEFINITION,
-    object_aabb_center_numpy,
 )
 from dexcg.models.contact.tokenizer import AllegroContactTokenizer
 from dexcg.robots.allegro import ALLEGRO_CONTACT_LINKS
@@ -59,7 +58,9 @@ def encode_contact_graphs(
     for row, (graph_points, graph_mask, center) in enumerate(
         zip(points, masks, centers, strict=True)
     ):
-        local_points = graph_points - center
+        if np.any(center != 0):
+            raise ValueError("Robot-base contact tokens require zero coordinate offsets")
+        local_points = graph_points
         valid_positions = local_points[graph_mask]
         if valid_positions.size and (
             np.any(valid_positions < tokenizer.min_position)
@@ -68,7 +69,7 @@ def encode_contact_graphs(
             minimum = float(valid_positions.min())
             maximum = float(valid_positions.max())
             raise ValueError(
-                "Object-centered contact coordinate would be clipped: "
+                "Robot-base contact coordinate would be clipped: "
                 f"range [{minimum:.6f}, {maximum:.6f}], tokenizer range "
                 f"[{tokenizer.min_position}, {tokenizer.max_position}]"
             )
@@ -88,13 +89,9 @@ def encode_contact_graphs(
 def episode_coordinate_arrays(
     episode: DexArtEpisode,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """Return current centers, validity, and target-frame centers for one episode."""
-    point_cloud = np.stack(episode.observations["point_cloud"])
-    object_mask = np.stack(episode.observations["object_point_mask"]).astype(np.bool_)
-    valid = object_mask.any(axis=-1)
-    centers = np.full((len(point_cloud), 3), np.nan, dtype=np.float32)
-    if valid.any():
-        centers[valid] = object_aabb_center_numpy(point_cloud[valid], object_mask[valid])
+    """Return diagnostic object centers, validity, and zero token offsets."""
+    centers = np.asarray(np.stack(episode.observations["object_center"]), dtype=np.float32)
+    valid = np.isfinite(centers).all(axis=-1)
     if not valid.all():
         invalid = np.flatnonzero(~valid).tolist()
         raise ValueError(f"episode has no observed object points at steps {invalid}")
@@ -102,8 +99,7 @@ def episode_coordinate_arrays(
         raise ValueError(
             f"stable contact step {episode.stable_contact_step} is outside the episode"
         )
-    target_centers = centers.copy()
-    target_centers[: episode.stable_contact_step + 1] = centers[episode.stable_contact_step]
+    target_centers = np.zeros_like(centers)
     return centers, valid, target_centers
 
 
@@ -220,14 +216,21 @@ def write_dexart_dataset(
     dataset_attributes = dict(attributes)
     dataset_attributes.update(
         {
-            "format": "dexcg.dexart.v2",
+            "format": "dexcg.dexart.v3",
             "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
             "point_cloud_frame": "robot_base",
             "contact_point_frame": "robot_base",
-            "contact_token_frame": "object_aabb_center",
+            "contact_token_frame": "robot_base",
+            "state_spatial_frame": "robot_base",
+            "length_unit": "metre",
+            "contact_tokenizer": {
+                "min_position": tokenizer.min_position,
+                "max_position": tokenizer.max_position,
+                "position_bins": tokenizer.position_bins,
+            },
             "object_center_definition": OBJECT_CENTER_DEFINITION,
             "contact_target_center_rule": (
-                "stable_frame_through_stable_step_else_current_frame"
+                "no_coordinate_offset; stable_contact_through_stable_step_else_current_contact"
             ),
         }
     )

@@ -533,15 +533,33 @@ class BaseRLEnv(BaseSimulationEnv, gym.Env):
                     obs_color = cam.get_color_rgba()[..., :3] * 255
                     obs_color = obs_color.reshape(-1, 3)  # (84,84,3)
                     camera_pose = self.get_camera_to_robot_pose(name)
+                    if getattr(self, "capture_object_cloud_source", False):
+                        # Preserve the exact rendered frame without changing expert observations/RNG.
+                        self.object_cloud_source = {
+                            "camera_xyz": obs_pos.copy(),
+                            "actor_ids": obs_seg.reshape(-1).copy(),
+                            "base_from_camera_gl": camera_pose.copy(),
+                            "intrinsics": cam.get_intrinsic_matrix().copy(),
+                        }
                     kwargs = camera_cfg["point_cloud"].get("process_fn_kwargs", {})
-                    obs = process_pc(task_name=self.task_config_name, cloud=obs_pos, camera_pose=camera_pose,
-                                     num_points=camera_cfg['point_cloud']['num_points'], np_random=self.np_random,
-                                     grouping_info=self.grouping_info, segmentation=obs_seg, color=obs_color, **kwargs)
+                    obs, object_center = process_pc(
+                        task_name=self.task_config_name,
+                        cloud=obs_pos,
+                        camera_pose=camera_pose,
+                        num_points=camera_cfg['point_cloud']['num_points'],
+                        np_random=self.np_random,
+                        grouping_info=self.grouping_info,
+                        segmentation=obs_seg,
+                        color=obs_color,
+                        return_object_center=True,
+                        **kwargs,
+                    )
                     
                     obs_dict[f"{name}-seg_gt"] = obs[:, 6:]  # NOTE: add gt segmentation
                     if obs_dict[f"{name}-seg_gt"].shape != (camera_cfg["point_cloud"]["num_points"], 4):
                         # align the gt segmentation mask
                         obs_dict[f"{name}-seg_gt"] = np.zeros((camera_cfg["point_cloud"]["num_points"], 4))
+                    obs_dict[f"{name}-object_center"] = object_center
                     obs = obs[:, :6]
                 else:
                     dl_tensor = dl_list[i]

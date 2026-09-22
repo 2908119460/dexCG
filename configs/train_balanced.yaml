@@ -1,7 +1,8 @@
 seed: 42
 epochs: 3000
-model_config: configs/model/dexcg.yaml
-batch_size_per_gpu: 128
+model_config: configs/model/dexcg_planner_single_frame.yaml
+batch_size_per_gpu: 64
+global_batch_size: 256
 num_workers: 4
 gradient_accumulation_steps: 1
 mixed_precision: bf16
@@ -9,10 +10,13 @@ gradient_clip_norm: 1.0
 
 data:
   paths:
-    - data/dexart-balanced/faucet_expert.zarr
-    - data/dexart-balanced/bucket_expert.zarr
-    - data/dexart-balanced/laptop_expert.zarr
-    - data/dexart-balanced/toilet_expert.zarr
+    - data/dexart-object-balanced-10000-point/faucet_expert.zarr
+    - data/dexart-object-balanced-10000-point/bucket_expert.zarr
+    - data/dexart-object-balanced-10000-point/laptop_expert.zarr
+    - data/dexart-object-balanced-10000-point/toilet_expert.zarr
+  split_manifest: outputs/qwen-partfield-frozen-10000/split_manifest.json
+  point_count: 1024
+  preload: true
   obs_horizon: 2
   action_horizon: 16
 
@@ -47,11 +51,22 @@ contact_training:
 
 checkpoint:
   interval_epochs: 10
-  keep_top: 5
+  keep_top_per_variant: 2
   use_ema: true
   ema_decay: 0.9998
 
 evaluation:
+  enabled: true
+  smp_point_count: 1024
+  point_capture_resolution: [1024, 1024]
+  record_video: false
+  variants:
+    old_1024:
+      point_count: 1024
+      checkpoint: outputs/qwen-finetuned-balanced-20ep/checkpoints/epoch=0007-generation_score=0.498799217807.ckpt
+    new_10000:
+      point_count: 10000
+      checkpoint: outputs/qwen-partfield-frozen-10000/checkpoints/epoch=0012-generation_score=0.489804077136.ckpt
   split: seen
   first_epoch: 900
   interval_epochs: 100
@@ -60,17 +75,25 @@ evaluation:
   action_steps: 8
   tasks:
     faucet:
-      instruction: Grasp the faucet handle with the palm and fingers to secure it.
+      instruction: Rotate the faucet handle to open it.
       max_steps: 50
     bucket:
-      instruction: Grasp the bucket rim with the thumb and fingers to secure it.
+      instruction: Lift the bucket by its rim.
       max_steps: 100
     laptop:
-      instruction: Grasp the laptop lid edge with the palm and fingertips.
+      instruction: Open the laptop lid.
       max_steps: 50
     toilet:
-      instruction: Grasp the toilet lid with the thumb and fingertips to lift it upwards.
+      instruction: Open the toilet lid.
       max_steps: 50
 
-output_dir: outputs/qwen-frozen-balanced
-resume: true
+output_dir: outputs/smp-robot-base-dual-vlm
+resume: false
+
+benchmark:
+  warmup_updates: 5
+  measured_updates: 15
+  repetitions: 2
+  global_batches: [256, 384, 512, 768, 1024]
+  micro_batches: [64, 96, 128, 192, 256]
+  minimum_free_gib: 20

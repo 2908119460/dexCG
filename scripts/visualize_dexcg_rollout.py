@@ -18,17 +18,26 @@ from typing import Any
 import numpy as np
 import torch
 import yaml
+import zarr
 
 from dexcg.common.config import load_config
 from dexcg.envs import DexArtAdapter
 from dexcg.models import DexCG
+from dexcg.models.contact.coordinates import (
+    CONTACT_COORDINATE_CONTRACT,
+    OBJECT_CENTER_DEFINITION,
+    require_dataset_coordinates,
+    require_model_coordinates,
+)
 from dexcg.robots.allegro import ALLEGRO_CONTACT_LINKS
+from dexcg.robots.geometry import robot_geometry
 from dexcg.training import DexCGTrainingObjective
 from dexcg.visualization import (
     FPS,
     FRAME_HEIGHT,
     FRAME_WIDTH,
     compute_projection_bounds,
+    render_planner_frame,
     render_rollout_frame,
 )
 
@@ -39,6 +48,17 @@ DEFAULT_CHECKPOINT = (
 )
 DEFAULT_OUTPUT = PROJECT_ROOT / "data_visualize/dexcg/bucket_epoch2600"
 OUTPUT_NAMES = ("rollout.npz", "metadata.json", "visualization.mp4")
+OFFLINE_VARIANTS = {
+    "qwen-1024": (
+        "outputs/qwen-finetuned-balanced-20ep/checkpoints/"
+        "epoch=0007-generation_score=0.498799217807.ckpt", 1024,
+    ),
+    "qwen-10000": (
+        "outputs/qwen-partfield-frozen-10000/checkpoints/"
+        "epoch=0012-generation_score=0.489804077136.ckpt", 10000,
+    ),
+}
+TASKS = ("faucet", "bucket", "laptop", "toilet")
 
 
 def parse_args() -> argparse.Namespace:
@@ -46,9 +66,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--checkpoint", type=Path, default=DEFAULT_CHECKPOINT)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument(
-        "--task", default="bucket", choices=("faucet", "bucket", "laptop", "toilet")
-    )
+    parser.add_argument("--task", default="bucket", choices=TASKS)
+    parser.add_argument("--offline-vlm", choices=tuple(OFFLINE_VARIANTS))
     parser.add_argument("--split", default="seen")
     parser.add_argument("--seed", type=int, default=1003)
     parser.add_argument("--device", default="cuda:0")
@@ -80,9 +99,7 @@ def _compact_state_names(module: torch.nn.Module) -> set[str]:
         name for name, parameter in module.named_parameters() if parameter.requires_grad
     }
     buffer_names = {
-        name
-        for name, _ in module.named_buffers()
-        if not name.startswith("model.contact_planner.")
+        name for name, _ in module.named_buffers() if not name.startswith("model.contact_planner.")
     }
     return parameter_names | buffer_names
 
@@ -91,6 +108,7 @@ def load_objective(
     config: dict[str, Any], checkpoint_path: Path, device: torch.device
 ) -> tuple[DexCGTrainingObjective, dict[str, Any]]:
     checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
+    require_model_coordinates(checkpoint)
     if "model" not in checkpoint:
         raise ValueError(f"Checkpoint has no model state: {checkpoint_path}")
     state = checkpoint["model"]
@@ -115,9 +133,7 @@ def load_objective(
     )
     expected = _compact_state_names(objective)
     allowed = {
-        name
-        for name in objective.state_dict()
-        if not name.startswith("model.contact_planner.")
+        name for name in objective.state_dict() if not name.startswith("model.contact_planner.")
     }
     missing = expected.difference(state)
     unexpected = set(state).difference(allowed)
@@ -140,12 +156,21 @@ def tensor_observation(
         key: torch.from_numpy(np.stack([item[key] for item in items[-2:]]))
         .unsqueeze(0)
         .to(device=device)
-        for key in ("point_cloud", "object_point_mask", "imagin_robot", "agent_pos")
+        for key in (
+            "point_cloud",
+            "object_point_mask",
+            "object_center",
+            "imagin_robot",
+            "agent_pos",
+        )
     }
 
 
 def has_object_points(observation: dict[str, np.ndarray]) -> bool:
-    return bool(np.asarray(observation["object_point_mask"]).any())
+    return bool(
+        np.asarray(observation["object_point_mask"]).any()
+        and np.isfinite(np.asarray(observation["object_center"])).all()
+    )
 
 
 def empty_trace() -> dict[str, list[np.ndarray] | list[int]]:
@@ -172,10 +197,10 @@ def empty_trace() -> dict[str, list[np.ndarray] | list[int]]:
 
 
 def decode_predicted_contacts(
-    objective: DexCGTrainingObjective,
+    planner,
     contact_plan,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    decoded = objective.model.contact_planner.decode_contacts(contact_plan)[0]
+    decoded = planner.decode_contacts(contact_plan)[0]
     points = np.zeros((len(ALLEGRO_CONTACT_LINKS), 3), dtype=np.float32)
     mask = np.zeros(len(ALLEGRO_CONTACT_LINKS), dtype=np.bool_)
     link_indices = np.full(len(ALLEGRO_CONTACT_LINKS), -1, dtype=np.int16)
@@ -292,9 +317,7 @@ def collect_successful_rollout(
                 trace["model_imagin_robot"].append(
                     observation["imagin_robot"][0].float().cpu().numpy()
                 )
-                trace["model_agent_pos"].append(
-                    observation["agent_pos"][0].float().cpu().numpy()
-                )
+                trace["model_agent_pos"].append(observation["agent_pos"][0].float().cpu().numpy())
                 basis = prediction.basis[0].float().cpu().numpy()
                 gram = basis.T @ basis
                 if basis.shape != (22, 4) or not np.isfinite(basis).all():
@@ -307,7 +330,7 @@ def collect_successful_rollout(
                         f"error={np.linalg.norm(gram - np.eye(4)):.6g}"
                     )
                 predicted_points, predicted_mask, link_indices = decode_predicted_contacts(
-                    objective, prediction.contact_plan
+                    objective.model.contact_planner, prediction.contact_plan
                 )
                 trace["basis"].append(basis)
                 trace["contact_token_ids"].append(
@@ -317,7 +340,7 @@ def collect_successful_rollout(
                     prediction.contact_plan.attention_mask[0].bool().cpu().numpy()
                 )
                 trace["object_center"].append(
-                    prediction.contact_plan.object_center[0].float().cpu().numpy()
+                    observation["object_center"][0, -1].float().cpu().numpy()
                 )
                 trace["predicted_contact_points"].append(predicted_points)
                 trace["predicted_contact_mask"].append(predicted_mask)
@@ -452,10 +475,171 @@ def write_outputs(
             path.unlink(missing_ok=True)
 
 
+def offline_episodes(variant: str) -> dict[str, tuple[zarr.Group, int, int, int]]:
+    episodes = {}
+    for task in TASKS:
+        root = zarr.open_group(
+            str(PROJECT_ROOT / f"data/dexart-object-balanced-10000-point/{task}_expert.zarr"),
+            mode="r",
+        )
+        require_dataset_coordinates(root.attrs)
+        if root.attrs.get("complete") is not True or root.attrs.get("task") != task:
+            raise ValueError(f"Incomplete or mismatched {task} demonstration data")
+        successes = np.asarray(root["meta/simulator_success"][:], dtype=bool)
+        successful = np.flatnonzero(successes)
+        if not len(successful):
+            raise ValueError(f"No successful episode for {task}")
+        ends = root["meta/episode_ends"]
+        lengths = np.diff(np.r_[0, np.asarray(ends[:], dtype=np.int64)])
+        episode_index = int(successful[np.argmax(lengths[successful])])
+        start = int(ends[episode_index - 1]) if episode_index else 0
+        end = int(ends[episode_index])
+        if start >= end or not np.asarray(root["data/object_center_valid"][start:end]).all():
+            raise ValueError(f"Invalid object observations in longest {task} episode {episode_index}")
+        episodes[task] = root, episode_index, start, end
+    return episodes
+
+
+def load_offline_planner(variant: str, device: torch.device):
+    try:
+        from train_contact_planner import load_compact_planner_state
+    except ModuleNotFoundError:
+        from scripts.train_contact_planner import load_compact_planner_state
+
+    checkpoint_name, point_count = OFFLINE_VARIANTS[variant]
+    checkpoint_path = resolve(Path(checkpoint_name))
+    config = load_yaml(checkpoint_path.parent.parent / "config.yaml")
+    model = DexCG.from_config(
+        load_config(resolve(Path(config["model_config"]))),
+        PROJECT_ROOT,
+        torch_dtype=torch.bfloat16,
+    )
+    with torch.serialization.safe_globals(
+        [np.core.multiarray._reconstruct, np.ndarray, np.dtype, type(np.dtype("uint32"))]
+    ):
+        checkpoint = torch.load(
+            checkpoint_path, map_location="cpu", mmap=True, weights_only=True
+        )
+    require_model_coordinates(checkpoint)
+    wrapper = type("PlannerWrapper", (), {"planner": model.contact_planner})()
+    load_compact_planner_state(wrapper, checkpoint["planner"])
+    del checkpoint
+    return model.contact_planner.to(device).eval(), config, point_count
+
+
+@torch.no_grad()
+def write_offline_video(
+    output_path: Path,
+    task: str,
+    variant: str,
+    episode: tuple[zarr.Group, int, int, int],
+    planner,
+    instruction: str,
+    point_count: int,
+    device: torch.device,
+    crf: int,
+) -> None:
+    root, episode_index, start, end = episode
+    data = root["data"]
+    clouds = np.asarray(data["point_cloud"][start:end], dtype=np.float32)
+    qpos = np.asarray(data["agent_pos"][start:end, :22], dtype=np.float32)
+    palms = np.asarray(data["palm_pose_robot_base"][start:end], dtype=np.float32)
+    if clouds.shape[1:] != (10000, 3) or not np.isfinite(clouds).all():
+        raise ValueError("Demo requires 10000 finite metric object points per frame")
+    if not np.isfinite(qpos).all() or palms.shape[1:] != (4, 4) or not np.isfinite(palms).all():
+        raise ValueError("Demo has invalid robot conditioning")
+    if np.max(np.abs(clouds)) >= 1.96:
+        raise ValueError("Object XYZ is outside the PartField grid extent")
+    robots = robot_geometry(qpos)
+    bounds = compute_projection_bounds(clouds[:, ::8], robots)
+    object_id = str(root["meta/object_id"][episode_index])
+    stable_step = int(root["meta/stable_contact_steps"][episode_index])
+    if not 0 <= stable_step < end - start:
+        raise ValueError("Stable contact step is outside the selected episode")
+    encoder = open_encoder(output_path, crf)
+    prediction = None
+    try:
+        assert encoder.stdin is not None
+        for frame_index in range(end - start):
+            prediction_step = frame_index
+            if point_count == 1024:
+                rng = np.random.default_rng(
+                    np.random.SeedSequence([42, episode_index, frame_index])
+                )
+                points = clouds[frame_index, rng.choice(10000, 1024, replace=False)]
+            else:
+                points = clouds[frame_index]
+            with torch.autocast(
+                device_type=device.type, dtype=torch.bfloat16, enabled=device.type == "cuda"
+            ):
+                plan = planner.plan(
+                    torch.from_numpy(np.ascontiguousarray(points))[None].to(device),
+                    [instruction],
+                    robot_qpos=torch.from_numpy(qpos[frame_index][None]).to(device),
+                    palm_pose_robot_base=torch.from_numpy(palms[frame_index][None]).to(device),
+                )
+            prediction = decode_predicted_contacts(planner, plan)
+            raw_points = np.asarray(data["contact_raw_points"][start + frame_index])
+            raw_mask = np.asarray(data["contact_raw_mask"][start + frame_index])
+            frame = render_planner_frame(
+                np.asarray(data["img"][start + frame_index]),
+                clouds[frame_index, ::8], robots[frame_index], raw_points, raw_mask,
+                *prediction, bounds, task=task, variant=variant, object_id=object_id,
+                instruction=instruction, episode_index=episode_index,
+                frame_index=frame_index, frame_count=end - start,
+                prediction_step=prediction_step, stable_step=stable_step,
+            )
+            encoder.stdin.write(frame.tobytes())
+        encoder.stdin.close()
+        encoder.stdin = None
+        if encoder.wait() != 0:
+            raise RuntimeError(f"ffmpeg failed to encode {output_path}")
+    except Exception:
+        if encoder.stdin is not None:
+            encoder.stdin.close()
+        if encoder.poll() is None:
+            encoder.kill()
+            encoder.wait()
+        output_path.unlink(missing_ok=True)
+        raise
+    print(
+        f"{variant}/{task}: episode={episode_index} object={object_id} "
+        f"frames={end - start} predictions={end - start} -> {output_path}",
+        flush=True,
+    )
+
+
+def render_offline_vlm(args: argparse.Namespace) -> None:
+    if args.output_dir == DEFAULT_OUTPUT:
+        raise ValueError("--output-dir must be specified for offline VLM videos")
+    output_dir = resolve(args.output_dir)
+    if output_dir.resolve() != (PROJECT_ROOT / "data_visualize/dexcg" / args.offline_vlm).resolve():
+        raise ValueError("Offline output directory must match the approved variant directory")
+    output_paths = {task: output_dir / f"{task}_framewise.mp4" for task in TASKS}
+    existing = [str(path) for path in output_paths.values() if path.exists()]
+    if existing:
+        raise FileExistsError(f"Refusing to overwrite existing videos: {existing}")
+    episodes = offline_episodes(args.offline_vlm)
+    device = torch.device(args.device)
+    if device.type == "cuda":
+        torch.cuda.set_device(device)
+    planner, config, point_count = load_offline_planner(args.offline_vlm, device)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for task in TASKS:
+        write_offline_video(
+            output_paths[task], task, args.offline_vlm, episodes[task],
+            planner, str(config["evaluation"]["tasks"][task]["instruction"]),
+            point_count, device, args.crf,
+        )
+
+
 def main() -> None:
     args = parse_args()
     if shutil.which("ffmpeg") is None:
         raise RuntimeError("ffmpeg is required")
+    if args.offline_vlm is not None:
+        render_offline_vlm(args)
+        return
     if args.max_attempts < 1:
         raise ValueError("max-attempts must be positive")
 
@@ -515,7 +699,9 @@ def main() -> None:
         "heatmap_colormap": "ColorBrewer_RdBu_r",
         "point_cloud_frame": "robot_base",
         "raw_contact_frame": "robot_base",
-        "contact_token_frame": "object_aabb_center",
+        "contact_coordinate_contract": CONTACT_COORDINATE_CONTRACT,
+        "contact_token_frame": "robot_base",
+        "object_center_definition": OBJECT_CENTER_DEFINITION,
         "predicted_contact_frame": "robot_base",
         "fps": FPS,
         "video_resolution": [FRAME_WIDTH, FRAME_HEIGHT],

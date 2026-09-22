@@ -2,9 +2,31 @@ import numpy as np
 from dexart.env.task_setting import BOUND_CONFIG
 
 
+def segmentation_masks(labels: np.ndarray, grouping_info: dict):
+    labels = np.asarray(labels)
+    handle_mask = labels == grouping_info['handle']
+    instance_body_mask = labels == grouping_info['instance_body'][0]
+    for instance_body_id in grouping_info['instance_body']:
+        instance_body_mask = np.logical_or(labels == instance_body_id, instance_body_mask)
+
+    arm_mask = np.logical_and(
+        labels < grouping_info['palm'][0], labels > grouping_info['palm'][0] - 8
+    )
+    hand_mask = labels == grouping_info['palm'][0]
+    for instance in (
+        grouping_info['palm']
+        + grouping_info['thumb']
+        + grouping_info['index']
+        + grouping_info['middle']
+        + grouping_info['ring']
+    ):
+        hand_mask = np.logical_or(labels == instance, hand_mask)
+    return handle_mask, instance_body_mask, hand_mask, arm_mask
+
+
 def process_pc(task_name: str, cloud: np.ndarray, camera_pose: np.ndarray, num_points: int,
                np_random: np.random.RandomState, noise_level=0, grouping_info=None, segmentation=None,
-               color=None) -> np.ndarray:
+               color=None, return_object_center=False):
     """
     1. only sample pc to num_points
     noise_level=0, group_info=None, segmentation=None
@@ -33,9 +55,24 @@ def process_pc(task_name: str, cloud: np.ndarray, camera_pose: np.ndarray, num_p
     within_bound = np.nonzero(np.logical_and.reduce((within_bound_x, within_bound_y, within_bound_z, within_bound_r)))[
         0]
 
+    object_center = np.full(3, np.nan, dtype=np.float32)
+    if segmentation is not None and grouping_info is not None:
+        if len(segmentation) != len(pc):
+            raise ValueError("segmentation and point cloud must contain the same number of points")
+        handle_mask, body_mask, _, _ = segmentation_masks(segmentation, grouping_info)
+        object_mask = np.logical_or(handle_mask, body_mask).reshape(-1)
+        visible_object_indices = within_bound[object_mask[within_bound]]
+        if len(visible_object_indices) > 0:
+            object_points = pc[visible_object_indices]
+            object_center = np.asarray(
+                0.5 * (object_points.min(axis=0) + object_points.max(axis=0)),
+                dtype=np.float32,
+            )
+
     num_index = len(within_bound)
     if num_index == 0:
-        return np.zeros([num_points, 3])
+        result = np.zeros([num_points, 3])
+        return (result, object_center) if return_object_center else result
     if num_index < num_points:
         indices = np.concatenate([within_bound, np.ones(num_points - num_index, dtype=np.int32) * within_bound[0]])
         if noise_level != 0:
@@ -60,22 +97,13 @@ def process_pc(task_name: str, cloud: np.ndarray, camera_pose: np.ndarray, num_p
         
     if segmentation is not None:
         labels = segmentation[indices, :]   # N x 1
-        handle_mask = (labels == grouping_info['handle'])
-        # group the instance body
-        instance_body_mask = (labels == grouping_info['instance_body'][0])
-        for instance_body_id in grouping_info['instance_body']:
-            instance_body_mask = np.logical_or(labels == instance_body_id, instance_body_mask)
-
-        # group the arm
-        arm_mask = np.logical_and(labels < grouping_info['palm'][0], labels > grouping_info['palm'][0] - 8)  # 13, [6,12]
-        hand_mask = (labels == grouping_info['palm'][0])
-        for instance in grouping_info['palm'] + grouping_info['thumb'] + grouping_info['index'] + grouping_info['middle'] + grouping_info['ring']:
-            hand_mask = np.logical_or(labels == instance, hand_mask)
-
+        handle_mask, instance_body_mask, hand_mask, arm_mask = segmentation_masks(
+            labels, grouping_info
+        )
         cloud = np.concatenate([cloud, handle_mask, instance_body_mask, hand_mask, arm_mask], axis=1)
         # (N, 7) == (N, xyz + 4masks)
 
-    return cloud
+    return (cloud, object_center) if return_object_center else cloud
 
 def add_gaussian_noise(cloud: np.ndarray, np_random: np.random.RandomState, noise_level=1):
     # cloud is (n, 3)

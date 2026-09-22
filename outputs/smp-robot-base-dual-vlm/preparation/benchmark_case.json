@@ -1,0 +1,16 @@
+{
+  "accumulation": 4,
+  "cuda_visible_devices": "7,2,3,6",
+  "elapsed_seconds": 8.671716690063477,
+  "estimated_training_hours": 145.93625995682345,
+  "global_batch": 256,
+  "gradient_norm": 264.72125244140625,
+  "loss": 252.8414306640625,
+  "measured_updates": 15,
+  "micro_batch": 16,
+  "peak_allocated_gib": 1.9380903244018555,
+  "peak_reserved_gib": 2.421875,
+  "samples_per_second": 442.81889471782216,
+  "status": "passed",
+  "workers": 4
+}

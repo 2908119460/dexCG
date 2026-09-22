@@ -1,0 +1,15 @@
+{
+  "checkpoint_coordinate_contract": "object_aabb_center_v1",
+  "cuda_visible_devices": "1,3,4,6",
+  "format": "dexcg.closed_loop_interface_ablation.v1",
+  "planner_checkpoint": "/data/users/zhouyike/dexCG/outputs/qwen-finetuned-balanced-dev-v2-lr/checkpoints/epoch=0003-deployment_loss=1.450586.ckpt",
+  "planner_checkpoint_epoch": 3,
+  "planner_checkpoint_sha256": "45d259215ceade93a2ede5c1d75b0a40c5abfe4f81b6af62a52e03f1a37e9b50",
+  "policy_checkpoint": "/data/users/zhouyike/dexCG/outputs/qwen-frozen-balanced/checkpoints/epoch=2200-seen_score=0.333.ckpt",
+  "policy_checkpoint_epoch": 2200,
+  "policy_checkpoint_sha256": "e88605cc1e9a7802653c8212980f7b3f791934112290c5f091a793111cdead13",
+  "purpose": "v1 checkpoints evaluated with the full-resolution center interface",
+  "runtime_coordinate_contract": "visible_object_aabb_full_resolution_v2",
+  "runtime_object_center_definition": "masked_full_resolution_visible_object_xyz_aabb_midpoint",
+  "world_size": 4
+}

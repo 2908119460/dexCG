@@ -201,18 +201,7 @@ def collect_episode(
     camera_config: dict,
 ) -> tuple[DexArtEpisode | None, bool]:
     observation = adapter.reset()
-    values = {
-        name: []
-        for name in (
-            "img",
-            "depth",
-            "point_cloud",
-            "object_point_mask",
-            "imagin_robot",
-            "state",
-            "agent_pos",
-        )
-    }
+    values: dict[str, list[np.ndarray]] = {}
     actions: list[np.ndarray] = []
     raw_points: list[np.ndarray] = []
     raw_masks: list[np.ndarray] = []
@@ -237,7 +226,7 @@ def collect_episode(
 
         sample = adapter.observation(observation)
         for name, value in sample.items():
-            values[name].append(value)
+            values.setdefault(name, []).append(value)
         raw_points.append(graph.points)
         raw_masks.append(graph.mask)
 

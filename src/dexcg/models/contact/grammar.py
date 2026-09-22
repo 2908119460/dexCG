@@ -7,12 +7,15 @@ from transformers import LogitsProcessor
 class ContactGrammarLogitsProcessor(LogitsProcessor):
     """Allow only `(Allegro link, x, y, z)*` after a forced start token."""
 
-    def __init__(self, tokenizer: "AllegroContactTokenizer") -> None:
+    def __init__(self, tokenizer: "AllegroContactTokenizer", minimum_contacts: int = 0) -> None:
+        if not 0 <= minimum_contacts <= len(tokenizer.link_token_ids):
+            raise ValueError("minimum_contacts must be within the contact-link range")
         self.link_ids = torch.tensor(tokenizer.link_token_ids, dtype=torch.long)
         self.position_ids = torch.tensor(tokenizer.position_token_ids, dtype=torch.long)
         self.start_id = tokenizer.joint_start_id
         self.end_id = tokenizer.joint_end_id
         self.max_contacts = len(tokenizer.link_token_ids)
+        self.minimum_contacts = int(minimum_contacts)
 
     def __call__(self, input_ids: torch.Tensor, scores: torch.Tensor) -> torch.Tensor:
         allowed = torch.zeros_like(scores, dtype=torch.bool)
@@ -23,7 +26,8 @@ class ContactGrammarLogitsProcessor(LogitsProcessor):
             if phase == 0:
                 if emitted // 4 < self.max_contacts:
                     allowed[row, self.link_ids.to(scores.device)] = True
-                allowed[row, self.end_id] = True
+                if emitted // 4 >= self.minimum_contacts:
+                    allowed[row, self.end_id] = True
             else:
                 allowed[row, self.position_ids.to(scores.device)] = True
         return scores.masked_fill(~allowed, torch.finfo(scores.dtype).min)

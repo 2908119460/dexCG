@@ -188,6 +188,8 @@ class TransformerDecoder(nn.Module):
         inner_dim: int,
         cond_dim: int = None,
         eps: float = 1e-6,
+        attention_dropout: float = 0.0,
+        mlp_dropout: float = 0.0,
     ):
         super().__init__()
         self.block_type = block_type
@@ -196,6 +198,8 @@ class TransformerDecoder(nn.Module):
                 self._block_fn(inner_dim, cond_dim)(
                     num_heads=num_heads,
                     eps=eps,
+                    attn_drop=attention_dropout,
+                    mlp_drop=mlp_dropout,
                 )
                 for _ in range(num_layers)
             ]
@@ -342,6 +346,8 @@ class TriplaneTransformer(nn.Module):
         triplane_low_res: int,
         triplane_high_res: int,
         triplane_dim: int,
+        attention_dropout: float = 0.0,
+        mlp_dropout: float = 0.0,
     ):
         super().__init__()
 
@@ -360,6 +366,8 @@ class TriplaneTransformer(nn.Module):
             num_layers=transformer_layers,
             num_heads=transformer_heads,
             inner_dim=transformer_dim,
+            attention_dropout=attention_dropout,
+            mlp_dropout=mlp_dropout,
         )
 
         self.downsampler = nn.Sequential(

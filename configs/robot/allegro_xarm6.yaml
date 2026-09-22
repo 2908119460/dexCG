@@ -2,7 +2,8 @@ name: allegro_xarm6
 coordinate_frame: robot_base
 urdf: third_party/dexart/assets/robot/xarm6_description/xarm6_allegro_wrist_mounted_rotate.urdf
 root_link: link_base
-arm_action_link: palm_center
+arm_action_link: link6
+arm_action_reference: center_of_mass
 arm_dof: 6
 hand_dof: 16
 action_dim: 22

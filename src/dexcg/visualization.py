@@ -411,3 +411,64 @@ def render_rollout_frame(
         max_lines=4,
     )
     return frame
+
+
+def render_planner_frame(
+    image: np.ndarray,
+    point_cloud: np.ndarray,
+    robot: np.ndarray,
+    raw_points: np.ndarray,
+    raw_mask: np.ndarray,
+    predicted_points: np.ndarray,
+    predicted_mask: np.ndarray,
+    predicted_link_indices: np.ndarray,
+    bounds: tuple[np.ndarray, np.ndarray],
+    *,
+    task: str,
+    variant: str,
+    object_id: str,
+    instruction: str,
+    episode_index: int,
+    frame_index: int,
+    frame_count: int,
+    prediction_step: int,
+    stable_step: int,
+) -> np.ndarray:
+    frame = np.full((FRAME_HEIGHT, FRAME_WIDTH, 3), BG, dtype=np.uint8)
+    put_text(frame, f"DexCG VLM | {variant} | {task}", (20, 34), 0.72, TEXT, 2)
+    put_text(
+        frame,
+        f"episode {episode_index:03d} | object {object_id} | "
+        f"frame {frame_index + 1:03d}/{frame_count:03d}",
+        (800, 34), 0.43, MUTED,
+    )
+    panel(frame, (20, 52, 500, 478), "RGB observation")
+    panel(frame, (540, 52, 720, 478), "Point cloud | raw=o | predicted token=x")
+    panel(frame, (20, 550, 1240, 150), "Contact and trajectory diagnostics")
+    frame[86:510, 35:505] = fit_image(
+        cv2.cvtColor(image, cv2.COLOR_RGB2BGR), 470, 424
+    )
+    frame[86:510, 555:1245] = render_point_cloud(
+        point_cloud, robot, raw_points, raw_mask,
+        predicted_points, predicted_mask, bounds, 690, 424,
+    )
+    put_text(
+        frame,
+        f"task: {task} | object ID: {object_id} | episode: {episode_index} "
+        f"| prediction step: {prediction_step} | "
+        f"{'stable/post-contact' if frame_index >= stable_step else 'pre-contact'}",
+        (35, 586), 0.43, TEXT,
+    )
+    put_wrapped_text(
+        frame, f"Raw links: {active_raw_links(raw_mask)}",
+        (35, 608), 580, color=RAW_CONTACT, max_lines=2,
+    )
+    put_wrapped_text(
+        frame, "Predicted links: "
+        + active_predicted_links(predicted_link_indices, predicted_mask),
+        (635, 608), 600, color=PREDICTED_CONTACT, max_lines=2,
+    )
+    put_wrapped_text(
+        frame, f"Instruction: {instruction}", (35, 670), 1190, max_lines=2,
+    )
+    return frame

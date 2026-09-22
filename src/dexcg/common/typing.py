@@ -7,9 +7,10 @@ import torch
 
 @dataclass
 class ContactPlan:
+    """Contact tokens whose XYZ values are already in metric robot-base coordinates."""
+
     token_ids: torch.Tensor
     attention_mask: torch.Tensor
-    object_center: torch.Tensor | None = None
 
 
 @dataclass

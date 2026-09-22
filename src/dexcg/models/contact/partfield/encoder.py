@@ -6,6 +6,7 @@ import torch
 from easydict import EasyDict
 from torch import nn
 
+from dexcg.models.contact.coordinates import partfield_grid_coordinates
 from dexcg.models.contact.partfield.modules.model_utils import VanillaMLP
 from dexcg.models.contact.partfield.modules.PVCNN.encoder_pc import TriPlanePC2Encoder
 from dexcg.models.contact.partfield.modules.triplane import TriplaneTransformer
@@ -16,6 +17,8 @@ class PartFieldConfig:
     variant: str = "base"
     normalize_point_cloud: bool = True
     downsample_patch_embeddings: bool = True
+    attention_dropout: float = 0.0
+    mlp_dropout: float = 0.0
 
 
 def _architecture_config() -> EasyDict:
@@ -51,6 +54,8 @@ class PartFieldEncoder(nn.Module):
     def __init__(self, config: PartFieldConfig | None = None) -> None:
         super().__init__()
         self.cfg = config or PartFieldConfig()
+        if not self.cfg.normalize_point_cloud:
+            raise ValueError("robot-base PartField requires the fixed metric-to-grid encoding")
         architecture = _architecture_config()
         self.triplane_resolution = architecture.triplane_resolution
         self.triplane_channels_low = architecture.triplane_channels_low
@@ -62,6 +67,8 @@ class PartFieldEncoder(nn.Module):
             triplane_low_res=32,
             triplane_high_res=128,
             triplane_dim=architecture.triplane_channels_high,
+            attention_dropout=self.cfg.attention_dropout,
+            mlp_dropout=self.cfg.mlp_dropout,
         )
         self.sdf_decoder = VanillaMLP(
             input_dim=64,
@@ -96,12 +103,14 @@ class PartFieldEncoder(nn.Module):
         self, point_cloud: torch.Tensor, return_point_features: bool = False
     ) -> torch.Tensor | tuple[torch.Tensor, torch.Tensor]:
         xyz = point_cloud[..., :3].contiguous()
+        grid_xyz = partfield_grid_coordinates(xyz)
         dtype = self.pvcnn.unet_encoder.conv_final.weight.dtype
         xyz = xyz.to(dtype=dtype)
+        grid_xyz = grid_xyz.to(dtype=dtype)
         planes = self.pvcnn(
+            grid_xyz,
             xyz,
-            xyz,
-            normalize_point_cloud=self.cfg.normalize_point_cloud,
+            normalize_point_cloud=False,
         )
         planes, tokens = self.triplane_transformer(planes, return_tokens=True)
 
@@ -122,4 +131,4 @@ class PartFieldEncoder(nn.Module):
         from dexcg.models.contact.partfield.modules.PVCNN.encoder_pc import sample_triplane_feat
 
         _, part_planes = torch.split(planes, [64, planes.shape[2] - 64], dim=2)
-        return tokens, sample_triplane_feat(part_planes, xyz)
+        return tokens, sample_triplane_feat(part_planes, grid_xyz * 2)

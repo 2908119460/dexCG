@@ -14,8 +14,8 @@ contact_planner:
   max_new_tokens: 66
   temperature: 0.0
   position_bins: 256
-  min_position: -0.4
-  max_position: 0.4
+  min_position: -1.0
+  max_position: 1.2
   partfield:
     variant: base
     normalize_point_cloud: true

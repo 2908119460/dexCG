@@ -1,0 +1,37 @@
+{
+  "contact_coordinate_contract": "dexart_robot_base_metric_v1",
+  "contact_embedding_source": "original_dexter_frozen_lookup_saved_in_SMP",
+  "model_config_sha256": "a02c7a8d191da9467b7421a927f9c322f27c0841649d9bc1494a45d2d731f73d",
+  "model_coordinate_contract": "dexart_robot_base_model_v1",
+  "split_manifest_sha256": "9915a89803eb71a947c547a2b199fb622eec4053dd3a46488b827517cb9a01e9",
+  "variants": {
+    "new_10000": {
+      "checkpoint": "outputs/qwen-partfield-frozen-10000/checkpoints/epoch=0012-generation_score=0.489804077136.ckpt",
+      "checkpoint_sha256": "447bc1ebf8d395a5c95c181d9c777f800b31d7307d3834e1cd6105a44f1d8f94",
+      "point_count": 10000,
+      "run_config": "/data/users/zhouyike/dexCG/outputs/qwen-partfield-frozen-10000/config.yaml",
+      "run_config_sha256": "363ef977c31da7d0b88d7681c9cdd7b68b18eef09466f97dc933fcb9c6000395",
+      "training_data": [
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-10000-point/faucet_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-10000-point/bucket_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-10000-point/laptop_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-10000-point/toilet_expert.zarr"
+      ],
+      "verified_training_point_count": 10000
+    },
+    "old_1024": {
+      "checkpoint": "outputs/qwen-finetuned-balanced-20ep/checkpoints/epoch=0007-generation_score=0.498799217807.ckpt",
+      "checkpoint_sha256": "7f9843487a44ed7343bd35061a4a4344c9f336e74bf28a07a4e21c93f5478893",
+      "point_count": 1024,
+      "run_config": "/data/users/zhouyike/dexCG/outputs/qwen-finetuned-balanced-20ep/config.yaml",
+      "run_config_sha256": "9d7d80a94910e62819e8e3382b17f34e362b87bef2c155793695e95e73a0331e",
+      "training_data": [
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-250/faucet_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-250/bucket_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-250/laptop_expert.zarr",
+        "/data/users/zhouyike/dexCG/data/dexart-object-balanced-250/toilet_expert.zarr"
+      ],
+      "verified_training_point_count": 1024
+    }
+  }
+}

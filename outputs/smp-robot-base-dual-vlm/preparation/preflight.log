@@ -1,0 +1,143 @@
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank [Gloo] Rank 1 is connected to 23 is connected to  peer ranks. 3Expected number of connected peer ranks is :  peer ranks. 3Expected number of connected peer ranks is : 
+3[Gloo] Rank 
+3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+{"train_retained_frames": [13540, 19387, 6586, 7051], "balanced_samples_per_epoch": 77548, "updates_per_epoch": 75, "micro_batch": 256, "global_batch": 1024, "trainable_parameters": 19193251, "cuda_visible_devices": "7,2,3,6"}
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 767, in <module>
+[rank0]:     main()
+[rank0]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 489, in main
+[rank0]:     run_distributed(args, config, device, rank, world_size, group, accumulation)
+[rank0]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 651, in run_distributed
+[rank0]:     results = paired_evaluation(ema, config, identity, 0, output_dir, device, rank, world_size, group, True)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 277, in paired_evaluation
+[rank0]:     planner = load_variant(ema.module.model, item).to(device)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 256, in load_variant
+[rank0]:     if getattr(reference, attr) != getattr(candidate, attr):
+[rank0]:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 767, in <module>
+[rank2]:     main()
+[rank2]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 489, in main
+[rank2]:     run_distributed(args, config, device, rank, world_size, group, accumulation)
+[rank2]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 651, in run_distributed
+[rank2]:     results = paired_evaluation(ema, config, identity, 0, output_dir, device, rank, world_size, group, True)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 277, in paired_evaluation
+[rank2]:     planner = load_variant(ema.module.model, item).to(device)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 256, in load_variant
+[rank2]:     if getattr(reference, attr) != getattr(candidate, attr):
+[rank2]:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 767, in <module>
+[rank3]:     main()
+[rank3]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 489, in main
+[rank3]:     run_distributed(args, config, device, rank, world_size, group, accumulation)
+[rank3]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 651, in run_distributed
+[rank3]:     results = paired_evaluation(ema, config, identity, 0, output_dir, device, rank, world_size, group, True)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 277, in paired_evaluation
+[rank3]:     planner = load_variant(ema.module.model, item).to(device)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 256, in load_variant
+[rank3]:     if getattr(reference, attr) != getattr(candidate, attr):
+[rank3]:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 767, in <module>
+[rank1]:     main()
+[rank1]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 489, in main
+[rank1]:     run_distributed(args, config, device, rank, world_size, group, accumulation)
+[rank1]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 651, in run_distributed
+[rank1]:     results = paired_evaluation(ema, config, identity, 0, output_dir, device, rank, world_size, group, True)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 277, in paired_evaluation
+[rank1]:     planner = load_variant(ema.module.model, item).to(device)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/data/users/zhouyike/dexCG/scripts/train.py", line 256, in load_variant
+[rank1]:     if getattr(reference, attr) != getattr(candidate, attr):
+[rank1]:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+W0921 22:13:07.772000 3747656 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3747825 closing signal SIGTERM
+W0921 22:13:07.772000 3747656 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3747826 closing signal SIGTERM
+W0921 22:13:07.773000 3747656 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3747827 closing signal SIGTERM
+E0921 22:13:08.087000 3747656 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 0 (pid: 3747823) of binary: /data/users/zhouyike/dexCG/.venv/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/users/zhouyike/dexCG/scripts/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-21_22:13:07
+  host      : 4090-server
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3747823)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank [Gloo] Rank 32 is connected to  is connected to 33 peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 33
+
+{"train_retained_frames": [13540, 19387, 6586, 7051], "balanced_samples_per_epoch": 77548, "updates_per_epoch": 75, "micro_batch": 256, "global_batch": 1024, "trainable_parameters": 19193251, "cuda_visible_devices": "2,3,6,1"}
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[BucketEnv] change_instance_when_reset=True
+[FaucetEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[LaptopEnv] change_instance_when_reset=True
+[2026-09-21 22:36:00.582] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[FaucetEnv] change_instance_when_reset=True
+[2026-09-21 22:36:00.645] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+[2026-09-21 22:36:00.676] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+[2026-09-21 22:36:00.691] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.

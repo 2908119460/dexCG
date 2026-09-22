@@ -1,0 +1,105 @@
+seed: 42
+epochs: 8
+model_config: configs/model/dexcg_planner_trajectory.yaml
+batch_size_per_gpu: 7
+num_workers: 8
+prefetch_factor: 2
+pin_memory: true
+mixed_precision: bf16
+gradient_accumulation_steps: 1
+gradient_clip_norm: 1.0
+data:
+  split: train
+  split_seed: 42
+  history_interval: 8
+  paths:
+  - data/dexart-balanced/faucet_expert.zarr
+  - data/dexart-balanced/bucket_expert.zarr
+  - data/dexart-balanced/laptop_expert.zarr
+  - data/dexart-balanced/toilet_expert.zarr
+  deployment_instructions:
+    faucet: Rotate the faucet handle to open it.
+    bucket: Lift the bucket by its rim.
+    laptop: Open the laptop lid.
+    toilet: Open the toilet lid.
+optimizer:
+  learning_rates:
+    qwen: 1.0e-05
+    partfield: 5.0e-06
+    point_projector: 0.0001
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.95
+  epsilon: 1.0e-08
+  warmup_steps: 1000
+  scheduler: cosine
+history_corruption:
+  seed: 42
+  drop_probability: 0.0
+  perturb_probability: 0.0
+  max_bin_offset: 2
+validation:
+  enabled: true
+  interval_epochs: 1
+  language_families:
+  - low_level
+  - high_level
+  - deployment
+  selection_family: deployment
+  early_stopping:
+    enabled: true
+    patience: 2
+    min_delta: 0.0
+checkpoint:
+  interval_epochs: 1
+  keep_validation_best: 2
+  keep_top: 3
+policy_checkpoint: outputs/qwen-frozen-balanced/checkpoints/epoch=2200-seen_score=0.333.ckpt
+diffusion:
+  num_train_timesteps: 100
+  num_inference_steps: 10
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_schedule: squaredcos_cap_v2
+  prediction_type: epsilon
+evaluation:
+  enabled: false
+  split: seen
+  first_epoch: 8
+  interval_epochs: 8
+  seeds:
+  - 1000
+  - 1001
+  - 1002
+  - 1003
+  - 1004
+  episodes_per_seed: 20
+  action_steps: 8
+  tasks:
+    faucet:
+      instruction: Rotate the faucet handle to open it.
+      max_steps: 50
+    bucket:
+      instruction: Lift the bucket by its rim.
+      max_steps: 100
+    laptop:
+      instruction: Open the laptop lid.
+      max_steps: 50
+    toilet:
+      instruction: Open the toilet lid.
+      max_steps: 50
+output_dir: /data/users/zhouyike/dexCG/outputs/eval-qwen-finetuned-e0003
+resume: false
+runtime:
+  world_size: 4
+  global_batch_size: 28
+  cuda_visible_devices: 0,1,2,5
+  trainable_parameters:
+    partfield: 93157376
+    point_projector: 919552
+    qwen: 494287232
+    total: 588364160
+  policy_checkpoint_epoch: 2200
+planner_checkpoint: /data/users/zhouyike/dexCG/outputs/qwen-finetuned-balanced-dev-v2-lr/checkpoints/epoch=0003-deployment_loss=1.450586.ckpt
+checkpoint_coordinate_contract: object_aabb_center_v1

@@ -1,0 +1,22 @@
+{
+  "training": {
+    "coordinate_contract": "object_aabb_center_v1",
+    "empty_contact_policy": "excluded",
+    "excluded_empty_targets": 440,
+    "excluded_invalid_centers": 0,
+    "history_interval": 8,
+    "split": "train",
+    "training_sample_count": 28378,
+    "trajectory_count": 482
+  },
+  "validation": {
+    "coordinate_contract": "object_aabb_center_v1",
+    "empty_contact_policy": "excluded",
+    "excluded_empty_targets": 212,
+    "excluded_invalid_centers": 0,
+    "history_interval": 8,
+    "split": "validation",
+    "training_sample_count": 7708,
+    "trajectory_count": 133
+  }
+}

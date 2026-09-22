@@ -1,4 +1,5 @@
 import torch
+from types import SimpleNamespace
 from torch import nn
 
 from dexcg.common.typing import ContactPlan
@@ -12,6 +13,10 @@ class TinyContactPlanner(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         self.embedding = nn.Embedding(32, 16)
+        self.contact_tokenizer = SimpleNamespace(
+            link_token_ids=(10, 11), position_token_ids=tuple(range(20, 32)),
+            joint_start_id=2, joint_end_id=3,
+        )
 
     def plan(self, point_cloud: torch.Tensor, languages: list[str]) -> ContactPlan:
         self.last_point_cloud = point_cloud
@@ -53,8 +58,12 @@ def test_full_model_accepts_only_observation_and_language_task_information() -> 
         expert_groups=4,
     )
     model = DexCG(observation_encoder, TinyContactPlanner(), contact_encoder, smp)
+    point_cloud = torch.randn(2, 2, 32, 3)
+    object_center = torch.tensor([[[0.0, 0.0, 0.0], [0.25, -0.5, 0.75]]] * 2)
     observation = {
-        "point_cloud": torch.randn(2, 2, 32, 3),
+        "point_cloud": point_cloud,
+        "object_point_mask": torch.ones(2, 2, 32, dtype=torch.bool),
+        "object_center": object_center,
         "imagin_robot": torch.randn(2, 2, 8, 7),
         "agent_pos": torch.randn(2, 2, 5),
     }
@@ -69,8 +78,31 @@ def test_full_model_accepts_only_observation_and_language_task_information() -> 
     assert output.coefficient_prediction.shape == (2, 8, 4)
     assert output.prior_gate.shape == (2, 8, 4)
     assert output.posterior_gate.shape == (2, 8, 4)
-    planner_center = 0.5 * (
-        model.contact_planner.last_point_cloud.amin(dim=1)
-        + model.contact_planner.last_point_cloud.amax(dim=1)
+    torch.testing.assert_close(
+        model.contact_planner.last_point_cloud,
+        point_cloud[:, -1],
     )
-    torch.testing.assert_close(planner_center, torch.zeros_like(planner_center), atol=1e-6, rtol=0)
+    plan = model.contact_planner.plan(point_cloud[:, -1], ["a", "b"])
+    model.eval()
+    before = model.encode_contact(plan).detach()
+    with torch.no_grad():
+        model.contact_planner.embedding.weight.add_(100)
+    torch.testing.assert_close(model.encode_contact(plan), before, rtol=0, atol=0)
+    assert "contact_embedding_values" in model.state_dict()
+
+
+def test_planner_uses_dedicated_cloud_without_modifying_policy_cloud():
+    import pytest
+    policy = torch.randn(1, 2, 1024, 3)
+    full = torch.randn(1, 2, 10000, 3)
+    observation = {"point_cloud": policy, "object_point_mask": torch.ones(1, 2, 1024, dtype=torch.bool),
+                   "planner_point_cloud": full,
+                   "planner_object_point_mask": torch.ones(1, 2, 10000, dtype=torch.bool)}
+    torch.testing.assert_close(DexCG.contact_planner_input(observation), full[:, -1])
+    assert observation["point_cloud"] is policy
+    observation["planner_object_point_mask"][0, -1, 0] = False
+    with pytest.raises(ValueError, match="only object"):
+        DexCG.contact_planner_input(observation)
+    del observation["planner_object_point_mask"]
+    with pytest.raises(ValueError, match="together"):
+        DexCG.contact_planner_input(observation)

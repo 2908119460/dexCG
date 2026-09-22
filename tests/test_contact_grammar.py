@@ -42,3 +42,21 @@ def test_planner_attention_bias_matches_llm_dtype() -> None:
     mask = ContactPlanner._attention_mask(padding, groups, torch.bfloat16)
     assert mask.dtype == torch.bfloat16
     assert mask.shape == (1, 1, 4, 4)
+
+
+def test_contact_grammar_can_require_a_nonempty_graph() -> None:
+    tokenizer = SimpleNamespace(
+        link_token_ids=(10, 11),
+        position_token_ids=np.asarray((20, 21, 22)),
+        joint_start_id=2,
+        joint_end_id=3,
+    )
+    grammar = ContactGrammarLogitsProcessor(tokenizer, minimum_contacts=1)
+    scores = torch.zeros(1, 32)
+
+    after_start = grammar(torch.tensor([[2]]), scores.clone())
+    assert after_start[0, 10] == 0
+    assert after_start[0, 3] < -1e20
+
+    after_contact = grammar(torch.tensor([[2, 10, 20, 21, 22]]), scores.clone())
+    assert after_contact[0, 3] == 0

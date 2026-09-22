@@ -24,12 +24,13 @@ class BatchedForwardKinematics(nn.Module):
         self.register_buffer("parent_indices", spec.parent_indices)
         self.register_buffer("origin_xyz", spec.origin_xyz)
         self.register_buffer("origin_rotation", spec.origin_rotation)
+        self.register_buffer("position_offsets", spec.position_offsets)
         self.register_buffer("joint_axes", spec.joint_axes)
         self.register_buffer("joint_types", spec.joint_types)
         self.register_buffer("q_indices", spec.q_indices)
         self.qpos_dim = spec.qpos_dim
 
-    def forward(self, qpos: torch.Tensor) -> torch.Tensor:
+    def transforms(self, qpos: torch.Tensor) -> torch.Tensor:
         if qpos.ndim != 2 or qpos.shape[-1] != self.qpos_dim:
             raise ValueError(f"Expected qpos [B, {self.qpos_dim}], received {tuple(qpos.shape)}")
         batch_size = qpos.shape[0]
@@ -54,4 +55,17 @@ class BatchedForwardKinematics(nn.Module):
                     * qpos[:, q_index : q_index + 1]
                 )
             transforms.append(transforms[parent] @ origin @ motion)
-        return torch.stack([transform[:, :3, 3] for transform in transforms], dim=1)
+        return torch.stack(transforms, dim=1)
+
+    def forward(self, qpos: torch.Tensor) -> torch.Tensor:
+        transforms = self.transforms(qpos).unbind(dim=1)
+        return torch.stack(
+            [
+                transform[:, :3, 3]
+                + torch.einsum(
+                    "bij,j->bi", transform[:, :3, :3], self.position_offsets[index].to(qpos)
+                )
+                for index, transform in enumerate(transforms)
+            ],
+            dim=1,
+        )

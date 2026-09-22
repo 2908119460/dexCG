@@ -1,0 +1,25 @@
+{
+  "initial_gpus": [
+    {
+      "free_mib": 37338,
+      "index": 2,
+      "utilization": 62
+    },
+    {
+      "free_mib": 37193,
+      "index": 3,
+      "utilization": 32
+    },
+    {
+      "free_mib": 31111,
+      "index": 6,
+      "utilization": 43
+    },
+    {
+      "free_mib": 27108,
+      "index": 1,
+      "utilization": 0
+    }
+  ],
+  "started": 1790001258.6131606
+}

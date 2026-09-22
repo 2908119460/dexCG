@@ -42,13 +42,13 @@ class _Model(nn.Module):
         self.smp = _SMP()
         self.plan_calls = 0
 
-    def plan_contact(self, observation, languages):
+    def plan_contact(self, observation, languages, previous_plan=None):
         self.plan_calls += 1
+        self.previous_plan = previous_plan
         batch_size = observation["agent_pos"].shape[0]
         return ContactPlan(
             token_ids=torch.ones(batch_size, 2, dtype=torch.long),
             attention_mask=torch.ones(batch_size, 2, dtype=torch.bool),
-            object_center=torch.zeros(batch_size, 3),
         )
 
     @staticmethod
@@ -101,3 +101,29 @@ def test_predict_action_preserves_tensor_return_type() -> None:
     assert isinstance(actions, torch.Tensor)
     assert actions.shape == (1, 2, 3)
     assert objective.model.plan_calls == 1
+
+
+def test_prediction_passes_previous_contact_to_planner() -> None:
+    objective = _objective()
+    observation = {"agent_pos": torch.rand(1, 2, 3)}
+    previous = ContactPlan(torch.ones(1, 2, dtype=torch.long), torch.ones(1, 2, dtype=torch.bool))
+
+    objective.predict_action_with_diagnostics(
+        observation,
+        ["test instruction"],
+        num_inference_steps=2,
+        action_steps=2,
+        previous_contact_plan=previous,
+    )
+
+    assert objective.model.previous_plan is previous
+
+
+def test_prediction_executes_current_action_without_skipping(monkeypatch):
+    objective = _objective()
+    sequence = torch.arange(12, dtype=torch.float32).reshape(1, 4, 3)
+    monkeypatch.setattr(objective.model.smp, "decode", lambda *args: sequence)
+    result = objective.predict_action(
+        {"agent_pos": torch.rand(1, 2, 3)}, ["test"], 2, 2
+    )
+    torch.testing.assert_close(result, sequence[:, :2])

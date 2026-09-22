@@ -1,0 +1,150 @@
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank [Gloo] Rank 0 is connected to 32 peer ranks.  is connected to Expected number of connected peer ranks is : 33 peer ranks. Expected number of connected peer ranks is : 
+3
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+{"train_retained_frames": [13540, 19387, 6586, 7051], "balanced_samples_per_epoch": 77548, "updates_per_epoch": 302, "micro_batch": 16, "global_batch": 256, "trainable_parameters": 19193251, "cuda_visible_devices": "7,2,3,6"}
+/data/users/zhouyike/dexCG/src/dexcg/models/smp/losses.py:12: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /tmp/dexcg-smp-0u6wnuzg/cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1487.)
+  torch.lgamma(q_sum)
+/data/users/zhouyike/dexCG/src/dexcg/models/smp/losses.py:12: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /tmp/dexcg-smp-0u6wnuzg/cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1487.)
+  torch.lgamma(q_sum)
+/data/users/zhouyike/dexCG/src/dexcg/models/smp/losses.py:12: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /tmp/dexcg-smp-0u6wnuzg/cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1487.)
+  torch.lgamma(q_sum)
+/data/users/zhouyike/dexCG/src/dexcg/models/smp/losses.py:12: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /tmp/dexcg-smp-0u6wnuzg/cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1487.)
+  torch.lgamma(q_sum)
+/data/users/zhouyike/dexCG/scripts/train.py:652: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  "loss": float(loss), "gradient_norm": float(norm),
+{"status": "passed", "global_batch": 256, "micro_batch": 16, "accumulation": 4, "workers": 4, "measured_updates": 15, "elapsed_seconds": 8.671716690063477, "samples_per_second": 442.81889471782216, "peak_allocated_gib": 1.9380903244018555, "peak_reserved_gib": 2.421875, "loss": 252.8414306640625, "gradient_norm": 264.72125244140625, "cuda_visible_devices": "7,2,3,6", "estimated_training_hours": 145.93625995682345}
+[Gloo] Rank [Gloo] Rank 1 is connected to 03 is connected to  peer ranks. 3Expected number of connected peer ranks is :  peer ranks. 3Expected number of connected peer ranks is : 
+3
+[Gloo] Rank [Gloo] Rank 23 is connected to  is connected to 33 peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 33
+
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+W0921 22:00:00.712000 3644437 torch/distributed/elastic/agent/server/api.py:723] Received 15 death signal, shutting down workers
+W0921 22:00:00.713000 3644437 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3644534 closing signal SIGTERM
+W0921 22:00:00.713000 3644437 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3644535 closing signal SIGTERM
+W0921 22:00:00.713000 3644437 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3644536 closing signal SIGTERM
+W0921 22:00:00.714000 3644437 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3644537 closing signal SIGTERM
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 715, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 879, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 3644437 got signal: 15
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. [Gloo] Rank Expected number of connected peer ranks is : 23 is connected to 
+3 peer ranks. Expected number of connected peer ranks is : 3
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+W0921 22:02:39.318000 3670039 torch/distributed/elastic/agent/server/api.py:723] Received 15 death signal, shutting down workers
+W0921 22:02:39.319000 3670039 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3670071 closing signal SIGTERM
+W0921 22:02:39.319000 3670039 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3670072 closing signal SIGTERM
+W0921 22:02:39.319000 3670039 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3670073 closing signal SIGTERM
+W0921 22:02:39.319000 3670039 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3670074 closing signal SIGTERM
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 715, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 879, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 3670039 got signal: 15
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank [Gloo] Rank 3 is connected to 23 is connected to  peer ranks. 3Expected number of connected peer ranks is :  peer ranks. 3Expected number of connected peer ranks is : 
+3
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+{"train_retained_frames": [13540, 19387, 6586, 7051], "balanced_samples_per_epoch": 77548, "updates_per_epoch": 302, "micro_batch": 64, "global_batch": 256, "trainable_parameters": 19193251, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=0 global_batch=256 micro_batch=64 accumulation=1
+{"status": "passed", "global_batch": 256, "micro_batch": 64, "accumulation": 1, "workers": 4, "repetition": 0, "measured_updates": 15, "elapsed_seconds": 2.918710470199585, "samples_per_second": 1315.6495100171467, "peak_allocated_gib": 2.5464701652526855, "peak_reserved_gib": 3.037109375, "loss": 250.40695190429688, "gradient_norm": 275.30029296875, "estimated_training_hours": 49.11895823416611, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=0 global_batch=384 micro_batch=96 accumulation=1
+{"status": "passed", "global_batch": 384, "micro_batch": 96, "accumulation": 1, "workers": 4, "repetition": 0, "measured_updates": 15, "elapsed_seconds": 2.9767982959747314, "samples_per_second": 1934.9648270723458, "peak_allocated_gib": 2.9701743125915527, "peak_reserved_gib": 3.548828125, "loss": 243.542236328125, "gradient_norm": 279.2882995605469, "estimated_training_hours": 33.39767856716558, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=0 global_batch=512 micro_batch=128 accumulation=1
+{"status": "passed", "global_batch": 512, "micro_batch": 128, "accumulation": 1, "workers": 4, "repetition": 0, "measured_updates": 15, "elapsed_seconds": 3.2289645671844482, "samples_per_second": 2378.471438816905, "peak_allocated_gib": 3.3902525901794434, "peak_reserved_gib": 4.060546875, "loss": 245.38967895507812, "gradient_norm": 277.0553894042969, "estimated_training_hours": 27.170111138891016, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=0 global_batch=768 micro_batch=192 accumulation=1
+{"status": "passed", "global_batch": 768, "micro_batch": 192, "accumulation": 1, "workers": 4, "repetition": 0, "measured_updates": 15, "elapsed_seconds": 3.2930891513824463, "samples_per_second": 3498.2350827531886, "peak_allocated_gib": 4.2377495765686035, "peak_reserved_gib": 5.171875, "loss": 245.50177001953125, "gradient_norm": 268.0982360839844, "estimated_training_hours": 18.47312481998018, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=0 global_batch=1024 micro_batch=256 accumulation=1
+{"status": "passed", "global_batch": 1024, "micro_batch": 256, "accumulation": 1, "workers": 4, "repetition": 0, "measured_updates": 15, "elapsed_seconds": 3.4938971996307373, "samples_per_second": 4396.236959010519, "peak_allocated_gib": 5.140605449676514, "peak_reserved_gib": 6.23046875, "loss": 244.47216796875, "gradient_norm": 267.03759765625, "estimated_training_hours": 14.69969292735267, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=1 global_batch=1024 micro_batch=256 accumulation=1
+{"status": "passed", "global_batch": 1024, "micro_batch": 256, "accumulation": 1, "workers": 4, "repetition": 1, "measured_updates": 15, "elapsed_seconds": 3.4476497173309326, "samples_per_second": 4455.208985642327, "peak_allocated_gib": 5.140605449676514, "peak_reserved_gib": 6.23046875, "loss": 244.47216796875, "gradient_norm": 267.03759765625, "estimated_training_hours": 14.505118287737584, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=1 global_batch=768 micro_batch=192 accumulation=1
+{"status": "passed", "global_batch": 768, "micro_batch": 192, "accumulation": 1, "workers": 4, "repetition": 1, "measured_updates": 15, "elapsed_seconds": 3.343095064163208, "samples_per_second": 3445.908590362957, "peak_allocated_gib": 4.2377495765686035, "peak_reserved_gib": 5.171875, "loss": 245.50177001953125, "gradient_norm": 268.0982360839844, "estimated_training_hours": 18.75364120628823, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=1 global_batch=512 micro_batch=128 accumulation=1
+{"status": "passed", "global_batch": 512, "micro_batch": 128, "accumulation": 1, "workers": 4, "repetition": 1, "measured_updates": 15, "elapsed_seconds": 3.1171817779541016, "samples_per_second": 2463.7639210892, "peak_allocated_gib": 3.3902525901794434, "peak_reserved_gib": 4.060546875, "loss": 245.38967895507812, "gradient_norm": 277.0553894042969, "estimated_training_hours": 26.229515247046944, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=1 global_batch=384 micro_batch=96 accumulation=1
+{"status": "passed", "global_batch": 384, "micro_batch": 96, "accumulation": 1, "workers": 4, "repetition": 1, "measured_updates": 15, "elapsed_seconds": 3.0045347213745117, "samples_per_second": 1917.1021586213924, "peak_allocated_gib": 2.9701743125915527, "peak_reserved_gib": 3.548828125, "loss": 243.542236328125, "gradient_norm": 279.2882995605469, "estimated_training_hours": 33.708862640791466, "cuda_visible_devices": "7,2,3,6"}
+benchmark repetition=1 global_batch=256 micro_batch=64 accumulation=1
+{"status": "passed", "global_batch": 256, "micro_batch": 64, "accumulation": 1, "workers": 4, "repetition": 1, "measured_updates": 15, "elapsed_seconds": 2.8079116344451904, "samples_per_second": 1367.5644036991705, "peak_allocated_gib": 2.545982837677002, "peak_reserved_gib": 3.087890625, "loss": 250.40695190429688, "gradient_norm": 275.30029296875, "estimated_training_hours": 47.25432539669176, "cuda_visible_devices": "7,2,3,6"}

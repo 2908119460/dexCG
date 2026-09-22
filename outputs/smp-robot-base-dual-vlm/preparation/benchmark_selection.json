@@ -1,0 +1,41 @@
+{
+  "candidates": [
+    {
+      "global_batch": 256,
+      "median_samples_per_second": 1341.6069568581586,
+      "micro_batch": 64,
+      "peak_reserved_gib": 3.087890625
+    },
+    {
+      "global_batch": 384,
+      "median_samples_per_second": 1926.0334928468692,
+      "micro_batch": 96,
+      "peak_reserved_gib": 3.548828125
+    },
+    {
+      "global_batch": 512,
+      "median_samples_per_second": 2421.117679953052,
+      "micro_batch": 128,
+      "peak_reserved_gib": 4.060546875
+    },
+    {
+      "global_batch": 768,
+      "median_samples_per_second": 3472.071836558073,
+      "micro_batch": 192,
+      "peak_reserved_gib": 5.171875
+    },
+    {
+      "global_batch": 1024,
+      "median_samples_per_second": 4425.722972326423,
+      "micro_batch": 256,
+      "peak_reserved_gib": 6.23046875
+    }
+  ],
+  "selected": {
+    "global_batch": 1024,
+    "median_samples_per_second": 4425.722972326423,
+    "micro_batch": 256,
+    "peak_reserved_gib": 6.23046875
+  },
+  "selection_rule": "within 3% of fastest: smaller global batch, then lower VRAM"
+}

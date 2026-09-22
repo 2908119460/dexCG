@@ -1,0 +1,177 @@
+training_authorized: true
+seed: 42
+epochs: 20
+model_config: configs/model/dexcg_planner_single_frame.yaml
+batch_size_per_gpu: 5
+num_workers: 2
+prefetch_factor: 2
+pin_memory: true
+mixed_precision: bf16
+gradient_accumulation_steps: 1
+gradient_clip_norm: 1.0
+data:
+  split: train
+  split_seed: 42
+  history_interval: 8
+  use_previous_contact: false
+  paths:
+  - data/dexart-object-balanced-10000-point/faucet_expert.zarr
+  - data/dexart-object-balanced-10000-point/bucket_expert.zarr
+  - data/dexart-object-balanced-10000-point/laptop_expert.zarr
+  - data/dexart-object-balanced-10000-point/toilet_expert.zarr
+  deployment_instructions:
+    faucet: Rotate the faucet handle to open it.
+    bucket: Lift the bucket by its rim.
+    laptop: Open the laptop lid.
+    toilet: Open the toilet lid.
+optimizer:
+  learning_rates:
+    qwen: 1.0e-05
+    point_projector: 0.0001
+    robot_state_projector: 0.0001
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.95
+  epsilon: 1.0e-08
+  warmup_steps: 200
+  scheduler: cosine
+validation:
+  enabled: true
+  interval_epochs: 1
+  language_families:
+  - deployment
+  selection_family: deployment
+  selection_metric: composite_contact
+  position_score_scale_m: 0.1
+  diagnostic_batch_size: 3
+  reference_result: null
+  generation_samples_per_task: 8
+  early_stopping:
+    enabled: false
+    patience: 2
+    min_delta: 0.001
+checkpoint:
+  interval_epochs: 1
+  keep_validation_best: 1
+  keep_generation_best: 2
+  keep_top: 3
+policy_checkpoint: null
+diffusion:
+  num_train_timesteps: 100
+  num_inference_steps: 10
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_schedule: squaredcos_cap_v2
+  prediction_type: epsilon
+evaluation:
+  enabled: false
+  split: seen
+  first_epoch: 100
+  interval_epochs: 100
+  seeds:
+  - 1000
+  - 1001
+  - 1002
+  - 1003
+  - 1004
+  episodes_per_seed: 20
+  action_steps: 8
+  tasks:
+    faucet:
+      instruction: Rotate the faucet handle to open it.
+      max_steps: 50
+    bucket:
+      instruction: Lift the bucket by its rim.
+      max_steps: 100
+    laptop:
+      instruction: Open the laptop lid.
+      max_steps: 50
+    toilet:
+      instruction: Open the toilet lid.
+      max_steps: 50
+output_dir: outputs/qwen-partfield-frozen-10000
+resume: false
+freeze_partfield: true
+model_snapshot:
+  observation:
+    obs_horizon: 2
+    point_cloud_channels: 3
+    point_feature_dim: 64
+    point_mlp_dims:
+    - 64
+    - 128
+    - 256
+    state_dim: 33
+    state_mlp_dims:
+    - 64
+    - 64
+    feature_dim: 256
+  contact_planner:
+    checkpoint: checkpoints/dexter-qwen2.5-0.5B-dexgys
+    base_model: checkpoints/qwen2.5-0.5b-instruct
+    prompt: assets/prompts/contact_planner.txt
+    max_new_tokens: 66
+    temperature: 0.0
+    position_bins: 256
+    min_position: -1.0
+    max_position: 1.2
+    use_previous_contact: false
+    use_robot_state: true
+    minimum_contacts: 1
+    partfield:
+      variant: base
+      normalize_point_cloud: true
+      downsample_patch_embeddings: true
+  contact_encoder:
+    feature_dim: 256
+    num_layers: 2
+    num_heads: 8
+    feedforward_dim: 1024
+    dropout: 0.0
+  physgraph:
+    robot_config: configs/robot/allegro_xarm6.yaml
+    hidden_dim: 128
+    num_layers: 2
+    num_heads: 8
+    feedforward_dim: 512
+    dropout: 0.0
+    max_path_distance: 8
+    geometric_min_hops: 1
+    initial_bandwidth: 0.1
+    serial_heads: 2
+    synergy_heads: 2
+    initial_output_scale: 0.0
+  smp:
+    action_dim: 22
+    action_horizon: 16
+    num_experts: 4
+    condition_dim: 256
+    basis_hidden_dim: 256
+    gate_hidden_dim: 256
+    min_concentration: 0.0001
+    global_initial_concentration: 2.0
+    coefficient_eps: 0.001
+    experts:
+      down_dims:
+      - 64
+      - 128
+      - 256
+      diffusion_step_embed_dim: 128
+      kernel_size: 3
+      num_groups: 8
+  policy:
+    contact_update_interval: 8
+source_checkpoint_sha256: 2e99382e02c74a7cc0af09e2bd05341212da03ea696c3d795b7e261d85503765
+frozen_partfield_sha256: d225a818effc9252390aae8bc4652422047aa3248b08d7ee7b73ace604001ee6
+runtime:
+  world_size: 4
+  global_batch_size: 20
+  cuda_visible_devices: 6,1,4,7
+  trainable_parameters:
+    partfield: 0
+    point_projector: 919552
+    qwen: 494287232
+    robot_state_projector: 1636096
+    total: 496842880
+  policy_checkpoint_epoch: null

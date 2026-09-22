@@ -8,7 +8,12 @@ from torch import nn
 
 from dexcg.common.config import ProjectConfig
 from dexcg.common.typing import ContactPlan, DexCGOutput
-from dexcg.models.contact.coordinates import center_point_cloud
+from dexcg.models.contact.coordinates import (
+    CONTACT_MAX_POSITION,
+    CONTACT_MIN_POSITION,
+    CONTACT_POSITION_BINS,
+    robot_base_point_cloud,
+)
 from dexcg.models.contact.planner import ContactPlanner
 from dexcg.models.contact.token_encoder import ContactTokenEncoder
 from dexcg.models.observation.dp3_encoder import DP3ObservationEncoder
@@ -35,6 +40,16 @@ class DexCG(nn.Module):
         self.contact_encoder = contact_encoder
         self.smp = smp
         self.physgraph = physgraph
+        # SMP owns its input lookup. Switching a finetuned planner must not
+        # change the meaning of identical contact IDs under a fixed policy.
+        tokenizer = contact_planner.contact_tokenizer
+        ids = torch.tensor(sorted(set((*tokenizer.link_token_ids,
+            *tokenizer.position_token_ids, tokenizer.joint_start_id, tokenizer.joint_end_id))))
+        device = next(contact_planner.parameters()).device
+        with torch.no_grad():
+            values = contact_planner.embed_contact_tokens(ids.to(device)).detach().float().clone()
+        self.register_buffer("contact_embedding_ids", ids.to(device))
+        self.register_buffer("contact_embedding_values", values)
 
     @classmethod
     def from_config(
@@ -47,6 +62,13 @@ class DexCG(nn.Module):
         observation_encoder = DP3ObservationEncoder(**observation_config)
 
         planner_config = dict(config.contact_planner)
+        for key, expected in (
+            ("min_position", CONTACT_MIN_POSITION),
+            ("max_position", CONTACT_MAX_POSITION),
+            ("position_bins", CONTACT_POSITION_BINS),
+        ):
+            if planner_config.get(key, expected) != expected:
+                raise ValueError(f"robot-base contact contract requires {key}={expected}")
         checkpoint = Path(project_root) / planner_config.pop("checkpoint")
         base_model = Path(project_root) / planner_config.pop("base_model")
         prompt_template = (
@@ -97,26 +119,66 @@ class DexCG(nn.Module):
         return cls(observation_encoder, contact_planner, contact_encoder, smp, physgraph)
 
     def plan_contact(
-        self, observation: Mapping[str, torch.Tensor], languages: list[str]
+        self,
+        observation: Mapping[str, torch.Tensor],
+        languages: list[str],
+        previous_plan: ContactPlan | None = None,
     ) -> ContactPlan:
-        point_cloud, object_center = self.contact_planner_input(observation)
-        plan = self.contact_planner.plan(point_cloud, languages)
-        return ContactPlan(plan.token_ids, plan.attention_mask, object_center)
+        point_cloud = self.contact_planner_input(observation)
+        robot_inputs = self.contact_planner_robot_input(observation)
+        if previous_plan is None:
+            plan = self.contact_planner.plan(point_cloud, languages, **robot_inputs)
+        else:
+            plan = self.contact_planner.plan(
+                point_cloud, languages, previous_plan=previous_plan, **robot_inputs
+            )
+        return plan
+
+    def contact_planner_robot_input(self, observation):
+        if getattr(self.contact_planner, "robot_state_projector", None) is None:
+            return {}
+        return {
+            "robot_qpos": observation["agent_pos"][:, -1, :22],
+            "palm_pose_robot_base": observation["palm_pose_robot_base"][:, -1],
+        }
 
     @staticmethod
     def contact_planner_input(
         observation: Mapping[str, torch.Tensor],
-    ) -> tuple[torch.Tensor, torch.Tensor]:
-        point_cloud = observation["point_cloud"][:, -1]
-        object_mask = observation.get("object_point_mask")
-        if object_mask is not None:
-            object_mask = object_mask[:, -1]
-        return center_point_cloud(point_cloud, object_mask)
+    ) -> torch.Tensor:
+        separate_cloud = "planner_point_cloud" in observation
+        separate_mask = "planner_object_point_mask" in observation
+        if separate_cloud != separate_mask:
+            raise ValueError("planner point cloud and object mask must be supplied together")
+        prefix = "planner_" if separate_cloud else ""
+        point_cloud = observation[f"{prefix}point_cloud"][:, -1]
+        object_mask = observation[f"{prefix}object_point_mask"][:, -1]
+        if separate_cloud and not object_mask.bool().all():
+            raise ValueError("dedicated planner cloud must contain only object points")
+        return robot_base_point_cloud(point_cloud, object_mask)
 
     def encode_contact(self, contact_plan: ContactPlan) -> torch.Tensor:
-        embeddings = self.contact_planner.embed_contact_tokens(contact_plan.token_ids)
+        indices = torch.searchsorted(self.contact_embedding_ids, contact_plan.token_ids.contiguous())
+        indices = indices.clamp_max(len(self.contact_embedding_ids) - 1)
+        known = self.contact_embedding_ids[indices] == contact_plan.token_ids
+        if (contact_plan.attention_mask.bool() & ~known).any():
+            raise ValueError("Contact ID is outside the fixed SMP vocabulary")
+        embeddings = self.contact_embedding_values[indices] * known.unsqueeze(-1)
         encoder_dtype = self.contact_encoder.projector.network[1].weight.dtype
-        return self.contact_encoder(embeddings.to(dtype=encoder_dtype), contact_plan.attention_mask)
+        tokenizer = self.contact_planner.contact_tokenizer
+        return self.contact_encoder(
+            embeddings.to(dtype=encoder_dtype),
+            contact_plan.attention_mask,
+            token_ids=contact_plan.token_ids,
+            link_token_ids=torch.as_tensor(
+                tokenizer.link_token_ids, device=contact_plan.token_ids.device
+            ),
+            position_token_ids=torch.as_tensor(
+                tokenizer.position_token_ids, device=contact_plan.token_ids.device
+            ),
+            joint_start_id=tokenizer.joint_start_id,
+            joint_end_id=tokenizer.joint_end_id,
+        )
 
     def forward_with_contact(
         self,

@@ -67,7 +67,13 @@ class DexCGTrainingObjective(nn.Module):
         target_mask: torch.Tensor,
         teacher_forcing_probability: float,
     ) -> tuple[ContactPlan, torch.Tensor]:
+        if not 0.0 <= teacher_forcing_probability <= 1.0:
+            raise ValueError("teacher_forcing_probability must be between 0 and 1")
         batch_size, target_length = target_ids.shape
+        if teacher_forcing_probability == 1.0:
+            return ContactPlan(target_ids, target_mask), torch.zeros(
+                batch_size, device=target_ids.device, dtype=torch.bool
+            )
         use_prediction = torch.rand(batch_size, device=target_ids.device).ge(
             teacher_forcing_probability
         )
@@ -99,24 +105,30 @@ class DexCGTrainingObjective(nn.Module):
     ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
         observation = batch["observation"]
         action = batch["action"].float()
+        action_valid_mask = batch.get("action_valid_mask")
+        if action_valid_mask is None:
+            action_valid_mask = torch.ones(action.shape[:2], dtype=torch.bool, device=action.device)
+        else:
+            action_valid_mask = action_valid_mask.bool()
+        if action_valid_mask.shape != action.shape[:2]:
+            raise ValueError("action_valid_mask must have shape [batch, horizon]")
+        if not action_valid_mask[:, 0].all() or (
+            action_valid_mask[:, 1:] & ~action_valid_mask[:, :-1]
+        ).any():
+            raise ValueError("valid actions must form a nonempty contiguous prefix")
+        action = action.masked_fill(~action_valid_mask[:, :, None], 0)
         languages = list(batch["language"])
         target_ids = batch["contact_token_ids"].long()
         target_mask = batch["contact_token_mask"].bool()
 
         if self.train_contact_planner:
-            planner_point_cloud, _ = self.model.contact_planner_input(observation)
+            planner_point_cloud = self.model.contact_planner_input(observation)
             contact_loss, contact_metrics = self.model.contact_planner.training_loss(
                 planner_point_cloud,
                 languages,
                 target_ids,
                 target_mask,
-            )
-            contact_plan, predicted_rows = self._mixed_contact_plan(
-                observation,
-                languages,
-                target_ids,
-                target_mask,
-                teacher_forcing_probability,
+                **self.model.contact_planner_robot_input(observation),
             )
         else:
             contact_loss = action.new_zeros(())
@@ -124,8 +136,9 @@ class DexCGTrainingObjective(nn.Module):
                 "correct": target_mask.new_zeros((), dtype=torch.long),
                 "count": target_mask.new_zeros((), dtype=torch.long),
             }
-            contact_plan = ContactPlan(target_ids, target_mask)
-            predicted_rows = target_mask.new_zeros(target_mask.shape[0])
+        contact_plan, predicted_rows = self._mixed_contact_plan(
+            observation, languages, target_ids, target_mask, teacher_forcing_probability
+        )
         observation_feature = self.model.observation_encoder(
             self.normalize_observation(observation)
         )
@@ -149,15 +162,27 @@ class DexCGTrainingObjective(nn.Module):
         noisy_coefficients = self.noise_scheduler.add_noise(
             clean_coefficients, noise, timesteps
         )
+        valid = action_valid_mask[:, :, None].to(dtype=noisy_coefficients.dtype)
+        noisy_coefficients = noisy_coefficients * valid
         prediction = self.model.smp.denoise(
             noisy_coefficients,
             timesteps,
             observation_feature,
             contact_feature,
         )
-        coefficient_loss = F.mse_loss(prediction, noise, reduction="none").sum((1, 2)).mean()
+        horizon = action.shape[1]
+        valid_count = action_valid_mask.sum(dim=1).clamp_min(1).to(dtype=action.dtype)
+        coefficient_error = F.mse_loss(prediction, noise, reduction="none")
+        coefficient_loss = (
+            coefficient_error.mul(valid).sum((1, 2)).div(valid_count).mul(horizon).mean()
+        )
+        reconstruction_error = F.mse_loss(
+            targets["reconstructed_action"], action, reduction="none"
+        )
         reconstruction_loss = (
-            F.mse_loss(targets["reconstructed_action"], action, reduction="none").sum((1, 2))
+            reconstruction_error.mul(action_valid_mask[:, :, None]).sum((1, 2))
+            .div(valid_count)
+            .mul(horizon)
             / (2.0 * float(self.loss_config["action_likelihood_std"]) ** 2)
         ).mean()
         gate_loss = sticky_gate_loss(
@@ -166,9 +191,10 @@ class DexCGTrainingObjective(nn.Module):
             alpha=float(self.loss_config["gate_alpha"]),
             alpha0=float(self.loss_config["gate_alpha0"]),
             kappa=float(self.loss_config["gate_kappa"]),
+            valid_mask=action_valid_mask,
         )
         alignment_loss = router_alignment_loss(
-            targets["posterior_concentration"], targets["prior_concentration"]
+            targets["posterior_concentration"], targets["prior_concentration"], action_valid_mask
         )
         total = (
             float(self.loss_config["coefficient"]) * coefficient_loss
@@ -198,12 +224,14 @@ class DexCGTrainingObjective(nn.Module):
         languages: list[str],
         num_inference_steps: int,
         action_steps: int,
+        previous_contact_plan: ContactPlan | None = None,
     ) -> torch.Tensor:
         return self.predict_action_with_diagnostics(
             observation,
             languages,
             num_inference_steps,
             action_steps,
+            previous_contact_plan,
         ).actions
 
     @torch.no_grad()
@@ -213,8 +241,11 @@ class DexCGTrainingObjective(nn.Module):
         languages: list[str],
         num_inference_steps: int,
         action_steps: int,
+        previous_contact_plan: ContactPlan | None = None,
     ) -> ActionPrediction:
-        contact_plan = self.model.plan_contact(observation, languages)
+        contact_plan = self.model.plan_contact(
+            observation, languages, previous_plan=previous_contact_plan
+        )
         observation_feature = self.model.observation_encoder(
             self.normalize_observation(observation)
         )
@@ -240,7 +271,9 @@ class DexCGTrainingObjective(nn.Module):
             )
             coefficients = scheduler.step(prediction, timestep, coefficients).prev_sample
         action = self.model.smp.decode(basis, gate, coefficients)
-        start = self.model.observation_encoder.obs_horizon - 1
+        # The dataset pairs observations [t-1, t] with actions [a_t, ...].
+        # Execute the first predicted action at the current observation time.
+        start = 0
         return ActionPrediction(
             actions=action[:, start : start + action_steps],
             basis=basis,

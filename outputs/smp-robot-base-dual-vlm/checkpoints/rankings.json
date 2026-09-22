@@ -1,0 +1,26 @@
+{
+  "new_10000": [
+    {
+      "checkpoint": "epoch=1600-new_10000_seen_score=0.302-old_1024_seen_score=0.320.ckpt",
+      "epoch": 1600,
+      "score": 0.3025
+    },
+    {
+      "checkpoint": "epoch=1100-new_10000_seen_score=0.292-old_1024_seen_score=0.318.ckpt",
+      "epoch": 1100,
+      "score": 0.2925
+    }
+  ],
+  "old_1024": [
+    {
+      "checkpoint": "epoch=0900-new_10000_seen_score=0.265-old_1024_seen_score=0.350.ckpt",
+      "epoch": 900,
+      "score": 0.35
+    },
+    {
+      "checkpoint": "epoch=1200-new_10000_seen_score=0.278-old_1024_seen_score=0.345.ckpt",
+      "epoch": 1200,
+      "score": 0.345
+    }
+  ]
+}

@@ -7,6 +7,7 @@ from typing import Mapping, Sequence
 
 import numpy as np
 
+from dexcg.models.contact.coordinates import robot_state_in_base
 from dexcg.robots.allegro import ALLEGRO_CONTACT_LINKS
 
 VIEW_DIRECTIONS = {
@@ -43,6 +44,8 @@ class DexArtAdapter:
         self.contact_link_index = {link: index for index, link in enumerate(self.contact_links)}
         self.object_links = set(environment.instance_links)
         self.annotation_cameras: dict[str, object] = {}
+        self.environment.capture_object_cloud_source = True
+        self.model_point_rng = np.random.RandomState(0)
 
     @classmethod
     def create(
@@ -108,15 +111,43 @@ class DexArtAdapter:
     def step(self, action: np.ndarray):
         return self.environment.step(action)
 
-    @staticmethod
-    def observation(observation: Mapping[str, np.ndarray]) -> dict[str, np.ndarray]:
+    def robot_proprioception(self) -> dict[str, np.ndarray]:
+        """Read live joint positions and the palm pose relative to the robot base.
+
+        Joint positions retain simulator active-joint order. The homogeneous
+        transform maps palm-local points into the robot-base frame, with metric
+        translations; no task progress, object state, or cached state is included.
+        """
+        robot = self.environment.robot
+        qpos = np.asarray(robot.get_qpos(), dtype=np.float32).copy()
+        world_from_base = np.asarray(robot.get_pose().to_transformation_matrix())
+        world_from_palm = np.asarray(
+            self.environment.palm_link.get_pose().to_transformation_matrix()
+        )
+        base_from_palm = np.linalg.solve(world_from_base, world_from_palm).astype(np.float32)
+        if qpos.ndim != 1 or not np.isfinite(qpos).all():
+            raise ValueError("robot joint positions must be a finite vector")
+        if base_from_palm.shape != (4, 4) or not np.isfinite(base_from_palm).all():
+            raise ValueError("robot-base palm pose must be a finite 4x4 transform")
+        return {"robot_qpos": qpos, "palm_pose_robot_base": base_from_palm}
+
+    def observation(self, observation: Mapping[str, np.ndarray]) -> dict[str, np.ndarray]:
         image = np.asarray(observation["instance_1-rgb"])
-        state = np.asarray(observation["state"], dtype=np.float32)
+        state = robot_state_in_base(
+            np.asarray(observation["state"], dtype=np.float32),
+            self.environment.robot.get_pose().to_transformation_matrix(),
+            self.environment.palm_link.get_pose().to_transformation_matrix(),
+        )
         segmentation = np.asarray(observation.get("instance_1-seg_gt", ()), dtype=np.float32)
         if segmentation.shape == (len(observation["instance_1-point_cloud"]), 4):
             object_point_mask = np.any(segmentation[:, :2] > 0.5, axis=-1)
         else:
-            object_point_mask = np.ones(len(observation["instance_1-point_cloud"]), dtype=np.bool_)
+            object_point_mask = np.zeros(len(observation["instance_1-point_cloud"]), dtype=np.bool_)
+        object_center = np.asarray(observation["instance_1-object_center"], dtype=np.float32)
+        if object_center.shape != (3,):
+            raise ValueError(
+                f"Expected a 3D full-resolution object center, received {object_center.shape}"
+            )
         if state.shape[-1] == 32:
             agent_pos = np.concatenate(
                 (state[..., :-1], np.zeros_like(state[..., :1]), state[..., -1:]), axis=-1
@@ -125,17 +156,39 @@ class DexArtAdapter:
             agent_pos = state.copy()
         else:
             raise ValueError(f"Expected a 32D or 33D DexArt state, received {state.shape}")
-        return {
+        sample = {
             "img": np.rint(np.clip(image, 0.0, 1.0) * 255.0).astype(np.uint8),
             "depth": np.asarray(observation["instance_1-depth"], dtype=np.float32),
             "point_cloud": np.asarray(
                 observation["instance_1-point_cloud"][..., :3], dtype=np.float32
             ),
             "object_point_mask": object_point_mask,
+            "object_center": object_center,
             "imagin_robot": np.asarray(observation["imagination_robot"], dtype=np.float32),
             "state": state,
             "agent_pos": agent_pos,
         }
+        source = getattr(self.environment, "object_cloud_source", None)
+        sample.update(self.robot_proprioception())
+        if source is not None:
+            from dexcg.data.robot_base import InvalidObjectObservation, sample_object_points
+
+            try:
+                pure = sample_object_points(
+                    source,
+                    [link.get_id() for link in self.environment.instance_links],
+                    self.model_point_rng,
+                    len(sample["point_cloud"]),
+                )
+                for key in ("point_cloud", "object_point_mask", "object_center"):
+                    sample[key] = pure[key]
+            except InvalidObjectObservation:
+                sample["object_point_mask"][:] = False
+                sample["object_center"][:] = np.nan
+        from dexcg.robots.geometry import robot_geometry
+
+        sample["imagin_robot"] = robot_geometry(state[:22])
+        return sample
 
     def contact_graph(self) -> ContactGraph:
         per_link: list[list[np.ndarray]] = [[] for _ in ALLEGRO_CONTACT_LINKS]
@@ -193,11 +246,13 @@ class DexArtAdapter:
         extrinsics = []
         robot_inverse = self.environment.robot.get_pose().inv()
         for direction_name in directions:
-            axis = VIEW_DIRECTIONS[direction_name]
+            base_rotation = robot_pose.to_transformation_matrix()[:3, :3]
+            axis_local = VIEW_DIRECTIONS[direction_name]
+            axis = base_rotation @ axis_local
             position = center + axis * distance
             look_direction = center - position
-            up_reference = (
-                np.array([0.0, 1.0, 0.0]) if abs(axis[2]) > 0.9 else np.array([0.0, 0.0, 1.0])
+            up_reference = base_rotation @ (
+                np.array([0.0, 1.0, 0.0]) if abs(axis_local[2]) > 0.9 else np.array([0.0, 0.0, 1.0])
             )
             right = np.cross(look_direction, up_reference)
             camera_name = f"dexcg_annotation_{direction_name.replace('+', 'p').replace('-', 'n')}"

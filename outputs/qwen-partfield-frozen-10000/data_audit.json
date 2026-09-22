@@ -1,0 +1,4232 @@
+{
+  "diagnostic_samples": {
+    "train": [
+      {
+        "absolute_step": 7338,
+        "episode_key": "0:114",
+        "object_id": "1011",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7355,
+        "episode_key": "0:114",
+        "object_id": "1011",
+        "step": 17,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7372,
+        "episode_key": "0:114",
+        "object_id": "1011",
+        "step": 34,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8272,
+        "episode_key": "0:133",
+        "object_id": "1011",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8298,
+        "episode_key": "0:133",
+        "object_id": "1011",
+        "step": 26,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8324,
+        "episode_key": "0:133",
+        "object_id": "1011",
+        "step": 52,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8762,
+        "episode_key": "0:141",
+        "object_id": "1053",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8811,
+        "episode_key": "0:141",
+        "object_id": "1053",
+        "step": 49,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8860,
+        "episode_key": "0:141",
+        "object_id": "1053",
+        "step": 98,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 9447,
+        "episode_key": "0:147",
+        "object_id": "1053",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 9474,
+        "episode_key": "0:147",
+        "object_id": "1053",
+        "step": 27,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 9502,
+        "episode_key": "0:147",
+        "object_id": "1053",
+        "step": 55,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10338,
+        "episode_key": "0:163",
+        "object_id": "1288",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10407,
+        "episode_key": "0:163",
+        "object_id": "1288",
+        "step": 69,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10476,
+        "episode_key": "0:163",
+        "object_id": "1288",
+        "step": 138,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11038,
+        "episode_key": "0:175",
+        "object_id": "1288",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11067,
+        "episode_key": "0:175",
+        "object_id": "1288",
+        "step": 29,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11097,
+        "episode_key": "0:175",
+        "object_id": "1288",
+        "step": 59,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11453,
+        "episode_key": "0:182",
+        "object_id": "1343",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11461,
+        "episode_key": "0:182",
+        "object_id": "1343",
+        "step": 8,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11470,
+        "episode_key": "0:182",
+        "object_id": "1343",
+        "step": 17,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12293,
+        "episode_key": "0:191",
+        "object_id": "1343",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12320,
+        "episode_key": "0:191",
+        "object_id": "1343",
+        "step": 27,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12352,
+        "episode_key": "0:191",
+        "object_id": "1343",
+        "step": 59,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15089,
+        "episode_key": "0:222",
+        "object_id": "1370",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15181,
+        "episode_key": "0:222",
+        "object_id": "1370",
+        "step": 92,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15274,
+        "episode_key": "0:222",
+        "object_id": "1370",
+        "step": 185,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15381,
+        "episode_key": "0:225",
+        "object_id": "1370",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15460,
+        "episode_key": "0:225",
+        "object_id": "1370",
+        "step": 79,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15540,
+        "episode_key": "0:225",
+        "object_id": "1370",
+        "step": 159,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15569,
+        "episode_key": "0:227",
+        "object_id": "1466",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15576,
+        "episode_key": "0:227",
+        "object_id": "1466",
+        "step": 7,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15583,
+        "episode_key": "0:227",
+        "object_id": "1466",
+        "step": 14,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16534,
+        "episode_key": "0:245",
+        "object_id": "1466",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16552,
+        "episode_key": "0:245",
+        "object_id": "1466",
+        "step": 18,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16571,
+        "episode_key": "0:245",
+        "object_id": "1466",
+        "step": 37,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 0,
+        "episode_key": "0:0",
+        "object_id": "148",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 46,
+        "episode_key": "0:0",
+        "object_id": "148",
+        "step": 46,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 93,
+        "episode_key": "0:0",
+        "object_id": "148",
+        "step": 93,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 551,
+        "episode_key": "0:8",
+        "object_id": "148",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 599,
+        "episode_key": "0:8",
+        "object_id": "148",
+        "step": 48,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 648,
+        "episode_key": "0:8",
+        "object_id": "148",
+        "step": 97,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1676,
+        "episode_key": "0:27",
+        "object_id": "693",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1787,
+        "episode_key": "0:27",
+        "object_id": "693",
+        "step": 111,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1898,
+        "episode_key": "0:27",
+        "object_id": "693",
+        "step": 222,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2031,
+        "episode_key": "0:31",
+        "object_id": "693",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2062,
+        "episode_key": "0:31",
+        "object_id": "693",
+        "step": 31,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2094,
+        "episode_key": "0:31",
+        "object_id": "693",
+        "step": 63,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3883,
+        "episode_key": "0:60",
+        "object_id": "822",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3893,
+        "episode_key": "0:60",
+        "object_id": "822",
+        "step": 10,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3904,
+        "episode_key": "0:60",
+        "object_id": "822",
+        "step": 21,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3905,
+        "episode_key": "0:61",
+        "object_id": "822",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3933,
+        "episode_key": "0:61",
+        "object_id": "822",
+        "step": 28,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3961,
+        "episode_key": "0:61",
+        "object_id": "822",
+        "step": 56,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5184,
+        "episode_key": "0:81",
+        "object_id": "857",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5266,
+        "episode_key": "0:81",
+        "object_id": "857",
+        "step": 82,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5359,
+        "episode_key": "0:81",
+        "object_id": "857",
+        "step": 175,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5543,
+        "episode_key": "0:85",
+        "object_id": "857",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5560,
+        "episode_key": "0:85",
+        "object_id": "857",
+        "step": 17,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5578,
+        "episode_key": "0:85",
+        "object_id": "857",
+        "step": 35,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6110,
+        "episode_key": "0:90",
+        "object_id": "991",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6142,
+        "episode_key": "0:90",
+        "object_id": "991",
+        "step": 32,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6175,
+        "episode_key": "0:90",
+        "object_id": "991",
+        "step": 65,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7054,
+        "episode_key": "0:109",
+        "object_id": "991",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7124,
+        "episode_key": "0:109",
+        "object_id": "991",
+        "step": 70,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7194,
+        "episode_key": "0:109",
+        "object_id": "991",
+        "step": 140,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1600,
+        "episode_key": "1:16",
+        "object_id": "100431",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1649,
+        "episode_key": "1:16",
+        "object_id": "100431",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1699,
+        "episode_key": "1:16",
+        "object_id": "100431",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1800,
+        "episode_key": "1:18",
+        "object_id": "100431",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1849,
+        "episode_key": "1:18",
+        "object_id": "100431",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1899,
+        "episode_key": "1:18",
+        "object_id": "100431",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3100,
+        "episode_key": "1:31",
+        "object_id": "100435",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3149,
+        "episode_key": "1:31",
+        "object_id": "100435",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3199,
+        "episode_key": "1:31",
+        "object_id": "100435",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4400,
+        "episode_key": "1:44",
+        "object_id": "100435",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4449,
+        "episode_key": "1:44",
+        "object_id": "100435",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4499,
+        "episode_key": "1:44",
+        "object_id": "100435",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5200,
+        "episode_key": "1:52",
+        "object_id": "100438",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5249,
+        "episode_key": "1:52",
+        "object_id": "100438",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5299,
+        "episode_key": "1:52",
+        "object_id": "100438",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6700,
+        "episode_key": "1:67",
+        "object_id": "100438",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6752,
+        "episode_key": "1:67",
+        "object_id": "100438",
+        "step": 52,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6799,
+        "episode_key": "1:67",
+        "object_id": "100438",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 7900,
+        "episode_key": "1:79",
+        "object_id": "100439",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 7952,
+        "episode_key": "1:79",
+        "object_id": "100439",
+        "step": 52,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 7999,
+        "episode_key": "1:79",
+        "object_id": "100439",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 8883,
+        "episode_key": "1:89",
+        "object_id": "100439",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 8932,
+        "episode_key": "1:89",
+        "object_id": "100439",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 8982,
+        "episode_key": "1:89",
+        "object_id": "100439",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9283,
+        "episode_key": "1:93",
+        "object_id": "100441",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9335,
+        "episode_key": "1:93",
+        "object_id": "100441",
+        "step": 52,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9382,
+        "episode_key": "1:93",
+        "object_id": "100441",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11183,
+        "episode_key": "1:112",
+        "object_id": "100441",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11232,
+        "episode_key": "1:112",
+        "object_id": "100441",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11282,
+        "episode_key": "1:112",
+        "object_id": "100441",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11683,
+        "episode_key": "1:117",
+        "object_id": "100444",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11733,
+        "episode_key": "1:117",
+        "object_id": "100444",
+        "step": 50,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11782,
+        "episode_key": "1:117",
+        "object_id": "100444",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 12583,
+        "episode_key": "1:126",
+        "object_id": "100444",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 12615,
+        "episode_key": "1:126",
+        "object_id": "100444",
+        "step": 32,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 12648,
+        "episode_key": "1:126",
+        "object_id": "100444",
+        "step": 65,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14683,
+        "episode_key": "1:147",
+        "object_id": "100446",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14732,
+        "episode_key": "1:147",
+        "object_id": "100446",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14782,
+        "episode_key": "1:147",
+        "object_id": "100446",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15383,
+        "episode_key": "1:154",
+        "object_id": "100446",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15432,
+        "episode_key": "1:154",
+        "object_id": "100446",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15482,
+        "episode_key": "1:154",
+        "object_id": "100446",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15783,
+        "episode_key": "1:158",
+        "object_id": "100448",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15832,
+        "episode_key": "1:158",
+        "object_id": "100448",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15882,
+        "episode_key": "1:158",
+        "object_id": "100448",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 16283,
+        "episode_key": "1:163",
+        "object_id": "100448",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 16332,
+        "episode_key": "1:163",
+        "object_id": "100448",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 16382,
+        "episode_key": "1:163",
+        "object_id": "100448",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18083,
+        "episode_key": "1:181",
+        "object_id": "100454",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18132,
+        "episode_key": "1:181",
+        "object_id": "100454",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18182,
+        "episode_key": "1:181",
+        "object_id": "100454",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 19583,
+        "episode_key": "1:196",
+        "object_id": "100454",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 19632,
+        "episode_key": "1:196",
+        "object_id": "100454",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 19682,
+        "episode_key": "1:196",
+        "object_id": "100454",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22083,
+        "episode_key": "1:221",
+        "object_id": "100461",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22132,
+        "episode_key": "1:221",
+        "object_id": "100461",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22182,
+        "episode_key": "1:221",
+        "object_id": "100461",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22383,
+        "episode_key": "1:224",
+        "object_id": "100461",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22432,
+        "episode_key": "1:224",
+        "object_id": "100461",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22482,
+        "episode_key": "1:224",
+        "object_id": "100461",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23183,
+        "episode_key": "1:232",
+        "object_id": "100462",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23233,
+        "episode_key": "1:232",
+        "object_id": "100462",
+        "step": 50,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23282,
+        "episode_key": "1:232",
+        "object_id": "100462",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23583,
+        "episode_key": "1:236",
+        "object_id": "100462",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23632,
+        "episode_key": "1:236",
+        "object_id": "100462",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 23682,
+        "episode_key": "1:236",
+        "object_id": "100462",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5869,
+        "episode_key": "2:169",
+        "object_id": "10090",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5880,
+        "episode_key": "2:169",
+        "object_id": "10090",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5892,
+        "episode_key": "2:169",
+        "object_id": "10090",
+        "step": 23,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6113,
+        "episode_key": "2:177",
+        "object_id": "10090",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6128,
+        "episode_key": "2:177",
+        "object_id": "10090",
+        "step": 15,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6143,
+        "episode_key": "2:177",
+        "object_id": "10090",
+        "step": 30,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6368,
+        "episode_key": "2:186",
+        "object_id": "10098",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6387,
+        "episode_key": "2:186",
+        "object_id": "10098",
+        "step": 19,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6407,
+        "episode_key": "2:186",
+        "object_id": "10098",
+        "step": 39,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6408,
+        "episode_key": "2:187",
+        "object_id": "10098",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6421,
+        "episode_key": "2:187",
+        "object_id": "10098",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6434,
+        "episode_key": "2:187",
+        "object_id": "10098",
+        "step": 26,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6931,
+        "episode_key": "2:204",
+        "object_id": "10101",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6943,
+        "episode_key": "2:204",
+        "object_id": "10101",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6955,
+        "episode_key": "2:204",
+        "object_id": "10101",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7232,
+        "episode_key": "2:213",
+        "object_id": "10101",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7245,
+        "episode_key": "2:213",
+        "object_id": "10101",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7259,
+        "episode_key": "2:213",
+        "object_id": "10101",
+        "step": 27,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7977,
+        "episode_key": "2:242",
+        "object_id": "10125",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7988,
+        "episode_key": "2:242",
+        "object_id": "10125",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 8000,
+        "episode_key": "2:242",
+        "object_id": "10125",
+        "step": 23,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 8030,
+        "episode_key": "2:244",
+        "object_id": "10125",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 8040,
+        "episode_key": "2:244",
+        "object_id": "10125",
+        "step": 10,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 8050,
+        "episode_key": "2:244",
+        "object_id": "10125",
+        "step": 20,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 674,
+        "episode_key": "2:15",
+        "object_id": "11395",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 686,
+        "episode_key": "2:15",
+        "object_id": "11395",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 699,
+        "episode_key": "2:15",
+        "object_id": "11395",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 747,
+        "episode_key": "2:18",
+        "object_id": "11395",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 760,
+        "episode_key": "2:18",
+        "object_id": "11395",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 773,
+        "episode_key": "2:18",
+        "object_id": "11395",
+        "step": 26,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1268,
+        "episode_key": "2:36",
+        "object_id": "11405",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1280,
+        "episode_key": "2:36",
+        "object_id": "11405",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1293,
+        "episode_key": "2:36",
+        "object_id": "11405",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1521,
+        "episode_key": "2:44",
+        "object_id": "11405",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1632,
+        "episode_key": "2:44",
+        "object_id": "11405",
+        "step": 111,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1743,
+        "episode_key": "2:44",
+        "object_id": "11405",
+        "step": 222,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2108,
+        "episode_key": "2:59",
+        "object_id": "11406",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2120,
+        "episode_key": "2:59",
+        "object_id": "11406",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2132,
+        "episode_key": "2:59",
+        "object_id": "11406",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2237,
+        "episode_key": "2:64",
+        "object_id": "11406",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2249,
+        "episode_key": "2:64",
+        "object_id": "11406",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2261,
+        "episode_key": "2:64",
+        "object_id": "11406",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2428,
+        "episode_key": "2:71",
+        "object_id": "11477",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2440,
+        "episode_key": "2:71",
+        "object_id": "11477",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2452,
+        "episode_key": "2:71",
+        "object_id": "11477",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2749,
+        "episode_key": "2:83",
+        "object_id": "11477",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2763,
+        "episode_key": "2:83",
+        "object_id": "11477",
+        "step": 14,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2777,
+        "episode_key": "2:83",
+        "object_id": "11477",
+        "step": 28,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3203,
+        "episode_key": "2:95",
+        "object_id": "11581",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3218,
+        "episode_key": "2:95",
+        "object_id": "11581",
+        "step": 15,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3233,
+        "episode_key": "2:95",
+        "object_id": "11581",
+        "step": 30,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3288,
+        "episode_key": "2:98",
+        "object_id": "11581",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3299,
+        "episode_key": "2:98",
+        "object_id": "11581",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3311,
+        "episode_key": "2:98",
+        "object_id": "11581",
+        "step": 23,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4013,
+        "episode_key": "2:123",
+        "object_id": "11586",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4026,
+        "episode_key": "2:123",
+        "object_id": "11586",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4040,
+        "episode_key": "2:123",
+        "object_id": "11586",
+        "step": 27,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4377,
+        "episode_key": "2:129",
+        "object_id": "11586",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4393,
+        "episode_key": "2:129",
+        "object_id": "11586",
+        "step": 16,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4410,
+        "episode_key": "2:129",
+        "object_id": "11586",
+        "step": 33,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5270,
+        "episode_key": "2:149",
+        "object_id": "9996",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5282,
+        "episode_key": "2:149",
+        "object_id": "9996",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5295,
+        "episode_key": "2:149",
+        "object_id": "9996",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5325,
+        "episode_key": "2:151",
+        "object_id": "9996",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5345,
+        "episode_key": "2:151",
+        "object_id": "9996",
+        "step": 20,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5365,
+        "episode_key": "2:151",
+        "object_id": "9996",
+        "step": 40,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5657,
+        "episode_key": "3:162",
+        "object_id": "102663",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5667,
+        "episode_key": "3:162",
+        "object_id": "102663",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5677,
+        "episode_key": "3:162",
+        "object_id": "102663",
+        "step": 20,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6015,
+        "episode_key": "3:169",
+        "object_id": "102663",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6022,
+        "episode_key": "3:169",
+        "object_id": "102663",
+        "step": 7,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6030,
+        "episode_key": "3:169",
+        "object_id": "102663",
+        "step": 15,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6259,
+        "episode_key": "3:178",
+        "object_id": "102666",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6269,
+        "episode_key": "3:178",
+        "object_id": "102666",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6280,
+        "episode_key": "3:178",
+        "object_id": "102666",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6412,
+        "episode_key": "3:184",
+        "object_id": "102666",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6424,
+        "episode_key": "3:184",
+        "object_id": "102666",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6437,
+        "episode_key": "3:184",
+        "object_id": "102666",
+        "step": 25,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6881,
+        "episode_key": "3:195",
+        "object_id": "102667",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6890,
+        "episode_key": "3:195",
+        "object_id": "102667",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6899,
+        "episode_key": "3:195",
+        "object_id": "102667",
+        "step": 18,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6918,
+        "episode_key": "3:197",
+        "object_id": "102667",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6924,
+        "episode_key": "3:197",
+        "object_id": "102667",
+        "step": 6,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6931,
+        "episode_key": "3:197",
+        "object_id": "102667",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7380,
+        "episode_key": "3:218",
+        "object_id": "102669",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7389,
+        "episode_key": "3:218",
+        "object_id": "102669",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7398,
+        "episode_key": "3:218",
+        "object_id": "102669",
+        "step": 18,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7399,
+        "episode_key": "3:219",
+        "object_id": "102669",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7407,
+        "episode_key": "3:219",
+        "object_id": "102669",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7416,
+        "episode_key": "3:219",
+        "object_id": "102669",
+        "step": 17,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7597,
+        "episode_key": "3:226",
+        "object_id": "102670",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7608,
+        "episode_key": "3:226",
+        "object_id": "102670",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7620,
+        "episode_key": "3:226",
+        "object_id": "102670",
+        "step": 23,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7645,
+        "episode_key": "3:228",
+        "object_id": "102670",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7654,
+        "episode_key": "3:228",
+        "object_id": "102670",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7664,
+        "episode_key": "3:228",
+        "object_id": "102670",
+        "step": 19,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8227,
+        "episode_key": "3:246",
+        "object_id": "102675",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8236,
+        "episode_key": "3:246",
+        "object_id": "102675",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8246,
+        "episode_key": "3:246",
+        "object_id": "102675",
+        "step": 19,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8453,
+        "episode_key": "3:248",
+        "object_id": "102675",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8463,
+        "episode_key": "3:248",
+        "object_id": "102675",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8474,
+        "episode_key": "3:248",
+        "object_id": "102675",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 90,
+        "episode_key": "3:3",
+        "object_id": "102677",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 102,
+        "episode_key": "3:3",
+        "object_id": "102677",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 115,
+        "episode_key": "3:3",
+        "object_id": "102677",
+        "step": 25,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 241,
+        "episode_key": "3:7",
+        "object_id": "102677",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 269,
+        "episode_key": "3:7",
+        "object_id": "102677",
+        "step": 28,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 297,
+        "episode_key": "3:7",
+        "object_id": "102677",
+        "step": 56,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 739,
+        "episode_key": "3:17",
+        "object_id": "102687",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 758,
+        "episode_key": "3:17",
+        "object_id": "102687",
+        "step": 19,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 777,
+        "episode_key": "3:17",
+        "object_id": "102687",
+        "step": 38,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1487,
+        "episode_key": "3:27",
+        "object_id": "102687",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1498,
+        "episode_key": "3:27",
+        "object_id": "102687",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1509,
+        "episode_key": "3:27",
+        "object_id": "102687",
+        "step": 22,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1797,
+        "episode_key": "3:40",
+        "object_id": "102689",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1807,
+        "episode_key": "3:40",
+        "object_id": "102689",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1818,
+        "episode_key": "3:40",
+        "object_id": "102689",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1843,
+        "episode_key": "3:42",
+        "object_id": "102689",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1850,
+        "episode_key": "3:42",
+        "object_id": "102689",
+        "step": 7,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1857,
+        "episode_key": "3:42",
+        "object_id": "102689",
+        "step": 14,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1948,
+        "episode_key": "3:47",
+        "object_id": "102692",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1964,
+        "episode_key": "3:47",
+        "object_id": "102692",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1980,
+        "episode_key": "3:47",
+        "object_id": "102692",
+        "step": 32,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2081,
+        "episode_key": "3:52",
+        "object_id": "102692",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2097,
+        "episode_key": "3:52",
+        "object_id": "102692",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2113,
+        "episode_key": "3:52",
+        "object_id": "102692",
+        "step": 32,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2405,
+        "episode_key": "3:59",
+        "object_id": "102697",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2415,
+        "episode_key": "3:59",
+        "object_id": "102697",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2425,
+        "episode_key": "3:59",
+        "object_id": "102697",
+        "step": 20,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2735,
+        "episode_key": "3:71",
+        "object_id": "102697",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2741,
+        "episode_key": "3:71",
+        "object_id": "102697",
+        "step": 6,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2747,
+        "episode_key": "3:71",
+        "object_id": "102697",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2785,
+        "episode_key": "3:74",
+        "object_id": "102699",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2793,
+        "episode_key": "3:74",
+        "object_id": "102699",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2801,
+        "episode_key": "3:74",
+        "object_id": "102699",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3274,
+        "episode_key": "3:85",
+        "object_id": "102699",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3284,
+        "episode_key": "3:85",
+        "object_id": "102699",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3294,
+        "episode_key": "3:85",
+        "object_id": "102699",
+        "step": 20,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3357,
+        "episode_key": "3:89",
+        "object_id": "102701",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3368,
+        "episode_key": "3:89",
+        "object_id": "102701",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3380,
+        "episode_key": "3:89",
+        "object_id": "102701",
+        "step": 23,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3603,
+        "episode_key": "3:98",
+        "object_id": "102701",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3612,
+        "episode_key": "3:98",
+        "object_id": "102701",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3622,
+        "episode_key": "3:98",
+        "object_id": "102701",
+        "step": 19,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3798,
+        "episode_key": "3:105",
+        "object_id": "102703",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3808,
+        "episode_key": "3:105",
+        "object_id": "102703",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3819,
+        "episode_key": "3:105",
+        "object_id": "102703",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3820,
+        "episode_key": "3:106",
+        "object_id": "102703",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3831,
+        "episode_key": "3:106",
+        "object_id": "102703",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3842,
+        "episode_key": "3:106",
+        "object_id": "102703",
+        "step": 22,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4454,
+        "episode_key": "3:121",
+        "object_id": "102707",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4468,
+        "episode_key": "3:121",
+        "object_id": "102707",
+        "step": 14,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4483,
+        "episode_key": "3:121",
+        "object_id": "102707",
+        "step": 29,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4742,
+        "episode_key": "3:130",
+        "object_id": "102707",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4754,
+        "episode_key": "3:130",
+        "object_id": "102707",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4766,
+        "episode_key": "3:130",
+        "object_id": "102707",
+        "step": 24,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5184,
+        "episode_key": "3:143",
+        "object_id": "102708",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5192,
+        "episode_key": "3:143",
+        "object_id": "102708",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5201,
+        "episode_key": "3:143",
+        "object_id": "102708",
+        "step": 17,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5223,
+        "episode_key": "3:145",
+        "object_id": "102708",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5234,
+        "episode_key": "3:145",
+        "object_id": "102708",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5246,
+        "episode_key": "3:145",
+        "object_id": "102708",
+        "step": 23,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5611,
+        "episode_key": "3:160",
+        "object_id": "103234",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5620,
+        "episode_key": "3:160",
+        "object_id": "103234",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5629,
+        "episode_key": "3:160",
+        "object_id": "103234",
+        "step": 18,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5630,
+        "episode_key": "3:161",
+        "object_id": "103234",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5643,
+        "episode_key": "3:161",
+        "object_id": "103234",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5656,
+        "episode_key": "3:161",
+        "object_id": "103234",
+        "step": 26,
+        "task": "toilet"
+      }
+    ],
+    "validation": [
+      {
+        "absolute_step": 7440,
+        "episode_key": "0:116",
+        "object_id": "1011",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7512,
+        "episode_key": "0:116",
+        "object_id": "1011",
+        "step": 72,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 7584,
+        "episode_key": "0:116",
+        "object_id": "1011",
+        "step": 144,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8215,
+        "episode_key": "0:130",
+        "object_id": "1011",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8225,
+        "episode_key": "0:130",
+        "object_id": "1011",
+        "step": 10,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8236,
+        "episode_key": "0:130",
+        "object_id": "1011",
+        "step": 21,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8364,
+        "episode_key": "0:135",
+        "object_id": "1053",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8373,
+        "episode_key": "0:135",
+        "object_id": "1053",
+        "step": 9,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8383,
+        "episode_key": "0:135",
+        "object_id": "1053",
+        "step": 19,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8895,
+        "episode_key": "0:143",
+        "object_id": "1053",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 8965,
+        "episode_key": "0:143",
+        "object_id": "1053",
+        "step": 70,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 9036,
+        "episode_key": "0:143",
+        "object_id": "1053",
+        "step": 141,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10477,
+        "episode_key": "0:164",
+        "object_id": "1288",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10542,
+        "episode_key": "0:164",
+        "object_id": "1288",
+        "step": 65,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 10611,
+        "episode_key": "0:164",
+        "object_id": "1288",
+        "step": 134,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11098,
+        "episode_key": "0:176",
+        "object_id": "1288",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11109,
+        "episode_key": "0:176",
+        "object_id": "1288",
+        "step": 11,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 11121,
+        "episode_key": "0:176",
+        "object_id": "1288",
+        "step": 23,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12040,
+        "episode_key": "0:188",
+        "object_id": "1343",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12119,
+        "episode_key": "0:188",
+        "object_id": "1343",
+        "step": 79,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 12198,
+        "episode_key": "0:188",
+        "object_id": "1343",
+        "step": 158,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 13347,
+        "episode_key": "0:202",
+        "object_id": "1343",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 13370,
+        "episode_key": "0:202",
+        "object_id": "1343",
+        "step": 23,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 13389,
+        "episode_key": "0:202",
+        "object_id": "1343",
+        "step": 42,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 14655,
+        "episode_key": "0:219",
+        "object_id": "1370",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 14725,
+        "episode_key": "0:219",
+        "object_id": "1370",
+        "step": 70,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 14795,
+        "episode_key": "0:219",
+        "object_id": "1370",
+        "step": 140,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15275,
+        "episode_key": "0:223",
+        "object_id": "1370",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15287,
+        "episode_key": "0:223",
+        "object_id": "1370",
+        "step": 12,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15306,
+        "episode_key": "0:223",
+        "object_id": "1370",
+        "step": 31,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15923,
+        "episode_key": "0:233",
+        "object_id": "1466",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15931,
+        "episode_key": "0:233",
+        "object_id": "1466",
+        "step": 8,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 15939,
+        "episode_key": "0:233",
+        "object_id": "1466",
+        "step": 16,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16482,
+        "episode_key": "0:243",
+        "object_id": "1466",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16489,
+        "episode_key": "0:243",
+        "object_id": "1466",
+        "step": 7,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 16497,
+        "episode_key": "0:243",
+        "object_id": "1466",
+        "step": 15,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 667,
+        "episode_key": "0:10",
+        "object_id": "148",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 678,
+        "episode_key": "0:10",
+        "object_id": "148",
+        "step": 11,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 689,
+        "episode_key": "0:10",
+        "object_id": "148",
+        "step": 22,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 690,
+        "episode_key": "0:11",
+        "object_id": "148",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 699,
+        "episode_key": "0:11",
+        "object_id": "148",
+        "step": 9,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 709,
+        "episode_key": "0:11",
+        "object_id": "148",
+        "step": 19,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1174,
+        "episode_key": "0:23",
+        "object_id": "693",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1217,
+        "episode_key": "0:23",
+        "object_id": "693",
+        "step": 43,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 1261,
+        "episode_key": "0:23",
+        "object_id": "693",
+        "step": 87,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2388,
+        "episode_key": "0:37",
+        "object_id": "693",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2414,
+        "episode_key": "0:37",
+        "object_id": "693",
+        "step": 26,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 2441,
+        "episode_key": "0:37",
+        "object_id": "693",
+        "step": 53,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3769,
+        "episode_key": "0:59",
+        "object_id": "822",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3825,
+        "episode_key": "0:59",
+        "object_id": "822",
+        "step": 56,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3882,
+        "episode_key": "0:59",
+        "object_id": "822",
+        "step": 113,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3962,
+        "episode_key": "0:62",
+        "object_id": "822",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3977,
+        "episode_key": "0:62",
+        "object_id": "822",
+        "step": 15,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 3992,
+        "episode_key": "0:62",
+        "object_id": "822",
+        "step": 30,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 4514,
+        "episode_key": "0:72",
+        "object_id": "857",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 4567,
+        "episode_key": "0:72",
+        "object_id": "857",
+        "step": 53,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 4620,
+        "episode_key": "0:72",
+        "object_id": "857",
+        "step": 106,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5006,
+        "episode_key": "0:78",
+        "object_id": "857",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5046,
+        "episode_key": "0:78",
+        "object_id": "857",
+        "step": 40,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 5087,
+        "episode_key": "0:78",
+        "object_id": "857",
+        "step": 81,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6389,
+        "episode_key": "0:92",
+        "object_id": "991",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6429,
+        "episode_key": "0:92",
+        "object_id": "991",
+        "step": 40,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6469,
+        "episode_key": "0:92",
+        "object_id": "991",
+        "step": 80,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6634,
+        "episode_key": "0:98",
+        "object_id": "991",
+        "step": 0,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6655,
+        "episode_key": "0:98",
+        "object_id": "991",
+        "step": 21,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 6676,
+        "episode_key": "0:98",
+        "object_id": "991",
+        "step": 42,
+        "task": "faucet"
+      },
+      {
+        "absolute_step": 0,
+        "episode_key": "1:0",
+        "object_id": "100431",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 49,
+        "episode_key": "1:0",
+        "object_id": "100431",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 99,
+        "episode_key": "1:0",
+        "object_id": "100431",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1400,
+        "episode_key": "1:14",
+        "object_id": "100431",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1449,
+        "episode_key": "1:14",
+        "object_id": "100431",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 1499,
+        "episode_key": "1:14",
+        "object_id": "100431",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3200,
+        "episode_key": "1:32",
+        "object_id": "100435",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3249,
+        "episode_key": "1:32",
+        "object_id": "100435",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 3298,
+        "episode_key": "1:32",
+        "object_id": "100435",
+        "step": 98,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4000,
+        "episode_key": "1:40",
+        "object_id": "100435",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4051,
+        "episode_key": "1:40",
+        "object_id": "100435",
+        "step": 51,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 4099,
+        "episode_key": "1:40",
+        "object_id": "100435",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5300,
+        "episode_key": "1:53",
+        "object_id": "100438",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5349,
+        "episode_key": "1:53",
+        "object_id": "100438",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5399,
+        "episode_key": "1:53",
+        "object_id": "100438",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5500,
+        "episode_key": "1:55",
+        "object_id": "100438",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5549,
+        "episode_key": "1:55",
+        "object_id": "100438",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 5599,
+        "episode_key": "1:55",
+        "object_id": "100438",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6800,
+        "episode_key": "1:68",
+        "object_id": "100439",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6853,
+        "episode_key": "1:68",
+        "object_id": "100439",
+        "step": 53,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6899,
+        "episode_key": "1:68",
+        "object_id": "100439",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6900,
+        "episode_key": "1:69",
+        "object_id": "100439",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6949,
+        "episode_key": "1:69",
+        "object_id": "100439",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6999,
+        "episode_key": "1:69",
+        "object_id": "100439",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9183,
+        "episode_key": "1:92",
+        "object_id": "100441",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9232,
+        "episode_key": "1:92",
+        "object_id": "100441",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 9282,
+        "episode_key": "1:92",
+        "object_id": "100441",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 10783,
+        "episode_key": "1:108",
+        "object_id": "100441",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 10836,
+        "episode_key": "1:108",
+        "object_id": "100441",
+        "step": 53,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 10882,
+        "episode_key": "1:108",
+        "object_id": "100441",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11283,
+        "episode_key": "1:113",
+        "object_id": "100444",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11317,
+        "episode_key": "1:113",
+        "object_id": "100444",
+        "step": 34,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11382,
+        "episode_key": "1:113",
+        "object_id": "100444",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11383,
+        "episode_key": "1:114",
+        "object_id": "100444",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11410,
+        "episode_key": "1:114",
+        "object_id": "100444",
+        "step": 27,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 11438,
+        "episode_key": "1:114",
+        "object_id": "100444",
+        "step": 55,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14283,
+        "episode_key": "1:143",
+        "object_id": "100446",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14332,
+        "episode_key": "1:143",
+        "object_id": "100446",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14382,
+        "episode_key": "1:143",
+        "object_id": "100446",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14483,
+        "episode_key": "1:145",
+        "object_id": "100446",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14532,
+        "episode_key": "1:145",
+        "object_id": "100446",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 14582,
+        "episode_key": "1:145",
+        "object_id": "100446",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 15983,
+        "episode_key": "1:160",
+        "object_id": "100448",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 16032,
+        "episode_key": "1:160",
+        "object_id": "100448",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 16082,
+        "episode_key": "1:160",
+        "object_id": "100448",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 17583,
+        "episode_key": "1:176",
+        "object_id": "100448",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 17632,
+        "episode_key": "1:176",
+        "object_id": "100448",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 17682,
+        "episode_key": "1:176",
+        "object_id": "100448",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18183,
+        "episode_key": "1:182",
+        "object_id": "100454",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18234,
+        "episode_key": "1:182",
+        "object_id": "100454",
+        "step": 51,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18282,
+        "episode_key": "1:182",
+        "object_id": "100454",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18883,
+        "episode_key": "1:189",
+        "object_id": "100454",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18932,
+        "episode_key": "1:189",
+        "object_id": "100454",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 18982,
+        "episode_key": "1:189",
+        "object_id": "100454",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 20583,
+        "episode_key": "1:206",
+        "object_id": "100461",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 20632,
+        "episode_key": "1:206",
+        "object_id": "100461",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 20682,
+        "episode_key": "1:206",
+        "object_id": "100461",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22183,
+        "episode_key": "1:222",
+        "object_id": "100461",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22232,
+        "episode_key": "1:222",
+        "object_id": "100461",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22282,
+        "episode_key": "1:222",
+        "object_id": "100461",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22783,
+        "episode_key": "1:228",
+        "object_id": "100462",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22832,
+        "episode_key": "1:228",
+        "object_id": "100462",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 22882,
+        "episode_key": "1:228",
+        "object_id": "100462",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 24483,
+        "episode_key": "1:245",
+        "object_id": "100462",
+        "step": 0,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 24532,
+        "episode_key": "1:245",
+        "object_id": "100462",
+        "step": 49,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 24582,
+        "episode_key": "1:245",
+        "object_id": "100462",
+        "step": 99,
+        "task": "bucket"
+      },
+      {
+        "absolute_step": 6024,
+        "episode_key": "2:174",
+        "object_id": "10090",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6039,
+        "episode_key": "2:174",
+        "object_id": "10090",
+        "step": 15,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6054,
+        "episode_key": "2:174",
+        "object_id": "10090",
+        "step": 30,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6144,
+        "episode_key": "2:178",
+        "object_id": "10090",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6159,
+        "episode_key": "2:178",
+        "object_id": "10090",
+        "step": 15,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6175,
+        "episode_key": "2:178",
+        "object_id": "10090",
+        "step": 31,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6465,
+        "episode_key": "2:189",
+        "object_id": "10098",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6476,
+        "episode_key": "2:189",
+        "object_id": "10098",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6487,
+        "episode_key": "2:189",
+        "object_id": "10098",
+        "step": 22,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6851,
+        "episode_key": "2:201",
+        "object_id": "10098",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6863,
+        "episode_key": "2:201",
+        "object_id": "10098",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 6876,
+        "episode_key": "2:201",
+        "object_id": "10098",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7260,
+        "episode_key": "2:214",
+        "object_id": "10101",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7271,
+        "episode_key": "2:214",
+        "object_id": "10101",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7283,
+        "episode_key": "2:214",
+        "object_id": "10101",
+        "step": 23,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7448,
+        "episode_key": "2:221",
+        "object_id": "10101",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7461,
+        "episode_key": "2:221",
+        "object_id": "10101",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7474,
+        "episode_key": "2:221",
+        "object_id": "10101",
+        "step": 26,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7727,
+        "episode_key": "2:232",
+        "object_id": "10125",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7738,
+        "episode_key": "2:232",
+        "object_id": "10125",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7750,
+        "episode_key": "2:232",
+        "object_id": "10125",
+        "step": 23,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7800,
+        "episode_key": "2:235",
+        "object_id": "10125",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7812,
+        "episode_key": "2:235",
+        "object_id": "10125",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 7824,
+        "episode_key": "2:235",
+        "object_id": "10125",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 582,
+        "episode_key": "2:12",
+        "object_id": "11395",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 597,
+        "episode_key": "2:12",
+        "object_id": "11395",
+        "step": 15,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 613,
+        "episode_key": "2:12",
+        "object_id": "11395",
+        "step": 31,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 724,
+        "episode_key": "2:17",
+        "object_id": "11395",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 735,
+        "episode_key": "2:17",
+        "object_id": "11395",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 746,
+        "episode_key": "2:17",
+        "object_id": "11395",
+        "step": 22,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 957,
+        "episode_key": "2:25",
+        "object_id": "11405",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 970,
+        "episode_key": "2:25",
+        "object_id": "11405",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 984,
+        "episode_key": "2:25",
+        "object_id": "11405",
+        "step": 27,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1470,
+        "episode_key": "2:43",
+        "object_id": "11405",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1495,
+        "episode_key": "2:43",
+        "object_id": "11405",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 1520,
+        "episode_key": "2:43",
+        "object_id": "11405",
+        "step": 50,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2159,
+        "episode_key": "2:61",
+        "object_id": "11406",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2172,
+        "episode_key": "2:61",
+        "object_id": "11406",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2185,
+        "episode_key": "2:61",
+        "object_id": "11406",
+        "step": 26,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2186,
+        "episode_key": "2:62",
+        "object_id": "11406",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2198,
+        "episode_key": "2:62",
+        "object_id": "11406",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2211,
+        "episode_key": "2:62",
+        "object_id": "11406",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2563,
+        "episode_key": "2:76",
+        "object_id": "11477",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2576,
+        "episode_key": "2:76",
+        "object_id": "11477",
+        "step": 13,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2589,
+        "episode_key": "2:76",
+        "object_id": "11477",
+        "step": 26,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2642,
+        "episode_key": "2:79",
+        "object_id": "11477",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2654,
+        "episode_key": "2:79",
+        "object_id": "11477",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 2667,
+        "episode_key": "2:79",
+        "object_id": "11477",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3414,
+        "episode_key": "2:103",
+        "object_id": "11581",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3428,
+        "episode_key": "2:103",
+        "object_id": "11581",
+        "step": 14,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3443,
+        "episode_key": "2:103",
+        "object_id": "11581",
+        "step": 29,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3508,
+        "episode_key": "2:106",
+        "object_id": "11581",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3519,
+        "episode_key": "2:106",
+        "object_id": "11581",
+        "step": 11,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3530,
+        "episode_key": "2:106",
+        "object_id": "11581",
+        "step": 22,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3809,
+        "episode_key": "2:117",
+        "object_id": "11586",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3821,
+        "episode_key": "2:117",
+        "object_id": "11586",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 3834,
+        "episode_key": "2:117",
+        "object_id": "11586",
+        "step": 25,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4132,
+        "episode_key": "2:127",
+        "object_id": "11586",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4144,
+        "episode_key": "2:127",
+        "object_id": "11586",
+        "step": 12,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4156,
+        "episode_key": "2:127",
+        "object_id": "11586",
+        "step": 24,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4767,
+        "episode_key": "2:142",
+        "object_id": "9996",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4783,
+        "episode_key": "2:142",
+        "object_id": "9996",
+        "step": 16,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 4799,
+        "episode_key": "2:142",
+        "object_id": "9996",
+        "step": 32,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5296,
+        "episode_key": "2:150",
+        "object_id": "9996",
+        "step": 0,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5310,
+        "episode_key": "2:150",
+        "object_id": "9996",
+        "step": 14,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5324,
+        "episode_key": "2:150",
+        "object_id": "9996",
+        "step": 28,
+        "task": "laptop"
+      },
+      {
+        "absolute_step": 5962,
+        "episode_key": "3:167",
+        "object_id": "102663",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5977,
+        "episode_key": "3:167",
+        "object_id": "102663",
+        "step": 15,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5992,
+        "episode_key": "3:167",
+        "object_id": "102663",
+        "step": 30,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6115,
+        "episode_key": "3:171",
+        "object_id": "102663",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6121,
+        "episode_key": "3:171",
+        "object_id": "102663",
+        "step": 6,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6128,
+        "episode_key": "3:171",
+        "object_id": "102663",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6460,
+        "episode_key": "3:186",
+        "object_id": "102666",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6476,
+        "episode_key": "3:186",
+        "object_id": "102666",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6492,
+        "episode_key": "3:186",
+        "object_id": "102666",
+        "step": 32,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6493,
+        "episode_key": "3:187",
+        "object_id": "102666",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6505,
+        "episode_key": "3:187",
+        "object_id": "102666",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6518,
+        "episode_key": "3:187",
+        "object_id": "102666",
+        "step": 25,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6900,
+        "episode_key": "3:196",
+        "object_id": "102667",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6908,
+        "episode_key": "3:196",
+        "object_id": "102667",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 6917,
+        "episode_key": "3:196",
+        "object_id": "102667",
+        "step": 17,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7021,
+        "episode_key": "3:201",
+        "object_id": "102667",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7027,
+        "episode_key": "3:201",
+        "object_id": "102667",
+        "step": 6,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7034,
+        "episode_key": "3:201",
+        "object_id": "102667",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7255,
+        "episode_key": "3:211",
+        "object_id": "102669",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7267,
+        "episode_key": "3:211",
+        "object_id": "102669",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7279,
+        "episode_key": "3:211",
+        "object_id": "102669",
+        "step": 24,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7326,
+        "episode_key": "3:215",
+        "object_id": "102669",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7337,
+        "episode_key": "3:215",
+        "object_id": "102669",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7349,
+        "episode_key": "3:215",
+        "object_id": "102669",
+        "step": 23,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7713,
+        "episode_key": "3:231",
+        "object_id": "102670",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7719,
+        "episode_key": "3:231",
+        "object_id": "102670",
+        "step": 6,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7725,
+        "episode_key": "3:231",
+        "object_id": "102670",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7726,
+        "episode_key": "3:232",
+        "object_id": "102670",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7733,
+        "episode_key": "3:232",
+        "object_id": "102670",
+        "step": 7,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 7740,
+        "episode_key": "3:232",
+        "object_id": "102670",
+        "step": 14,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8188,
+        "episode_key": "3:244",
+        "object_id": "102675",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8197,
+        "episode_key": "3:244",
+        "object_id": "102675",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8207,
+        "episode_key": "3:244",
+        "object_id": "102675",
+        "step": 19,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8208,
+        "episode_key": "3:245",
+        "object_id": "102675",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8217,
+        "episode_key": "3:245",
+        "object_id": "102675",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 8226,
+        "episode_key": "3:245",
+        "object_id": "102675",
+        "step": 18,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 316,
+        "episode_key": "3:9",
+        "object_id": "102677",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 326,
+        "episode_key": "3:9",
+        "object_id": "102677",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 337,
+        "episode_key": "3:9",
+        "object_id": "102677",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 338,
+        "episode_key": "3:10",
+        "object_id": "102677",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 366,
+        "episode_key": "3:10",
+        "object_id": "102677",
+        "step": 28,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 395,
+        "episode_key": "3:10",
+        "object_id": "102677",
+        "step": 57,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1301,
+        "episode_key": "3:23",
+        "object_id": "102687",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1314,
+        "episode_key": "3:23",
+        "object_id": "102687",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1328,
+        "episode_key": "3:23",
+        "object_id": "102687",
+        "step": 27,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1329,
+        "episode_key": "3:24",
+        "object_id": "102687",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1342,
+        "episode_key": "3:24",
+        "object_id": "102687",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1356,
+        "episode_key": "3:24",
+        "object_id": "102687",
+        "step": 27,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1670,
+        "episode_key": "3:34",
+        "object_id": "102689",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1678,
+        "episode_key": "3:34",
+        "object_id": "102689",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1686,
+        "episode_key": "3:34",
+        "object_id": "102689",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1773,
+        "episode_key": "3:39",
+        "object_id": "102689",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1784,
+        "episode_key": "3:39",
+        "object_id": "102689",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 1796,
+        "episode_key": "3:39",
+        "object_id": "102689",
+        "step": 23,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2114,
+        "episode_key": "3:53",
+        "object_id": "102692",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2123,
+        "episode_key": "3:53",
+        "object_id": "102692",
+        "step": 9,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2132,
+        "episode_key": "3:53",
+        "object_id": "102692",
+        "step": 18,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2133,
+        "episode_key": "3:54",
+        "object_id": "102692",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2222,
+        "episode_key": "3:54",
+        "object_id": "102692",
+        "step": 89,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2312,
+        "episode_key": "3:54",
+        "object_id": "102692",
+        "step": 179,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2616,
+        "episode_key": "3:67",
+        "object_id": "102697",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2624,
+        "episode_key": "3:67",
+        "object_id": "102697",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2632,
+        "episode_key": "3:67",
+        "object_id": "102697",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2633,
+        "episode_key": "3:68",
+        "object_id": "102697",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2641,
+        "episode_key": "3:68",
+        "object_id": "102697",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 2649,
+        "episode_key": "3:68",
+        "object_id": "102697",
+        "step": 16,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3136,
+        "episode_key": "3:82",
+        "object_id": "102699",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3147,
+        "episode_key": "3:82",
+        "object_id": "102699",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3158,
+        "episode_key": "3:82",
+        "object_id": "102699",
+        "step": 22,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3159,
+        "episode_key": "3:83",
+        "object_id": "102699",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3180,
+        "episode_key": "3:83",
+        "object_id": "102699",
+        "step": 21,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3201,
+        "episode_key": "3:83",
+        "object_id": "102699",
+        "step": 42,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3464,
+        "episode_key": "3:93",
+        "object_id": "102701",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3477,
+        "episode_key": "3:93",
+        "object_id": "102701",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3491,
+        "episode_key": "3:93",
+        "object_id": "102701",
+        "step": 27,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3580,
+        "episode_key": "3:97",
+        "object_id": "102701",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3591,
+        "episode_key": "3:97",
+        "object_id": "102701",
+        "step": 11,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3602,
+        "episode_key": "3:97",
+        "object_id": "102701",
+        "step": 22,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3899,
+        "episode_key": "3:108",
+        "object_id": "102703",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3911,
+        "episode_key": "3:108",
+        "object_id": "102703",
+        "step": 12,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3924,
+        "episode_key": "3:108",
+        "object_id": "102703",
+        "step": 25,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3976,
+        "episode_key": "3:111",
+        "object_id": "102703",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3986,
+        "episode_key": "3:111",
+        "object_id": "102703",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 3996,
+        "episode_key": "3:111",
+        "object_id": "102703",
+        "step": 20,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4654,
+        "episode_key": "3:126",
+        "object_id": "102707",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4667,
+        "episode_key": "3:126",
+        "object_id": "102707",
+        "step": 13,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4681,
+        "episode_key": "3:126",
+        "object_id": "102707",
+        "step": 27,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4682,
+        "episode_key": "3:127",
+        "object_id": "102707",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4689,
+        "episode_key": "3:127",
+        "object_id": "102707",
+        "step": 7,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 4697,
+        "episode_key": "3:127",
+        "object_id": "102707",
+        "step": 15,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5092,
+        "episode_key": "3:138",
+        "object_id": "102708",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5100,
+        "episode_key": "3:138",
+        "object_id": "102708",
+        "step": 8,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5109,
+        "episode_key": "3:138",
+        "object_id": "102708",
+        "step": 17,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5168,
+        "episode_key": "3:142",
+        "object_id": "102708",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5175,
+        "episode_key": "3:142",
+        "object_id": "102708",
+        "step": 7,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5183,
+        "episode_key": "3:142",
+        "object_id": "102708",
+        "step": 15,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5428,
+        "episode_key": "3:155",
+        "object_id": "103234",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5438,
+        "episode_key": "3:155",
+        "object_id": "103234",
+        "step": 10,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5448,
+        "episode_key": "3:155",
+        "object_id": "103234",
+        "step": 20,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5557,
+        "episode_key": "3:159",
+        "object_id": "103234",
+        "step": 0,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5583,
+        "episode_key": "3:159",
+        "object_id": "103234",
+        "step": 26,
+        "task": "toilet"
+      },
+      {
+        "absolute_step": 5610,
+        "episode_key": "3:159",
+        "object_id": "103234",
+        "step": 53,
+        "task": "toilet"
+      }
+    ]
+  },
+  "training": {
+    "coordinate_contract": "dexart_robot_base_metric_v1",
+    "empty_contact_policy": "excluded",
+    "excluded_empty_targets": 777,
+    "excluded_invalid_centers": 0,
+    "history_interval": 8,
+    "split": "train",
+    "training_sample_count": 46183,
+    "trajectory_count": 793,
+    "use_previous_contact": false,
+    "use_robot_state": true
+  },
+  "validation": {
+    "coordinate_contract": "dexart_robot_base_metric_v1",
+    "empty_contact_policy": "excluded",
+    "excluded_empty_targets": 306,
+    "excluded_invalid_centers": 0,
+    "history_interval": 8,
+    "split": "validation",
+    "training_sample_count": 11178,
+    "trajectory_count": 207,
+    "use_previous_contact": false,
+    "use_robot_state": true
+  }
+}
