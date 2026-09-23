@@ -1,0 +1,301 @@
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 51.33it/s]
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[ToiletEnv] change_instance_when_reset=True
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+extractor use state = True
+PointNetSmall
+ACCEPT toilet total=1/250 object=102677 count=1/14 attempt=1
+ACCEPT toilet total=2/250 object=102677 count=2/14 attempt=2
+ACCEPT toilet total=3/250 object=102677 count=3/14 attempt=3
+ACCEPT toilet total=4/250 object=102677 count=4/14 attempt=4
+ACCEPT toilet total=5/250 object=102677 count=5/14 attempt=5
+ACCEPT toilet total=6/250 object=102677 count=6/14 attempt=6
+ACCEPT toilet total=7/250 object=102677 count=7/14 attempt=7
+ACCEPT toilet total=8/250 object=102677 count=8/14 attempt=8
+ACCEPT toilet total=9/250 object=102677 count=9/14 attempt=9
+ACCEPT toilet total=10/250 object=102677 count=10/14 attempt=11
+ACCEPT toilet total=11/250 object=102677 count=11/14 attempt=12
+ACCEPT toilet total=12/250 object=102677 count=12/14 attempt=13
+ACCEPT toilet total=13/250 object=102677 count=13/14 attempt=14
+ACCEPT toilet total=14/250 object=102677 count=14/14 attempt=15
+[2026-09-16 12:13:51.704] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=15/250 object=102687 count=1/15 attempt=1
+ACCEPT toilet total=16/250 object=102687 count=2/15 attempt=2
+ACCEPT toilet total=17/250 object=102687 count=3/15 attempt=3
+ACCEPT toilet total=18/250 object=102687 count=4/15 attempt=4
+ACCEPT toilet total=19/250 object=102687 count=5/15 attempt=5
+ACCEPT toilet total=20/250 object=102687 count=6/15 attempt=6
+ACCEPT toilet total=21/250 object=102687 count=7/15 attempt=8
+ACCEPT toilet total=22/250 object=102687 count=8/15 attempt=9
+ACCEPT toilet total=23/250 object=102687 count=9/15 attempt=10
+ACCEPT toilet total=24/250 object=102687 count=10/15 attempt=11
+ACCEPT toilet total=25/250 object=102687 count=11/15 attempt=12
+ACCEPT toilet total=26/250 object=102687 count=12/15 attempt=13
+ACCEPT toilet total=27/250 object=102687 count=13/15 attempt=14
+ACCEPT toilet total=28/250 object=102687 count=14/15 attempt=15
+ACCEPT toilet total=29/250 object=102687 count=15/15 attempt=16
+[2026-09-16 12:15:42.796] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=30/250 object=102689 count=1/15 attempt=1
+ACCEPT toilet total=31/250 object=102689 count=2/15 attempt=2
+ACCEPT toilet total=32/250 object=102689 count=3/15 attempt=3
+ACCEPT toilet total=33/250 object=102689 count=4/15 attempt=4
+ACCEPT toilet total=34/250 object=102689 count=5/15 attempt=5
+ACCEPT toilet total=35/250 object=102689 count=6/15 attempt=6
+ACCEPT toilet total=36/250 object=102689 count=7/15 attempt=8
+ACCEPT toilet total=37/250 object=102689 count=8/15 attempt=9
+ACCEPT toilet total=38/250 object=102689 count=9/15 attempt=10
+ACCEPT toilet total=39/250 object=102689 count=10/15 attempt=11
+ACCEPT toilet total=40/250 object=102689 count=11/15 attempt=12
+ACCEPT toilet total=41/250 object=102689 count=12/15 attempt=13
+ACCEPT toilet total=42/250 object=102689 count=13/15 attempt=14
+ACCEPT toilet total=43/250 object=102689 count=14/15 attempt=15
+ACCEPT toilet total=44/250 object=102689 count=15/15 attempt=16
+[2026-09-16 12:17:34.465] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=45/250 object=102692 count=1/14 attempt=1
+ACCEPT toilet total=46/250 object=102692 count=2/14 attempt=2
+ACCEPT toilet total=47/250 object=102692 count=3/14 attempt=3
+ACCEPT toilet total=48/250 object=102692 count=4/14 attempt=4
+ACCEPT toilet total=49/250 object=102692 count=5/14 attempt=6
+ACCEPT toilet total=50/250 object=102692 count=6/14 attempt=8
+ACCEPT toilet total=51/250 object=102692 count=7/14 attempt=9
+ACCEPT toilet total=52/250 object=102692 count=8/14 attempt=12
+ACCEPT toilet total=53/250 object=102692 count=9/14 attempt=15
+ACCEPT toilet total=54/250 object=102692 count=10/14 attempt=16
+ACCEPT toilet total=55/250 object=102692 count=11/14 attempt=17
+ACCEPT toilet total=56/250 object=102692 count=12/14 attempt=18
+ACCEPT toilet total=57/250 object=102692 count=13/14 attempt=21
+ACCEPT toilet total=58/250 object=102692 count=14/14 attempt=23
+[2026-09-16 12:19:55.544] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=59/250 object=102697 count=1/15 attempt=1
+ACCEPT toilet total=60/250 object=102697 count=2/15 attempt=2
+ACCEPT toilet total=61/250 object=102697 count=3/15 attempt=3
+ACCEPT toilet total=62/250 object=102697 count=4/15 attempt=4
+ACCEPT toilet total=63/250 object=102697 count=5/15 attempt=5
+ACCEPT toilet total=64/250 object=102697 count=6/15 attempt=6
+ACCEPT toilet total=65/250 object=102697 count=7/15 attempt=7
+ACCEPT toilet total=66/250 object=102697 count=8/15 attempt=8
+ACCEPT toilet total=67/250 object=102697 count=9/15 attempt=9
+ACCEPT toilet total=68/250 object=102697 count=10/15 attempt=10
+ACCEPT toilet total=69/250 object=102697 count=11/15 attempt=11
+ACCEPT toilet total=70/250 object=102697 count=12/15 attempt=12
+ACCEPT toilet total=71/250 object=102697 count=13/15 attempt=14
+ACCEPT toilet total=72/250 object=102697 count=14/15 attempt=15
+ACCEPT toilet total=73/250 object=102697 count=15/15 attempt=16
+[2026-09-16 12:21:31.699] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=74/250 object=102699 count=1/14 attempt=1
+ACCEPT toilet total=75/250 object=102699 count=2/14 attempt=2
+ACCEPT toilet total=76/250 object=102699 count=3/14 attempt=3
+ACCEPT toilet total=77/250 object=102699 count=4/14 attempt=4
+ACCEPT toilet total=78/250 object=102699 count=5/14 attempt=5
+ACCEPT toilet total=79/250 object=102699 count=6/14 attempt=6
+ACCEPT toilet total=80/250 object=102699 count=7/14 attempt=8
+ACCEPT toilet total=81/250 object=102699 count=8/14 attempt=9
+ACCEPT toilet total=82/250 object=102699 count=9/14 attempt=10
+ACCEPT toilet total=83/250 object=102699 count=10/14 attempt=11
+ACCEPT toilet total=84/250 object=102699 count=11/14 attempt=12
+ACCEPT toilet total=85/250 object=102699 count=12/14 attempt=13
+ACCEPT toilet total=86/250 object=102699 count=13/14 attempt=14
+ACCEPT toilet total=87/250 object=102699 count=14/14 attempt=15
+[2026-09-16 12:23:16.985] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=88/250 object=102701 count=1/15 attempt=1
+ACCEPT toilet total=89/250 object=102701 count=2/15 attempt=2
+ACCEPT toilet total=90/250 object=102701 count=3/15 attempt=3
+ACCEPT toilet total=91/250 object=102701 count=4/15 attempt=4
+ACCEPT toilet total=92/250 object=102701 count=5/15 attempt=5
+ACCEPT toilet total=93/250 object=102701 count=6/15 attempt=6
+ACCEPT toilet total=94/250 object=102701 count=7/15 attempt=7
+ACCEPT toilet total=95/250 object=102701 count=8/15 attempt=8
+ACCEPT toilet total=96/250 object=102701 count=9/15 attempt=10
+ACCEPT toilet total=97/250 object=102701 count=10/15 attempt=11
+ACCEPT toilet total=98/250 object=102701 count=11/15 attempt=12
+ACCEPT toilet total=99/250 object=102701 count=12/15 attempt=13
+ACCEPT toilet total=100/250 object=102701 count=13/15 attempt=16
+ACCEPT toilet total=101/250 object=102701 count=14/15 attempt=18
+ACCEPT toilet total=102/250 object=102701 count=15/15 attempt=19
+[2026-09-16 12:25:06.620] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=103/250 object=102703 count=1/15 attempt=3
+ACCEPT toilet total=104/250 object=102703 count=2/15 attempt=4
+ACCEPT toilet total=105/250 object=102703 count=3/15 attempt=5
+ACCEPT toilet total=106/250 object=102703 count=4/15 attempt=6
+ACCEPT toilet total=107/250 object=102703 count=5/15 attempt=8
+ACCEPT toilet total=108/250 object=102703 count=6/15 attempt=9
+ACCEPT toilet total=109/250 object=102703 count=7/15 attempt=11
+ACCEPT toilet total=110/250 object=102703 count=8/15 attempt=14
+ACCEPT toilet total=111/250 object=102703 count=9/15 attempt=15
+ACCEPT toilet total=112/250 object=102703 count=10/15 attempt=16
+ACCEPT toilet total=113/250 object=102703 count=11/15 attempt=17
+ACCEPT toilet total=114/250 object=102703 count=12/15 attempt=18
+ACCEPT toilet total=115/250 object=102703 count=13/15 attempt=19
+ACCEPT toilet total=116/250 object=102703 count=14/15 attempt=20
+ACCEPT toilet total=117/250 object=102703 count=15/15 attempt=21
+[2026-09-16 12:27:27.446] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=118/250 object=102707 count=1/15 attempt=1
+ACCEPT toilet total=119/250 object=102707 count=2/15 attempt=3
+ACCEPT toilet total=120/250 object=102707 count=3/15 attempt=4
+ACCEPT toilet total=121/250 object=102707 count=4/15 attempt=5
+ACCEPT toilet total=122/250 object=102707 count=5/15 attempt=6
+ACCEPT toilet total=123/250 object=102707 count=6/15 attempt=7
+ACCEPT toilet total=124/250 object=102707 count=7/15 attempt=8
+ACCEPT toilet total=125/250 object=102707 count=8/15 attempt=9
+ACCEPT toilet total=126/250 object=102707 count=9/15 attempt=10
+ACCEPT toilet total=127/250 object=102707 count=10/15 attempt=11
+ACCEPT toilet total=128/250 object=102707 count=11/15 attempt=12
+ACCEPT toilet total=129/250 object=102707 count=12/15 attempt=13
+ACCEPT toilet total=130/250 object=102707 count=13/15 attempt=14
+ACCEPT toilet total=131/250 object=102707 count=14/15 attempt=15
+ACCEPT toilet total=132/250 object=102707 count=15/15 attempt=16
+[2026-09-16 12:29:25.068] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=133/250 object=102708 count=1/15 attempt=1
+ACCEPT toilet total=134/250 object=102708 count=2/15 attempt=2
+ACCEPT toilet total=135/250 object=102708 count=3/15 attempt=3
+ACCEPT toilet total=136/250 object=102708 count=4/15 attempt=4
+ACCEPT toilet total=137/250 object=102708 count=5/15 attempt=5
+ACCEPT toilet total=138/250 object=102708 count=6/15 attempt=6
+ACCEPT toilet total=139/250 object=102708 count=7/15 attempt=8
+ACCEPT toilet total=140/250 object=102708 count=8/15 attempt=10
+ACCEPT toilet total=141/250 object=102708 count=9/15 attempt=11
+ACCEPT toilet total=142/250 object=102708 count=10/15 attempt=12
+ACCEPT toilet total=143/250 object=102708 count=11/15 attempt=14
+ACCEPT toilet total=144/250 object=102708 count=12/15 attempt=15
+ACCEPT toilet total=145/250 object=102708 count=13/15 attempt=16
+ACCEPT toilet total=146/250 object=102708 count=14/15 attempt=17
+ACCEPT toilet total=147/250 object=102708 count=15/15 attempt=19
+[2026-09-16 12:31:16.928] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=148/250 object=103234 count=1/15 attempt=1
+ACCEPT toilet total=149/250 object=103234 count=2/15 attempt=2
+ACCEPT toilet total=150/250 object=103234 count=3/15 attempt=3
+ACCEPT toilet total=151/250 object=103234 count=4/15 attempt=4
+ACCEPT toilet total=152/250 object=103234 count=5/15 attempt=5
+ACCEPT toilet total=153/250 object=103234 count=6/15 attempt=6
+ACCEPT toilet total=154/250 object=103234 count=7/15 attempt=7
+ACCEPT toilet total=155/250 object=103234 count=8/15 attempt=8
+ACCEPT toilet total=156/250 object=103234 count=9/15 attempt=9
+ACCEPT toilet total=157/250 object=103234 count=10/15 attempt=10
+ACCEPT toilet total=158/250 object=103234 count=11/15 attempt=11
+ACCEPT toilet total=159/250 object=103234 count=12/15 attempt=12
+ACCEPT toilet total=160/250 object=103234 count=13/15 attempt=13
+ACCEPT toilet total=161/250 object=103234 count=14/15 attempt=14
+ACCEPT toilet total=162/250 object=103234 count=15/15 attempt=15
+[2026-09-16 12:32:44.070] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=163/250 object=102663 count=1/15 attempt=1
+ACCEPT toilet total=164/250 object=102663 count=2/15 attempt=2
+ACCEPT toilet total=165/250 object=102663 count=3/15 attempt=3
+ACCEPT toilet total=166/250 object=102663 count=4/15 attempt=4
+ACCEPT toilet total=167/250 object=102663 count=5/15 attempt=5
+ACCEPT toilet total=168/250 object=102663 count=6/15 attempt=7
+ACCEPT toilet total=169/250 object=102663 count=7/15 attempt=8
+ACCEPT toilet total=170/250 object=102663 count=8/15 attempt=10
+ACCEPT toilet total=171/250 object=102663 count=9/15 attempt=11
+ACCEPT toilet total=172/250 object=102663 count=10/15 attempt=12
+ACCEPT toilet total=173/250 object=102663 count=11/15 attempt=13
+ACCEPT toilet total=174/250 object=102663 count=12/15 attempt=14
+ACCEPT toilet total=175/250 object=102663 count=13/15 attempt=15
+ACCEPT toilet total=176/250 object=102663 count=14/15 attempt=16
+ACCEPT toilet total=177/250 object=102663 count=15/15 attempt=17
+[2026-09-16 12:34:26.535] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=178/250 object=102666 count=1/14 attempt=1
+ACCEPT toilet total=179/250 object=102666 count=2/14 attempt=2
+ACCEPT toilet total=180/250 object=102666 count=3/14 attempt=3
+ACCEPT toilet total=181/250 object=102666 count=4/14 attempt=4
+ACCEPT toilet total=182/250 object=102666 count=5/14 attempt=5
+ACCEPT toilet total=183/250 object=102666 count=6/14 attempt=6
+ACCEPT toilet total=184/250 object=102666 count=7/14 attempt=7
+ACCEPT toilet total=185/250 object=102666 count=8/14 attempt=8
+ACCEPT toilet total=186/250 object=102666 count=9/14 attempt=9
+ACCEPT toilet total=187/250 object=102666 count=10/14 attempt=10
+ACCEPT toilet total=188/250 object=102666 count=11/14 attempt=11
+ACCEPT toilet total=189/250 object=102666 count=12/14 attempt=12
+ACCEPT toilet total=190/250 object=102666 count=13/14 attempt=13
+ACCEPT toilet total=191/250 object=102666 count=14/14 attempt=14
+[2026-09-16 12:35:51.095] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=192/250 object=102667 count=1/15 attempt=1
+ACCEPT toilet total=193/250 object=102667 count=2/15 attempt=3
+ACCEPT toilet total=194/250 object=102667 count=3/15 attempt=4
+ACCEPT toilet total=195/250 object=102667 count=4/15 attempt=5
+ACCEPT toilet total=196/250 object=102667 count=5/15 attempt=8
+ACCEPT toilet total=197/250 object=102667 count=6/15 attempt=9
+ACCEPT toilet total=198/250 object=102667 count=7/15 attempt=15
+ACCEPT toilet total=199/250 object=102667 count=8/15 attempt=17
+ACCEPT toilet total=200/250 object=102667 count=9/15 attempt=19
+ACCEPT toilet total=201/250 object=102667 count=10/15 attempt=20
+ACCEPT toilet total=202/250 object=102667 count=11/15 attempt=21
+ACCEPT toilet total=203/250 object=102667 count=12/15 attempt=23
+ACCEPT toilet total=204/250 object=102667 count=13/15 attempt=25
+ACCEPT toilet total=205/250 object=102667 count=14/15 attempt=26
+ACCEPT toilet total=206/250 object=102667 count=15/15 attempt=27
+[2026-09-16 12:38:20.152] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=207/250 object=102669 count=1/15 attempt=2
+ACCEPT toilet total=208/250 object=102669 count=2/15 attempt=3
+ACCEPT toilet total=209/250 object=102669 count=3/15 attempt=4
+ACCEPT toilet total=210/250 object=102669 count=4/15 attempt=5
+ACCEPT toilet total=211/250 object=102669 count=5/15 attempt=6
+ACCEPT toilet total=212/250 object=102669 count=6/15 attempt=7
+ACCEPT toilet total=213/250 object=102669 count=7/15 attempt=10
+ACCEPT toilet total=214/250 object=102669 count=8/15 attempt=13
+ACCEPT toilet total=215/250 object=102669 count=9/15 attempt=14
+ACCEPT toilet total=216/250 object=102669 count=10/15 attempt=16
+ACCEPT toilet total=217/250 object=102669 count=11/15 attempt=18
+ACCEPT toilet total=218/250 object=102669 count=12/15 attempt=19
+ACCEPT toilet total=219/250 object=102669 count=13/15 attempt=20
+ACCEPT toilet total=220/250 object=102669 count=14/15 attempt=23
+ACCEPT toilet total=221/250 object=102669 count=15/15 attempt=24
+[2026-09-16 12:40:31.424] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=222/250 object=102670 count=1/14 attempt=1
+ACCEPT toilet total=223/250 object=102670 count=2/14 attempt=2
+ACCEPT toilet total=224/250 object=102670 count=3/14 attempt=4
+ACCEPT toilet total=225/250 object=102670 count=4/14 attempt=5
+ACCEPT toilet total=226/250 object=102670 count=5/14 attempt=7
+ACCEPT toilet total=227/250 object=102670 count=6/14 attempt=8
+ACCEPT toilet total=228/250 object=102670 count=7/14 attempt=10
+ACCEPT toilet total=229/250 object=102670 count=8/14 attempt=11
+ACCEPT toilet total=230/250 object=102670 count=9/14 attempt=12
+ACCEPT toilet total=231/250 object=102670 count=10/14 attempt=13
+ACCEPT toilet total=232/250 object=102670 count=11/14 attempt=16
+ACCEPT toilet total=233/250 object=102670 count=12/14 attempt=17
+ACCEPT toilet total=234/250 object=102670 count=13/14 attempt=18
+ACCEPT toilet total=235/250 object=102670 count=14/14 attempt=19
+[2026-09-16 12:42:23.468] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+ACCEPT toilet total=236/250 object=102675 count=1/15 attempt=22
+ACCEPT toilet total=237/250 object=102675 count=2/15 attempt=29
+ACCEPT toilet total=238/250 object=102675 count=3/15 attempt=36
+ACCEPT toilet total=239/250 object=102675 count=4/15 attempt=38
+ACCEPT toilet total=240/250 object=102675 count=5/15 attempt=46
+ACCEPT toilet total=241/250 object=102675 count=6/15 attempt=54
+ACCEPT toilet total=242/250 object=102675 count=7/15 attempt=78
+ACCEPT toilet total=243/250 object=102675 count=8/15 attempt=81
+ACCEPT toilet total=244/250 object=102675 count=9/15 attempt=86
+ACCEPT toilet total=245/250 object=102675 count=10/15 attempt=92
+ACCEPT toilet total=246/250 object=102675 count=11/15 attempt=99
+ACCEPT toilet total=247/250 object=102675 count=12/15 attempt=104
+ACCEPT toilet total=248/250 object=102675 count=13/15 attempt=111
+ACCEPT toilet total=249/250 object=102675 count=14/15 attempt=119
+ACCEPT toilet total=250/250 object=102675 count=15/15 attempt=149
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
