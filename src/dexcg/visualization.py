@@ -433,9 +433,11 @@ def render_planner_frame(
     frame_count: int,
     prediction_step: int,
     stable_step: int,
+    success: bool | None = None,
 ) -> np.ndarray:
     frame = np.full((FRAME_HEIGHT, FRAME_WIDTH, 3), BG, dtype=np.uint8)
-    put_text(frame, f"DexCG VLM | {variant} | {task}", (20, 34), 0.72, TEXT, 2)
+    title = "DexCG VLM" if success is None else "DexCG VLM+SMP"
+    put_text(frame, f"{title} | {variant} | {task}", (20, 34), 0.72, TEXT, 2)
     put_text(
         frame,
         f"episode {episode_index:03d} | object {object_id} | "
@@ -456,7 +458,8 @@ def render_planner_frame(
         frame,
         f"task: {task} | object ID: {object_id} | episode: {episode_index} "
         f"| prediction step: {prediction_step} | "
-        f"{'stable/post-contact' if frame_index >= stable_step else 'pre-contact'}",
+        f"{'stable/post-contact' if stable_step >= 0 and frame_index >= stable_step else 'pre-contact'}"
+        + ("" if success is None else f" | {'SUCCESS' if success else 'FAILURE'}"),
         (35, 586), 0.43, TEXT,
     )
     put_wrapped_text(

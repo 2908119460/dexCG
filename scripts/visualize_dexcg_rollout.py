@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect and render one successful online DexCG rollout."""
+"""Render offline contact predictions or online DexCG policy rollouts."""
 
 from __future__ import annotations
 
@@ -59,6 +59,10 @@ OFFLINE_VARIANTS = {
     ),
 }
 TASKS = ("faucet", "bucket", "laptop", "toilet")
+ONLINE_CHECKPOINTS = {
+    "qwen-1024": "epoch=0900-new_10000_seen_score=0.265-old_1024_seen_score=0.350.ckpt",
+    "qwen-10000": "epoch=1600-new_10000_seen_score=0.302-old_1024_seen_score=0.320.ckpt",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -67,7 +71,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--checkpoint", type=Path, default=DEFAULT_CHECKPOINT)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--task", default="bucket", choices=TASKS)
-    parser.add_argument("--offline-vlm", choices=tuple(OFFLINE_VARIANTS))
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--offline-vlm", choices=tuple(OFFLINE_VARIANTS))
+    mode.add_argument("--online-vlm", choices=tuple(ONLINE_CHECKPOINTS))
     parser.add_argument("--split", default="seen")
     parser.add_argument("--seed", type=int, default=1003)
     parser.add_argument("--device", default="cuda:0")
@@ -388,7 +394,7 @@ def collect_successful_rollout(
     )
 
 
-def open_encoder(path: Path, crf: int) -> subprocess.Popen:
+def open_encoder(path: Path, crf: int, metadata: dict | None = None) -> subprocess.Popen:
     return subprocess.Popen(
         [
             "ffmpeg",
@@ -416,6 +422,8 @@ def open_encoder(path: Path, crf: int) -> subprocess.Popen:
             "yuv420p",
             "-movflags",
             "+faststart",
+            *(["-metadata", "comment=" + json.dumps(metadata, sort_keys=True)]
+              if metadata is not None else []),
             str(path),
         ],
         stdin=subprocess.PIPE,
@@ -633,10 +641,266 @@ def render_offline_vlm(args: argparse.Namespace) -> None:
         )
 
 
+@torch.no_grad()
+def collect_policy_episode(objective, adapter, episode_seed, task_config, config, device):
+    """Use the evaluation control loop, recording each state without extra policy calls."""
+    from dexcg.data.robot_base import InvalidObjectObservation
+    from dexcg.evaluation.dexart import _split_object_observation, _tensor_observation
+
+    random.seed(episode_seed)
+    np.random.seed(episode_seed)
+    torch.manual_seed(episode_seed)
+    adapter.environment.seed(episode_seed)
+    adapter.point_rng = np.random.RandomState(episode_seed)
+    subset_rng = np.random.default_rng(episode_seed)
+    raw = adapter.reset()
+    sample = None
+    for retry in range(int(config.get("initial_observation_retries", 8)) + 1):
+        try:
+            sample = adapter.observation(raw)
+            current = _split_object_observation(sample, config["planner_point_count"], subset_rng)
+            break
+        except InvalidObjectObservation:
+            sample = None
+            if retry < int(config.get("initial_observation_retries", 8)):
+                raw = adapter.observe()
+    if sample is None:
+        return [], {"object_id": adapter.object_id, "failure_reason": "invalid_initial_observation"}
+
+    frames = []
+    history = deque([current], maxlen=2)
+    stable_step = 0 if adapter.is_stable_contact else -1
+    success, done, steps = bool(adapter.is_success), False, 0
+    previous_plan, prediction_step, prediction_count = None, 0, 0
+    decoded = None
+    clipped_actions, action_values = 0, 0
+    sensor_error = pixel_error = 0.0
+
+    def record():
+        nonlocal sensor_error, pixel_error
+        contact = adapter.contact_graph()
+        sensor_error = max(sensor_error, float(sample["depth_to_point_max_error_m"]))
+        pixel_error = max(pixel_error, float(sample["pixel_reprojection_max_error_pixels"]))
+        frames.append({
+            "image": sample["img"].copy(),
+            "point_cloud": sample["point_cloud"][::8].copy(),
+            "robot": robot_geometry(sample["agent_pos"][:22]),
+            "raw_points": contact.points, "raw_mask": contact.mask,
+            "prediction": decoded, "prediction_step": prediction_step,
+        })
+
+    while steps < int(task_config["max_steps"]) and not success and not done:
+        observation = _tensor_observation(history, device)
+        torch.cuda.set_device(device) if device.type == "cuda" else None
+        with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
+                            enabled=device.type == "cuda"):
+            prediction = objective.predict_action_with_diagnostics(
+                observation, [task_config["instruction"]],
+                int(config["num_inference_steps"]), int(config["action_steps"]),
+                previous_contact_plan=previous_plan,
+            )
+        previous_plan = prediction.contact_plan
+        decoded = decode_predicted_contacts(objective.model.contact_planner, previous_plan)
+        prediction_step = steps
+        prediction_count += 1
+        if frames:
+            frames[-1].update(prediction=decoded, prediction_step=prediction_step)
+        else:
+            record()
+        actions = prediction.actions[0].float().cpu().numpy()
+        if not len(actions) or not np.isfinite(actions).all():
+            raise ValueError("Policy produced empty or nonfinite actions")
+        for action in actions:
+            clipped_actions += int((np.abs(action) > 1).sum())
+            action_values += action.size
+            raw, _, done, _ = adapter.step(action)
+            steps += 1
+            success = bool(adapter.is_success)
+            done = bool(done) or steps >= int(task_config["max_steps"])
+            # This terminal capture is for display only; never reuse a stale state.
+            try:
+                sample = adapter.observation(raw)
+                if not success and not done:
+                    current = _split_object_observation(sample, config["planner_point_count"], subset_rng)
+                    history.append(current)
+            except InvalidObjectObservation as error:
+                return [], {"object_id": adapter.object_id, "steps": steps,
+                            "failure_reason": str(error)}
+            if stable_step < 0 and adapter.is_stable_contact:
+                stable_step = steps
+            record()
+            if success or done:
+                break
+    return frames, {
+        "object_id": adapter.object_id, "episode_seed": episode_seed,
+        "success": success, "steps": steps, "stable_step": stable_step,
+        "prediction_count": prediction_count, "failure_reason": None,
+        "action_outside_unit_fraction": clipped_actions / max(action_values, 1),
+        "depth_to_point_max_error_m": sensor_error,
+        "pixel_reprojection_max_error_pixels": pixel_error,
+    }
+
+
+def write_policy_video(path, frames, metadata, crf):
+    bounds = compute_projection_bounds(
+        np.stack([frame["point_cloud"] for frame in frames]),
+        np.stack([frame["robot"] for frame in frames]),
+    )
+    encoder = open_encoder(path, crf, metadata)
+    try:
+        for index, sample in enumerate(frames):
+            frame = render_planner_frame(
+                sample["image"], sample["point_cloud"], sample["robot"],
+                sample["raw_points"], sample["raw_mask"], *sample["prediction"], bounds,
+                task=metadata["task"], variant=metadata["variant"],
+                object_id=metadata["object_id"], instruction=metadata["instruction"],
+                episode_index=metadata["episode"], frame_index=index, frame_count=len(frames),
+                prediction_step=sample["prediction_step"], stable_step=metadata["stable_step"],
+                success=metadata["success"],
+            )
+            encoder.stdin.write(frame.tobytes())
+        encoder.stdin.close()
+        encoder.stdin = None
+        if encoder.wait() != 0:
+            raise RuntimeError(f"ffmpeg failed to encode {path}")
+    except BaseException:
+        if encoder.poll() is None:
+            encoder.kill()
+        encoder.wait()
+        path.unlink(missing_ok=True)
+        raise
+
+
+def render_online_vlm(args):
+    from dexcg.data.robot_base import RobotBaseCollectionAdapter
+    from dexcg.evaluation.dexart import _point_input_guards
+    from train import load_variant
+
+    run_dir = PROJECT_ROOT / "outputs/smp-robot-base-dual-vlm"
+    output_dir = resolve(args.output_dir)
+    expected_dir = PROJECT_ROOT / "data_visualize/dexcg" / args.online_vlm / "SMP"
+    if output_dir.resolve() != expected_dir.resolve():
+        raise ValueError(f"Online output directory must be {expected_dir}")
+    if args.max_attempts < 1:
+        raise ValueError("max-attempts must be positive")
+    config = load_yaml(run_dir / "config.yaml")
+    evaluation = dict(config["evaluation"])
+    variant_key = "old_1024" if args.online_vlm == "qwen-1024" else "new_10000"
+    variant = evaluation["variants"][variant_key]
+    evaluation.update(planner_point_count=int(variant["point_count"]),
+                      num_inference_steps=int(config["diffusion"]["num_inference_steps"]))
+    device = torch.device(args.device)
+    checkpoint_path = run_dir / "checkpoints" / ONLINE_CHECKPOINTS[args.online_vlm]
+    objective, checkpoint = load_objective(config, checkpoint_path, device)
+    expected_hash = checkpoint["run_identity"]["variants"][variant_key]["checkpoint_sha256"]
+    if sha256(resolve(Path(variant["checkpoint"]))) != expected_hash:
+        raise ValueError("VLM checkpoint differs from the one used in SMP evaluation")
+    objective.model.contact_planner = load_variant(objective.model, variant).to(device)
+    objective.eval()
+    report = json.loads((run_dir / "evaluation/success_rates" /
+        f"success_rates_epoch_{checkpoint['epoch']:04d}_vlm{variant['point_count']}.json").read_text())
+    if report["planner_checkpoint_sha256"] != expected_hash:
+        raise ValueError("Evaluation report and VLM checkpoint disagree")
+    driver = Path("/usr/share/vulkan/icd.d/nvidia_icd.json")
+    if driver.is_file():
+        os.environ.setdefault("VK_ICD_FILENAMES", str(driver))
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for task in TASKS:
+        task_config = evaluation["tasks"][task]
+        accepted = {True: 0, False: 0}
+        used_objects, used_seeds = set(), set()
+        for path in output_dir.glob(f"{task}_*.mp4"):
+            probe = json.loads(subprocess.check_output([
+                "ffprobe", "-v", "error", "-show_entries", "format_tags=comment",
+                "-of", "json", str(path)], text=True))
+            saved = json.loads(probe["format"]["tags"]["comment"])
+            if saved["variant"] != args.online_vlm or saved["smp_checkpoint"] != str(checkpoint_path):
+                raise ValueError(f"Existing video uses another model: {path}")
+            accepted[saved["success"]] += 1
+            used_objects.add(saved["object_id"])
+            used_seeds.add(saved["episode_seed"])
+        targets = {True: 2, False: 3}
+        if accepted == targets:
+            continue
+        candidates = [item for item in report["tasks"][task]["episode_results"]
+                      if not item["failure_reason"] and item["episode_seed"] not in used_seeds]
+        candidates.sort(key=lambda item: not item["success"])
+        counts = {"partfield_calls": 0, "dp3_calls": 0}
+        adapter = RobotBaseCollectionAdapter.create(task, evaluation["split"], 1.0e-2)
+        adapter.point_count = 10000
+        adapter.enable_high_resolution_object_cloud(evaluation["point_capture_resolution"])
+        initial_object_cursor = getattr(adapter.environment, "i", None)
+        backups = {True: [], False: []}
+        attempts = 0
+
+        def save(frames, result, candidate):
+            outcome = bool(result["success"])
+            label = "success" if outcome else "failure"
+            path = output_dir / f"{task}_{label}_{accepted[outcome] + 1:02d}.mp4"
+            if path.exists():
+                raise FileExistsError(path)
+            metadata = {**result, "task": task, "variant": args.online_vlm,
+                "episode": candidate["episode"], "evaluation_seed": candidate["seed"],
+                "instruction": task_config["instruction"], "split": evaluation["split"],
+                "smp_checkpoint": str(checkpoint_path), "smp_epoch": checkpoint["epoch"],
+                "planner_checkpoint": variant["checkpoint"], "planner_sha256": expected_hash,
+                "planner_point_count": variant["point_count"], "smp_point_count": 1024,
+                "action_steps": evaluation["action_steps"], "max_steps": task_config["max_steps"],
+                "num_inference_steps": evaluation["num_inference_steps"], "frames": len(frames),
+                "fps": FPS, "source": "online_vlm_smp_rollout"}
+            write_policy_video(path, frames, metadata, args.crf)
+            accepted[outcome] += 1
+            used_objects.add(result["object_id"])
+            print(f"SAVED {path.name}: " + json.dumps(metadata, sort_keys=True), flush=True)
+
+        try:
+            with _point_input_guards(objective, variant["point_count"], counts):
+                for candidate in candidates:
+                    if accepted == targets or attempts >= args.max_attempts:
+                        break
+                    attempts += 1
+                    # Faucet/bucket/toilet rotate objects on reset independently
+                    # of the seed. Restore the evaluated episode's cursor too.
+                    if initial_object_cursor is not None:
+                        adapter.environment.i = (
+                            initial_object_cursor + candidate["episode"]
+                        ) % len(adapter.environment.instance_list)
+                    frames, result = collect_policy_episode(
+                        objective, adapter, candidate["episode_seed"], task_config, evaluation, device)
+                    print(f"{args.online_vlm}/{task} attempt={attempts} "
+                          f"seed={candidate['episode_seed']} " + json.dumps(result), flush=True)
+                    if not frames or result["failure_reason"]:
+                        continue
+                    outcome = result["success"]
+                    if accepted[outcome] >= targets[outcome]:
+                        continue
+                    if result["object_id"] in used_objects:
+                        if len(backups[outcome]) < targets[outcome]:
+                            backups[outcome].append((frames, result, candidate))
+                        continue
+                    save(frames, result, candidate)
+                # Object diversity is preferred, but outcome quotas take priority.
+                for outcome in (True, False):
+                    for frames, result, candidate in backups[outcome]:
+                        if accepted[outcome] < targets[outcome]:
+                            save(frames, result, candidate)
+            print(f"{args.online_vlm}/{task}: accepted={accepted} objects={sorted(used_objects)} "
+                  f"input_audit={counts}", flush=True)
+            if accepted != targets:
+                raise RuntimeError(f"{task}: quota incomplete after {attempts} attempts: {accepted}")
+        finally:
+            adapter.close()
+            if device.type == "cuda":
+                torch.cuda.set_device(device)
+
+
 def main() -> None:
     args = parse_args()
     if shutil.which("ffmpeg") is None:
         raise RuntimeError("ffmpeg is required")
+    if args.online_vlm is not None:
+        render_online_vlm(args)
+        return
     if args.offline_vlm is not None:
         render_offline_vlm(args)
         return
