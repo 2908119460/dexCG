@@ -1,0 +1,154 @@
+{
+  "audited_frames": 56286,
+  "config_sha256": "1e9cb5452555ed9dc51be26dfb7d5c1d005e7c5419858cf994efa84bdaaf23e7",
+  "coordinate_audit_maxima": {
+    "angular_velocity_roundtrip": 0.0,
+    "camera_transform_max_error": 3.5762786865234375e-07,
+    "contact_world_roundtrip_max_error_m": 5.960464477539063e-08,
+    "depth_max_error_m": 0.0,
+    "linear_velocity_roundtrip": 0.0,
+    "palm_world_roundtrip_max_error_m": 5.960464477539063e-08,
+    "pixel_reprojection_max_error_pixels": 0.001950212865665435,
+    "point_world_roundtrip_max_error_m": 3.5762786865234375e-07
+  },
+  "objects": {
+    "102663": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 17,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102666": {
+      "accepted": 14,
+      "annotation_failures": 0,
+      "attempts": 14,
+      "invalid_observations": 0,
+      "quota": 14,
+      "simulator_successes": 14
+    },
+    "102667": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 27,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102669": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 24,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102670": {
+      "accepted": 14,
+      "annotation_failures": 0,
+      "attempts": 19,
+      "invalid_observations": 0,
+      "quota": 14,
+      "simulator_successes": 14
+    },
+    "102675": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 149,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102677": {
+      "accepted": 14,
+      "annotation_failures": 0,
+      "attempts": 15,
+      "invalid_observations": 0,
+      "quota": 14,
+      "simulator_successes": 14
+    },
+    "102687": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 16,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102689": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 16,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102692": {
+      "accepted": 14,
+      "annotation_failures": 0,
+      "attempts": 23,
+      "invalid_observations": 0,
+      "quota": 14,
+      "simulator_successes": 14
+    },
+    "102697": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 16,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102699": {
+      "accepted": 14,
+      "annotation_failures": 0,
+      "attempts": 15,
+      "invalid_observations": 0,
+      "quota": 14,
+      "simulator_successes": 14
+    },
+    "102701": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 19,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102703": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 21,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102707": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 16,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "102708": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 19,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    },
+    "103234": {
+      "accepted": 15,
+      "annotation_failures": 0,
+      "attempts": 15,
+      "invalid_observations": 0,
+      "quota": 15,
+      "simulator_successes": 15
+    }
+  },
+  "status": "complete",
+  "task": "toilet"
+}
