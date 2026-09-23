@@ -1,0 +1,614 @@
+{
+  "contact_xyz_max": [
+    0.4289719760417938,
+    0.3818121552467346,
+    0.2492978870868683
+  ],
+  "contact_xyz_min": [
+    0.39821338653564453,
+    0.2900751233100891,
+    0.21333949267864227
+  ],
+  "objects": {
+    "1011": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        55,
+        56,
+        58,
+        57
+      ],
+      "point_xyz_max": [
+        0.433761328458786,
+        0.3400932848453522,
+        0.2185860425233841
+      ],
+      "point_xyz_min": [
+        0.251389741897583,
+        0.2121313512325287,
+        0.006387144327163696
+      ],
+      "root_link": "world",
+      "visible_pixels": 367,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "1053": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.43459221720695496,
+        0.3182699680328369,
+        0.23573553562164307
+      ],
+      "point_xyz_min": [
+        0.34140557050704956,
+        0.24637043476104736,
+        0.036118507385253906
+      ],
+      "root_link": "world",
+      "visible_pixels": 134,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "1288": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.4145723879337311,
+        0.3715631365776062,
+        0.24360708892345428
+      ],
+      "point_xyz_min": [
+        0.3508095145225525,
+        0.20181462168693542,
+        0.049097687005996704
+      ],
+      "root_link": "world",
+      "visible_pixels": 168,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "1343": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.44603055715560913,
+        0.3506249487400055,
+        0.30460861325263977
+      ],
+      "point_xyz_min": [
+        0.28265127539634705,
+        0.2179785966873169,
+        0.12080040574073792
+      ],
+      "root_link": "world",
+      "visible_pixels": 430,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "1370": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        55,
+        56,
+        58,
+        57
+      ],
+      "point_xyz_max": [
+        0.4656362235546112,
+        0.2768098711967468,
+        0.17654605209827423
+      ],
+      "point_xyz_min": [
+        0.35147663950920105,
+        0.16390910744667053,
+        0.03688022494316101
+      ],
+      "root_link": "world",
+      "visible_pixels": 176,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "1466": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 2.9802322387695312e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.5283277630805969,
+        0.4084349274635315,
+        0.3044077157974243
+      ],
+      "point_xyz_min": [
+        0.3643271028995514,
+        0.281256765127182,
+        0.09592187404632568
+      ],
+      "root_link": "world",
+      "visible_pixels": 367,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "148": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.3777495324611664,
+        0.3589687943458557,
+        0.283244252204895
+      ],
+      "point_xyz_min": [
+        0.2204282283782959,
+        0.13731208443641663,
+        0.09805929660797119
+      ],
+      "root_link": "world",
+      "visible_pixels": 372,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "693": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        55,
+        56,
+        58,
+        57
+      ],
+      "point_xyz_max": [
+        0.4644869863986969,
+        0.429076611995697,
+        0.26205238699913025
+      ],
+      "point_xyz_min": [
+        0.3143954277038574,
+        0.36458712816238403,
+        0.07281997799873352
+      ],
+      "root_link": "world",
+      "visible_pixels": 526,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "822": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.39347994327545166,
+        0.5215471982955933,
+        0.3103503882884979
+      ],
+      "point_xyz_min": [
+        0.2843620181083679,
+        0.27012237906455994,
+        0.08254697918891907
+      ],
+      "root_link": "world",
+      "visible_pixels": 550,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "857": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 2.9802322387695312e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.5284494757652283,
+        0.39074236154556274,
+        0.24365423619747162
+      ],
+      "point_xyz_min": [
+        0.2351163625717163,
+        0.27058979868888855,
+        0.03416469693183899
+      ],
+      "root_link": "world",
+      "visible_pixels": 285,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "991": {
+      "errors": {
+        "angular_velocity_roundtrip": 0.0,
+        "camera_transform_max_error": 0.0,
+        "depth_max_error_m": 0.0,
+        "linear_velocity_roundtrip": 0.0,
+        "palm_world_roundtrip_max_error_m": 0.0,
+        "point_world_roundtrip_max_error_m": 1.4901161193847656e-08
+      },
+      "object_actor_ids": [
+        53,
+        54,
+        55
+      ],
+      "point_xyz_max": [
+        0.4426870048046112,
+        0.3282625079154968,
+        0.31492555141448975
+      ],
+      "point_xyz_min": [
+        0.2866089344024658,
+        0.21386313438415527,
+        0.09320929646492004
+      ],
+      "root_link": "world",
+      "visible_pixels": 237,
+      "world_from_base": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "passed": true,
+  "rollout_errors": {
+    "angular_velocity_roundtrip": 0.0,
+    "camera_transform_max_error": 0.0,
+    "depth_max_error_m": 0.0,
+    "linear_velocity_roundtrip": 0.0,
+    "palm_world_roundtrip_max_error_m": 1.4901161193847656e-08,
+    "point_world_roundtrip_max_error_m": 2.9802322387695312e-08
+  },
+  "rollout_object": 148,
+  "rollout_steps": 32,
+  "successful_rollout": true,
+  "task": "faucet",
+  "token_roundtrip_max_error_m": 0.00427207350730896
+}

@@ -1,0 +1,317 @@
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 52.77it/s]
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[LaptopEnv] change_instance_when_reset=True
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+extractor use state = True
+PointNetSmall
+ACCEPT laptop total=1/250 object=11395 count=1/22 attempt=1
+ACCEPT laptop total=2/250 object=11395 count=2/22 attempt=2
+ACCEPT laptop total=3/250 object=11395 count=3/22 attempt=3
+ACCEPT laptop total=4/250 object=11395 count=4/22 attempt=4
+ACCEPT laptop total=5/250 object=11395 count=5/22 attempt=6
+ACCEPT laptop total=6/250 object=11395 count=6/22 attempt=7
+ACCEPT laptop total=7/250 object=11395 count=7/22 attempt=8
+ACCEPT laptop total=8/250 object=11395 count=8/22 attempt=10
+ACCEPT laptop total=9/250 object=11395 count=9/22 attempt=11
+ACCEPT laptop total=10/250 object=11395 count=10/22 attempt=12
+ACCEPT laptop total=11/250 object=11395 count=11/22 attempt=13
+ACCEPT laptop total=12/250 object=11395 count=12/22 attempt=14
+ACCEPT laptop total=13/250 object=11395 count=13/22 attempt=15
+ACCEPT laptop total=14/250 object=11395 count=14/22 attempt=16
+ACCEPT laptop total=15/250 object=11395 count=15/22 attempt=17
+ACCEPT laptop total=16/250 object=11395 count=16/22 attempt=18
+ACCEPT laptop total=17/250 object=11395 count=17/22 attempt=19
+ACCEPT laptop total=18/250 object=11395 count=18/22 attempt=20
+ACCEPT laptop total=19/250 object=11395 count=19/22 attempt=21
+ACCEPT laptop total=20/250 object=11395 count=20/22 attempt=22
+ACCEPT laptop total=21/250 object=11395 count=21/22 attempt=23
+ACCEPT laptop total=22/250 object=11395 count=22/22 attempt=24
+[2026-09-16 12:41:28.572] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=23/250 object=11405 count=1/23 attempt=1
+ACCEPT laptop total=24/250 object=11405 count=2/23 attempt=2
+ACCEPT laptop total=25/250 object=11405 count=3/23 attempt=3
+ACCEPT laptop total=26/250 object=11405 count=4/23 attempt=4
+ACCEPT laptop total=27/250 object=11405 count=5/23 attempt=6
+ACCEPT laptop total=28/250 object=11405 count=6/23 attempt=7
+ACCEPT laptop total=29/250 object=11405 count=7/23 attempt=8
+ACCEPT laptop total=30/250 object=11405 count=8/23 attempt=9
+ACCEPT laptop total=31/250 object=11405 count=9/23 attempt=10
+ACCEPT laptop total=32/250 object=11405 count=10/23 attempt=11
+ACCEPT laptop total=33/250 object=11405 count=11/23 attempt=12
+ACCEPT laptop total=34/250 object=11405 count=12/23 attempt=13
+ACCEPT laptop total=35/250 object=11405 count=13/23 attempt=14
+ACCEPT laptop total=36/250 object=11405 count=14/23 attempt=15
+ACCEPT laptop total=37/250 object=11405 count=15/23 attempt=16
+ACCEPT laptop total=38/250 object=11405 count=16/23 attempt=17
+ACCEPT laptop total=39/250 object=11405 count=17/23 attempt=18
+ACCEPT laptop total=40/250 object=11405 count=18/23 attempt=19
+ACCEPT laptop total=41/250 object=11405 count=19/23 attempt=20
+ACCEPT laptop total=42/250 object=11405 count=20/23 attempt=22
+ACCEPT laptop total=43/250 object=11405 count=21/23 attempt=23
+ACCEPT laptop total=44/250 object=11405 count=22/23 attempt=24
+ACCEPT laptop total=45/250 object=11405 count=23/23 attempt=25
+[2026-09-16 12:43:49.612] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=46/250 object=11406 count=1/23 attempt=1
+ACCEPT laptop total=47/250 object=11406 count=2/23 attempt=3
+ACCEPT laptop total=48/250 object=11406 count=3/23 attempt=4
+ACCEPT laptop total=49/250 object=11406 count=4/23 attempt=5
+ACCEPT laptop total=50/250 object=11406 count=5/23 attempt=6
+ACCEPT laptop total=51/250 object=11406 count=6/23 attempt=7
+ACCEPT laptop total=52/250 object=11406 count=7/23 attempt=9
+ACCEPT laptop total=53/250 object=11406 count=8/23 attempt=10
+ACCEPT laptop total=54/250 object=11406 count=9/23 attempt=13
+ACCEPT laptop total=55/250 object=11406 count=10/23 attempt=14
+ACCEPT laptop total=56/250 object=11406 count=11/23 attempt=15
+ACCEPT laptop total=57/250 object=11406 count=12/23 attempt=16
+ACCEPT laptop total=58/250 object=11406 count=13/23 attempt=17
+ACCEPT laptop total=59/250 object=11406 count=14/23 attempt=18
+ACCEPT laptop total=60/250 object=11406 count=15/23 attempt=21
+ACCEPT laptop total=61/250 object=11406 count=16/23 attempt=22
+ACCEPT laptop total=62/250 object=11406 count=17/23 attempt=23
+ACCEPT laptop total=63/250 object=11406 count=18/23 attempt=24
+ACCEPT laptop total=64/250 object=11406 count=19/23 attempt=25
+ACCEPT laptop total=65/250 object=11406 count=20/23 attempt=26
+ACCEPT laptop total=66/250 object=11406 count=21/23 attempt=28
+ACCEPT laptop total=67/250 object=11406 count=22/23 attempt=29
+ACCEPT laptop total=68/250 object=11406 count=23/23 attempt=30
+[2026-09-16 12:46:28.619] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=69/250 object=11477 count=1/22 attempt=1
+ACCEPT laptop total=70/250 object=11477 count=2/22 attempt=2
+ACCEPT laptop total=71/250 object=11477 count=3/22 attempt=3
+ACCEPT laptop total=72/250 object=11477 count=4/22 attempt=4
+ACCEPT laptop total=73/250 object=11477 count=5/22 attempt=5
+ACCEPT laptop total=74/250 object=11477 count=6/22 attempt=7
+ACCEPT laptop total=75/250 object=11477 count=7/22 attempt=8
+ACCEPT laptop total=76/250 object=11477 count=8/22 attempt=9
+ACCEPT laptop total=77/250 object=11477 count=9/22 attempt=10
+ACCEPT laptop total=78/250 object=11477 count=10/22 attempt=11
+ACCEPT laptop total=79/250 object=11477 count=11/22 attempt=12
+ACCEPT laptop total=80/250 object=11477 count=12/22 attempt=13
+ACCEPT laptop total=81/250 object=11477 count=13/22 attempt=14
+ACCEPT laptop total=82/250 object=11477 count=14/22 attempt=15
+ACCEPT laptop total=83/250 object=11477 count=15/22 attempt=16
+ACCEPT laptop total=84/250 object=11477 count=16/22 attempt=17
+ACCEPT laptop total=85/250 object=11477 count=17/22 attempt=18
+ACCEPT laptop total=86/250 object=11477 count=18/22 attempt=19
+ACCEPT laptop total=87/250 object=11477 count=19/22 attempt=20
+ACCEPT laptop total=88/250 object=11477 count=20/22 attempt=21
+ACCEPT laptop total=89/250 object=11477 count=21/22 attempt=22
+ACCEPT laptop total=90/250 object=11477 count=22/22 attempt=23
+[2026-09-16 12:48:42.426] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=91/250 object=11581 count=1/23 attempt=1
+ACCEPT laptop total=92/250 object=11581 count=2/23 attempt=2
+ACCEPT laptop total=93/250 object=11581 count=3/23 attempt=3
+ACCEPT laptop total=94/250 object=11581 count=4/23 attempt=4
+ACCEPT laptop total=95/250 object=11581 count=5/23 attempt=5
+ACCEPT laptop total=96/250 object=11581 count=6/23 attempt=6
+ACCEPT laptop total=97/250 object=11581 count=7/23 attempt=7
+ACCEPT laptop total=98/250 object=11581 count=8/23 attempt=8
+ACCEPT laptop total=99/250 object=11581 count=9/23 attempt=9
+ACCEPT laptop total=100/250 object=11581 count=10/23 attempt=10
+ACCEPT laptop total=101/250 object=11581 count=11/23 attempt=11
+ACCEPT laptop total=102/250 object=11581 count=12/23 attempt=12
+ACCEPT laptop total=103/250 object=11581 count=13/23 attempt=13
+ACCEPT laptop total=104/250 object=11581 count=14/23 attempt=14
+ACCEPT laptop total=105/250 object=11581 count=15/23 attempt=15
+ACCEPT laptop total=106/250 object=11581 count=16/23 attempt=16
+ACCEPT laptop total=107/250 object=11581 count=17/23 attempt=17
+ACCEPT laptop total=108/250 object=11581 count=18/23 attempt=18
+ACCEPT laptop total=109/250 object=11581 count=19/23 attempt=19
+ACCEPT laptop total=110/250 object=11581 count=20/23 attempt=20
+ACCEPT laptop total=111/250 object=11581 count=21/23 attempt=21
+ACCEPT laptop total=112/250 object=11581 count=22/23 attempt=22
+ACCEPT laptop total=113/250 object=11581 count=23/23 attempt=23
+[2026-09-16 12:50:54.539] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=114/250 object=11586 count=1/22 attempt=2
+ACCEPT laptop total=115/250 object=11586 count=2/22 attempt=3
+ACCEPT laptop total=116/250 object=11586 count=3/22 attempt=4
+ACCEPT laptop total=117/250 object=11586 count=4/22 attempt=5
+ACCEPT laptop total=118/250 object=11586 count=5/22 attempt=6
+ACCEPT laptop total=119/250 object=11586 count=6/22 attempt=7
+ACCEPT laptop total=120/250 object=11586 count=7/22 attempt=8
+ACCEPT laptop total=121/250 object=11586 count=8/22 attempt=9
+ACCEPT laptop total=122/250 object=11586 count=9/22 attempt=10
+ACCEPT laptop total=123/250 object=11586 count=10/22 attempt=13
+ACCEPT laptop total=124/250 object=11586 count=11/22 attempt=14
+ACCEPT laptop total=125/250 object=11586 count=12/22 attempt=15
+ACCEPT laptop total=126/250 object=11586 count=13/22 attempt=16
+ACCEPT laptop total=127/250 object=11586 count=14/22 attempt=17
+ACCEPT laptop total=128/250 object=11586 count=15/22 attempt=18
+ACCEPT laptop total=129/250 object=11586 count=16/22 attempt=19
+ACCEPT laptop total=130/250 object=11586 count=17/22 attempt=20
+ACCEPT laptop total=131/250 object=11586 count=18/22 attempt=21
+ACCEPT laptop total=132/250 object=11586 count=19/22 attempt=22
+ACCEPT laptop total=133/250 object=11586 count=20/22 attempt=23
+ACCEPT laptop total=134/250 object=11586 count=21/22 attempt=24
+ACCEPT laptop total=135/250 object=11586 count=22/22 attempt=25
+[2026-09-16 12:53:21.229] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=136/250 object=9996 count=1/23 attempt=1
+ACCEPT laptop total=137/250 object=9996 count=2/23 attempt=2
+ACCEPT laptop total=138/250 object=9996 count=3/23 attempt=3
+ACCEPT laptop total=139/250 object=9996 count=4/23 attempt=4
+ACCEPT laptop total=140/250 object=9996 count=5/23 attempt=5
+ACCEPT laptop total=141/250 object=9996 count=6/23 attempt=6
+ACCEPT laptop total=142/250 object=9996 count=7/23 attempt=12
+ACCEPT laptop total=143/250 object=9996 count=8/23 attempt=13
+ACCEPT laptop total=144/250 object=9996 count=9/23 attempt=14
+ACCEPT laptop total=145/250 object=9996 count=10/23 attempt=15
+ACCEPT laptop total=146/250 object=9996 count=11/23 attempt=16
+ACCEPT laptop total=147/250 object=9996 count=12/23 attempt=17
+ACCEPT laptop total=148/250 object=9996 count=13/23 attempt=19
+ACCEPT laptop total=149/250 object=9996 count=14/23 attempt=20
+ACCEPT laptop total=150/250 object=9996 count=15/23 attempt=21
+ACCEPT laptop total=151/250 object=9996 count=16/23 attempt=22
+ACCEPT laptop total=152/250 object=9996 count=17/23 attempt=23
+ACCEPT laptop total=153/250 object=9996 count=18/23 attempt=24
+ACCEPT laptop total=154/250 object=9996 count=19/23 attempt=25
+ACCEPT laptop total=155/250 object=9996 count=20/23 attempt=26
+ACCEPT laptop total=156/250 object=9996 count=21/23 attempt=27
+ACCEPT laptop total=157/250 object=9996 count=22/23 attempt=28
+ACCEPT laptop total=158/250 object=9996 count=23/23 attempt=32
+[2026-09-16 12:56:15.559] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 12:56:15.576] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[2026-09-16 12:56:15.584] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[2026-09-16 12:56:15.660] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=159/250 object=10090 count=1/23 attempt=1
+[2026-09-16 12:56:21.303] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=160/250 object=10090 count=2/23 attempt=2
+[2026-09-16 12:56:26.675] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=161/250 object=10090 count=3/23 attempt=3
+[2026-09-16 12:56:32.642] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=162/250 object=10090 count=4/23 attempt=4
+[2026-09-16 12:56:38.297] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=163/250 object=10090 count=5/23 attempt=5
+[2026-09-16 12:56:43.539] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[2026-09-16 12:56:47.336] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[2026-09-16 12:56:51.008] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+[2026-09-16 12:56:55.052] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=164/250 object=10090 count=6/23 attempt=9
+[2026-09-16 12:57:00.496] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=165/250 object=10090 count=7/23 attempt=10
+[2026-09-16 12:57:06.003] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=166/250 object=10090 count=8/23 attempt=11
+[2026-09-16 12:57:11.698] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=167/250 object=10090 count=9/23 attempt=12
+[2026-09-16 12:57:17.330] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=168/250 object=10090 count=10/23 attempt=13
+[2026-09-16 12:57:23.471] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=169/250 object=10090 count=11/23 attempt=14
+[2026-09-16 12:57:28.999] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=170/250 object=10090 count=12/23 attempt=15
+[2026-09-16 12:57:34.848] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=171/250 object=10090 count=13/23 attempt=16
+[2026-09-16 12:57:40.384] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=172/250 object=10090 count=14/23 attempt=17
+[2026-09-16 12:57:46.185] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=173/250 object=10090 count=15/23 attempt=18
+[2026-09-16 12:57:51.952] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=174/250 object=10090 count=16/23 attempt=19
+[2026-09-16 12:57:57.766] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=175/250 object=10090 count=17/23 attempt=20
+[2026-09-16 12:58:03.579] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=176/250 object=10090 count=18/23 attempt=21
+[2026-09-16 12:58:09.698] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=177/250 object=10090 count=19/23 attempt=22
+[2026-09-16 12:58:15.291] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=178/250 object=10090 count=20/23 attempt=23
+[2026-09-16 12:58:20.722] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=179/250 object=10090 count=21/23 attempt=24
+[2026-09-16 12:58:26.387] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=180/250 object=10090 count=22/23 attempt=25
+[2026-09-16 12:58:31.456] [SAPIEN] [error] Failed to load visual mesh: /data/users/zhouyike/dexCG/third_party/dexart/assets/sapien/10090/textured_objs/new-1.obj
+ACCEPT laptop total=181/250 object=10090 count=23/23 attempt=26
+[2026-09-16 12:58:37.104] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=182/250 object=10098 count=1/23 attempt=1
+ACCEPT laptop total=183/250 object=10098 count=2/23 attempt=4
+ACCEPT laptop total=184/250 object=10098 count=3/23 attempt=5
+ACCEPT laptop total=185/250 object=10098 count=4/23 attempt=6
+ACCEPT laptop total=186/250 object=10098 count=5/23 attempt=8
+ACCEPT laptop total=187/250 object=10098 count=6/23 attempt=9
+ACCEPT laptop total=188/250 object=10098 count=7/23 attempt=10
+ACCEPT laptop total=189/250 object=10098 count=8/23 attempt=11
+ACCEPT laptop total=190/250 object=10098 count=9/23 attempt=12
+ACCEPT laptop total=191/250 object=10098 count=10/23 attempt=14
+ACCEPT laptop total=192/250 object=10098 count=11/23 attempt=15
+ACCEPT laptop total=193/250 object=10098 count=12/23 attempt=16
+ACCEPT laptop total=194/250 object=10098 count=13/23 attempt=17
+ACCEPT laptop total=195/250 object=10098 count=14/23 attempt=19
+ACCEPT laptop total=196/250 object=10098 count=15/23 attempt=21
+ACCEPT laptop total=197/250 object=10098 count=16/23 attempt=22
+ACCEPT laptop total=198/250 object=10098 count=17/23 attempt=23
+ACCEPT laptop total=199/250 object=10098 count=18/23 attempt=24
+ACCEPT laptop total=200/250 object=10098 count=19/23 attempt=25
+ACCEPT laptop total=201/250 object=10098 count=20/23 attempt=26
+ACCEPT laptop total=202/250 object=10098 count=21/23 attempt=28
+ACCEPT laptop total=203/250 object=10098 count=22/23 attempt=29
+ACCEPT laptop total=204/250 object=10098 count=23/23 attempt=30
+[2026-09-16 13:01:15.367] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=205/250 object=10101 count=1/23 attempt=1
+ACCEPT laptop total=206/250 object=10101 count=2/23 attempt=2
+ACCEPT laptop total=207/250 object=10101 count=3/23 attempt=3
+ACCEPT laptop total=208/250 object=10101 count=4/23 attempt=4
+ACCEPT laptop total=209/250 object=10101 count=5/23 attempt=5
+ACCEPT laptop total=210/250 object=10101 count=6/23 attempt=7
+ACCEPT laptop total=211/250 object=10101 count=7/23 attempt=8
+ACCEPT laptop total=212/250 object=10101 count=8/23 attempt=9
+ACCEPT laptop total=213/250 object=10101 count=9/23 attempt=11
+ACCEPT laptop total=214/250 object=10101 count=10/23 attempt=13
+ACCEPT laptop total=215/250 object=10101 count=11/23 attempt=14
+ACCEPT laptop total=216/250 object=10101 count=12/23 attempt=15
+ACCEPT laptop total=217/250 object=10101 count=13/23 attempt=17
+ACCEPT laptop total=218/250 object=10101 count=14/23 attempt=18
+ACCEPT laptop total=219/250 object=10101 count=15/23 attempt=19
+ACCEPT laptop total=220/250 object=10101 count=16/23 attempt=20
+ACCEPT laptop total=221/250 object=10101 count=17/23 attempt=21
+ACCEPT laptop total=222/250 object=10101 count=18/23 attempt=22
+ACCEPT laptop total=223/250 object=10101 count=19/23 attempt=23
+ACCEPT laptop total=224/250 object=10101 count=20/23 attempt=24
+ACCEPT laptop total=225/250 object=10101 count=21/23 attempt=25
+ACCEPT laptop total=226/250 object=10101 count=22/23 attempt=26
+ACCEPT laptop total=227/250 object=10101 count=23/23 attempt=27
+[2026-09-16 13:03:41.074] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[LaptopEnv] change_instance_when_reset=True
+ACCEPT laptop total=228/250 object=10125 count=1/23 attempt=1
+ACCEPT laptop total=229/250 object=10125 count=2/23 attempt=2
+ACCEPT laptop total=230/250 object=10125 count=3/23 attempt=3
+ACCEPT laptop total=231/250 object=10125 count=4/23 attempt=4
+ACCEPT laptop total=232/250 object=10125 count=5/23 attempt=5
+ACCEPT laptop total=233/250 object=10125 count=6/23 attempt=6
+ACCEPT laptop total=234/250 object=10125 count=7/23 attempt=7
+ACCEPT laptop total=235/250 object=10125 count=8/23 attempt=8
+ACCEPT laptop total=236/250 object=10125 count=9/23 attempt=9
+ACCEPT laptop total=237/250 object=10125 count=10/23 attempt=10
+ACCEPT laptop total=238/250 object=10125 count=11/23 attempt=11
+ACCEPT laptop total=239/250 object=10125 count=12/23 attempt=12
+ACCEPT laptop total=240/250 object=10125 count=13/23 attempt=13
+ACCEPT laptop total=241/250 object=10125 count=14/23 attempt=14
+ACCEPT laptop total=242/250 object=10125 count=15/23 attempt=16
+ACCEPT laptop total=243/250 object=10125 count=16/23 attempt=17
+ACCEPT laptop total=244/250 object=10125 count=17/23 attempt=19
+ACCEPT laptop total=245/250 object=10125 count=18/23 attempt=20
+ACCEPT laptop total=246/250 object=10125 count=19/23 attempt=21
+ACCEPT laptop total=247/250 object=10125 count=20/23 attempt=23
+ACCEPT laptop total=248/250 object=10125 count=21/23 attempt=24
+ACCEPT laptop total=249/250 object=10125 count=22/23 attempt=25
+ACCEPT laptop total=250/250 object=10125 count=23/23 attempt=26
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
