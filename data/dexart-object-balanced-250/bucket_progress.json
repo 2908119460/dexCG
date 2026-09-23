@@ -1,0 +1,106 @@
+{
+  "audited_frames": 50712,
+  "config_sha256": "1e9cb5452555ed9dc51be26dfb7d5c1d005e7c5419858cf994efa84bdaaf23e7",
+  "coordinate_audit_maxima": {
+    "angular_velocity_roundtrip": 0.0,
+    "camera_transform_max_error": 3.5762786865234375e-07,
+    "contact_world_roundtrip_max_error_m": 2.9802322387695312e-08,
+    "depth_max_error_m": 0.0,
+    "linear_velocity_roundtrip": 0.0,
+    "palm_world_roundtrip_max_error_m": 2.9802322387695312e-08,
+    "pixel_reprojection_max_error_pixels": 0.0019593535291448916,
+    "point_world_roundtrip_max_error_m": 3.5762786865234375e-07
+  },
+  "objects": {
+    "100431": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 25,
+      "invalid_observations": 0,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "100435": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 100,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 27
+    },
+    "100438": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 29,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 24
+    },
+    "100439": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 25,
+      "invalid_observations": 0,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "100441": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 26,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "100444": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 37,
+      "invalid_observations": 1,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "100446": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 36,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 24
+    },
+    "100448": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 24,
+      "invalid_observations": 1,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "100454": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 25,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "100461": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 55,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "100462": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 127,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    }
+  },
+  "status": "complete",
+  "task": "bucket"
+}
