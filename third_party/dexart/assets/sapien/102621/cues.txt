@@ -1,0 +1,5 @@
+link_0 hinge lever button
+link_1 hinge lid lid
+link_2 hinge seat seat
+link_3 slider pump_lid lid
+link_4 static base_body base_body

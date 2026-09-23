@@ -1,0 +1,673 @@
+<robot name="partnet_f978fdb71bfab2174ddfc542c04e0efc">
+	<link name="base" />
+	<link name="link_0">
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_0_1.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_0_2.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_0_3.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_0_0.obj" />
+			</geometry>
+		</collision>
+	<visual name="button-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-29.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_0" type="prismatic">
+		<origin xyz="0 0 0" />
+		<axis xyz="0 0 -1" />
+		<child link="link_0" />
+		<parent link="link_3" />
+		<limit lower="0" upper="0.01" />
+	</joint>
+	<link name="link_1">
+		<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_1_0.obj" />
+			</geometry>
+		</collision>
+	<visual name="lid-part[&quot;id]">
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="textured_objs/original-20.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_1" type="revolute">
+		<origin xyz="-0.1303749999999999 0.068742263617506 0.08279467272303064" />
+		<axis xyz="-1 0 0" />
+		<child link="link_1" />
+		<parent link="link_3" />
+		<limit lower="-0.0" upper="1.658062789394613" />
+	</joint>
+	<link name="link_2">
+		<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_3.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_5.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_0.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_7.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_1.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_6.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_2.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_4.obj" />
+			</geometry>
+		</collision>
+	<collision>
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_2_8.obj" />
+			</geometry>
+		</collision>
+	<visual name="seat-part[&quot;id]">
+			<origin xyz="0.1303749999999999 -0.068742263617506 -0.08279467272303064" />
+			<geometry>
+				<mesh filename="textured_objs/original-9.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_2" type="revolute">
+		<origin xyz="-0.1303749999999999 0.068742263617506 0.08279467272303064" />
+		<axis xyz="-1 0 0" />
+		<child link="link_2" />
+		<parent link="link_3" />
+		<limit lower="-0.0" upper="1.658062789394613" />
+	</joint>
+	<link name="link_3">
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_25.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_61.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_44.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_27.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_68.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_13.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_42.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_70.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_1.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_65.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_63.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_22.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_6.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_56.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_38.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_11.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_4.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_48.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_52.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_69.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_54.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_9.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_51.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_8.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_10.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_28.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_23.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_26.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_50.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_31.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_21.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_20.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_59.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_2.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_17.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_55.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_19.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_47.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_16.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_49.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_62.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_39.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_24.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_32.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_3.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_15.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_0.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_46.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_53.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_12.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_37.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_60.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_7.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_35.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_40.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_36.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_57.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_66.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_64.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_45.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_5.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_58.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_29.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_67.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_41.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_14.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_18.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_30.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_43.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_34.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/102708_link_3_33.obj" />
+			</geometry>
+		</collision>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-21.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-28.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-22.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-26.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-4.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-3.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-13.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-5.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-27.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-6.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-15.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-11.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-18.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-25.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-12.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-10.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-14.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_body-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-19.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_3" type="fixed">
+		<origin rpy="1.570796326794897 0 -1.570796326794897" xyz="0 0 0" />
+		<child link="link_3" />
+		<parent link="base" />
+	</joint>
+</robot>

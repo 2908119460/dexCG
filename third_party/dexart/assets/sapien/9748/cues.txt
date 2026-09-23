@@ -1,0 +1,2 @@
+link_0 hinge screen screen screen_frame
+link_1 free base_frame shaft keyboard touchpad_surface button button base_frame

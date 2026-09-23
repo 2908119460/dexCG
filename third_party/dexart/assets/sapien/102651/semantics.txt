@@ -1,0 +1,3 @@
+link_0 hinge lid
+link_1 static toilet_body
+link_2 slider button

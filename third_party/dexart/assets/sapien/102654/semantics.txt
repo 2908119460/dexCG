@@ -1,0 +1,4 @@
+link_0 hinge lever
+link_1 hinge lid
+link_2 hinge seat
+link_3 static toilet_body

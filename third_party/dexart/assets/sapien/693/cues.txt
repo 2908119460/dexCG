@@ -1,0 +1,3 @@
+link_0 slider other_leaf other_leaf
+link_1 hinge switch switch
+link_2 static spout tube mouth

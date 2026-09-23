@@ -1,0 +1,2 @@
+link_0 free other_leaf other_leaf keyboard touchpad_surface button base_frame shaft shaft
+link_1 hinge other_leaf other_leaf screen screen_frame

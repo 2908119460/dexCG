@@ -1,0 +1,14 @@
+# Blender v2.79 (sub 0) OBJ File: ''
+# www.blender.org
+mtllib 102630_link_1_53.mtl
+o Shape_IndexedFaceSet.053_Shape_IndexedFaceSet.16499
+v -0.174151 0.113963 -0.103437
+v 0.194768 0.125674 -0.103437
+v -0.174151 0.125674 -0.103437
+v 0.194768 0.113963 -0.103437
+vn -0.0000 0.0000 1.0000
+vn -0.0000 0.0000 -1.0000
+usemtl Shape.16517
+s off
+f 2//1 1//1 4//1
+f 3//2 2//2 1//2

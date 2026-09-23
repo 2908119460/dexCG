@@ -1,0 +1,3 @@
+link_0 hinge lid lid
+link_1 slider button button
+link_2 free base_body base_body

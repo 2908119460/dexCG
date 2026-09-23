@@ -1,0 +1,30 @@
+Index LidJoint LidLink BigLink SeatLink
+101320 joint_0 link_0  link_1
+102620 joint_0 link_0 link_1
+102621 joint_1 link_1 link_4 link_2
+102622 joint_0 link_0 link_2
+102630 joint_0 link_0 link_2 link_1
+102634 joint_0 link_0 link_2 link_1
+102645 joint_2 link_2 link_4 link_3
+102648 joint_2 link_2 link_4 link_3
+102651 joint_0 link_0 link_1
+102652 joint_0 link_0 link_1
+102654 joint_1 link_1 link_3 link_2
+102658 joint_0 link_0 link_2 link_1
+102663 joint_1 link_1 link_3 link_2
+102666 joint_1 link_1 link_2
+102667 joint_2 link_2 link_4 link_3
+102669 joint_0 link_0 link_1
+102670 joint_2 link_2 link_4 link_3
+102675 joint_1 link_1 link_2 link_0
+102677 joint_2 link_2 link_4 link_3
+102687 joint_0 link_0 link_2 link_1
+102689 joint_2 link_2 link_4 link_0
+102692 joint_2 link_2 link_3
+102697 joint_2 link_2 link_4 link_3
+102699 joint_0 link_0 link_2
+102701 joint_0 link_0 link_3 link_1
+102703 joint_2 link_2 link_4 link_3
+102707 joint_2 link_2 link_4 link_3
+102708 joint_1 link_1 link_3 link_2
+103234 joint_1 link_1 link_2

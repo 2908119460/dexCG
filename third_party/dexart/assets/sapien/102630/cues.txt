@@ -1,0 +1,3 @@
+link_0 hinge lid lid
+link_1 hinge seat seat
+link_2 static base_body base_body
