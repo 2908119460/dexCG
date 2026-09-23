@@ -1,0 +1,310 @@
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 53.34it/s]
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[BucketEnv] change_instance_when_reset=True
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+extractor use state = True
+PointNetSmall
+ACCEPT bucket total=1/250 object=100431 count=1/22 attempt=1
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 48.31it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 48.20it/s]
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[BucketEnv] change_instance_when_reset=True
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+extractor use state = True
+PointNetSmall
+ACCEPT bucket total=2/250 object=100431 count=2/22 attempt=2
+ACCEPT bucket total=3/250 object=100431 count=3/22 attempt=3
+ACCEPT bucket total=4/250 object=100431 count=4/22 attempt=4
+ACCEPT bucket total=5/250 object=100431 count=5/22 attempt=6
+ACCEPT bucket total=6/250 object=100431 count=6/22 attempt=7
+ACCEPT bucket total=7/250 object=100431 count=7/22 attempt=8
+ACCEPT bucket total=8/250 object=100431 count=8/22 attempt=9
+ACCEPT bucket total=9/250 object=100431 count=9/22 attempt=10
+ACCEPT bucket total=10/250 object=100431 count=10/22 attempt=11
+ACCEPT bucket total=11/250 object=100431 count=11/22 attempt=12
+ACCEPT bucket total=12/250 object=100431 count=12/22 attempt=13
+ACCEPT bucket total=13/250 object=100431 count=13/22 attempt=14
+ACCEPT bucket total=14/250 object=100431 count=14/22 attempt=15
+ACCEPT bucket total=15/250 object=100431 count=15/22 attempt=17
+ACCEPT bucket total=16/250 object=100431 count=16/22 attempt=18
+ACCEPT bucket total=17/250 object=100431 count=17/22 attempt=19
+ACCEPT bucket total=18/250 object=100431 count=18/22 attempt=20
+ACCEPT bucket total=19/250 object=100431 count=19/22 attempt=22
+ACCEPT bucket total=20/250 object=100431 count=20/22 attempt=23
+ACCEPT bucket total=21/250 object=100431 count=21/22 attempt=24
+ACCEPT bucket total=22/250 object=100431 count=22/22 attempt=25
+[2026-09-16 11:32:44.772] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=23/250 object=100435 count=1/23 attempt=18
+ACCEPT bucket total=24/250 object=100435 count=2/23 attempt=21
+ACCEPT bucket total=25/250 object=100435 count=3/23 attempt=25
+ACCEPT bucket total=26/250 object=100435 count=4/23 attempt=28
+ACCEPT bucket total=27/250 object=100435 count=5/23 attempt=30
+ACCEPT bucket total=28/250 object=100435 count=6/23 attempt=31
+ACCEPT bucket total=29/250 object=100435 count=7/23 attempt=46
+ACCEPT bucket total=30/250 object=100435 count=8/23 attempt=50
+ACCEPT bucket total=31/250 object=100435 count=9/23 attempt=53
+ACCEPT bucket total=32/250 object=100435 count=10/23 attempt=54
+ACCEPT bucket total=33/250 object=100435 count=11/23 attempt=57
+ACCEPT bucket total=34/250 object=100435 count=12/23 attempt=59
+ACCEPT bucket total=35/250 object=100435 count=13/23 attempt=68
+ACCEPT bucket total=36/250 object=100435 count=14/23 attempt=69
+ACCEPT bucket total=37/250 object=100435 count=15/23 attempt=76
+ACCEPT bucket total=38/250 object=100435 count=16/23 attempt=78
+ACCEPT bucket total=39/250 object=100435 count=17/23 attempt=79
+ACCEPT bucket total=40/250 object=100435 count=18/23 attempt=80
+ACCEPT bucket total=41/250 object=100435 count=19/23 attempt=83
+ACCEPT bucket total=42/250 object=100435 count=20/23 attempt=92
+ACCEPT bucket total=43/250 object=100435 count=21/23 attempt=93
+ACCEPT bucket total=44/250 object=100435 count=22/23 attempt=95
+ACCEPT bucket total=45/250 object=100435 count=23/23 attempt=100
+[2026-09-16 11:38:08.702] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=46/250 object=100438 count=1/23 attempt=3
+ACCEPT bucket total=47/250 object=100438 count=2/23 attempt=4
+ACCEPT bucket total=48/250 object=100438 count=3/23 attempt=5
+ACCEPT bucket total=49/250 object=100438 count=4/23 attempt=6
+ACCEPT bucket total=50/250 object=100438 count=5/23 attempt=7
+ACCEPT bucket total=51/250 object=100438 count=6/23 attempt=8
+ACCEPT bucket total=52/250 object=100438 count=7/23 attempt=10
+ACCEPT bucket total=53/250 object=100438 count=8/23 attempt=11
+ACCEPT bucket total=54/250 object=100438 count=9/23 attempt=12
+ACCEPT bucket total=55/250 object=100438 count=10/23 attempt=13
+ACCEPT bucket total=56/250 object=100438 count=11/23 attempt=14
+ACCEPT bucket total=57/250 object=100438 count=12/23 attempt=16
+ACCEPT bucket total=58/250 object=100438 count=13/23 attempt=17
+ACCEPT bucket total=59/250 object=100438 count=14/23 attempt=18
+ACCEPT bucket total=60/250 object=100438 count=15/23 attempt=19
+ACCEPT bucket total=61/250 object=100438 count=16/23 attempt=20
+ACCEPT bucket total=62/250 object=100438 count=17/23 attempt=21
+ACCEPT bucket total=63/250 object=100438 count=18/23 attempt=22
+ACCEPT bucket total=64/250 object=100438 count=19/23 attempt=24
+ACCEPT bucket total=65/250 object=100438 count=20/23 attempt=25
+ACCEPT bucket total=66/250 object=100438 count=21/23 attempt=27
+ACCEPT bucket total=67/250 object=100438 count=22/23 attempt=28
+ACCEPT bucket total=68/250 object=100438 count=23/23 attempt=29
+[2026-09-16 11:41:20.390] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=69/250 object=100439 count=1/22 attempt=1
+ACCEPT bucket total=70/250 object=100439 count=2/22 attempt=2
+ACCEPT bucket total=71/250 object=100439 count=3/22 attempt=3
+ACCEPT bucket total=72/250 object=100439 count=4/22 attempt=4
+ACCEPT bucket total=73/250 object=100439 count=5/22 attempt=7
+ACCEPT bucket total=74/250 object=100439 count=6/22 attempt=8
+ACCEPT bucket total=75/250 object=100439 count=7/22 attempt=9
+ACCEPT bucket total=76/250 object=100439 count=8/22 attempt=10
+ACCEPT bucket total=77/250 object=100439 count=9/22 attempt=11
+ACCEPT bucket total=78/250 object=100439 count=10/22 attempt=12
+ACCEPT bucket total=79/250 object=100439 count=11/22 attempt=13
+ACCEPT bucket total=80/250 object=100439 count=12/22 attempt=14
+ACCEPT bucket total=81/250 object=100439 count=13/22 attempt=15
+ACCEPT bucket total=82/250 object=100439 count=14/22 attempt=16
+ACCEPT bucket total=83/250 object=100439 count=15/22 attempt=17
+ACCEPT bucket total=84/250 object=100439 count=16/22 attempt=18
+ACCEPT bucket total=85/250 object=100439 count=17/22 attempt=20
+ACCEPT bucket total=86/250 object=100439 count=18/22 attempt=21
+ACCEPT bucket total=87/250 object=100439 count=19/22 attempt=22
+ACCEPT bucket total=88/250 object=100439 count=20/22 attempt=23
+ACCEPT bucket total=89/250 object=100439 count=21/22 attempt=24
+ACCEPT bucket total=90/250 object=100439 count=22/22 attempt=25
+[2026-09-16 11:44:26.371] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=91/250 object=100441 count=1/23 attempt=1
+ACCEPT bucket total=92/250 object=100441 count=2/23 attempt=2
+ACCEPT bucket total=93/250 object=100441 count=3/23 attempt=3
+ACCEPT bucket total=94/250 object=100441 count=4/23 attempt=4
+ACCEPT bucket total=95/250 object=100441 count=5/23 attempt=6
+ACCEPT bucket total=96/250 object=100441 count=6/23 attempt=7
+ACCEPT bucket total=97/250 object=100441 count=7/23 attempt=8
+ACCEPT bucket total=98/250 object=100441 count=8/23 attempt=9
+ACCEPT bucket total=99/250 object=100441 count=9/23 attempt=10
+ACCEPT bucket total=100/250 object=100441 count=10/23 attempt=11
+ACCEPT bucket total=101/250 object=100441 count=11/23 attempt=13
+ACCEPT bucket total=102/250 object=100441 count=12/23 attempt=14
+ACCEPT bucket total=103/250 object=100441 count=13/23 attempt=15
+ACCEPT bucket total=104/250 object=100441 count=14/23 attempt=16
+ACCEPT bucket total=105/250 object=100441 count=15/23 attempt=17
+ACCEPT bucket total=106/250 object=100441 count=16/23 attempt=19
+ACCEPT bucket total=107/250 object=100441 count=17/23 attempt=20
+ACCEPT bucket total=108/250 object=100441 count=18/23 attempt=21
+ACCEPT bucket total=109/250 object=100441 count=19/23 attempt=22
+ACCEPT bucket total=110/250 object=100441 count=20/23 attempt=23
+ACCEPT bucket total=111/250 object=100441 count=21/23 attempt=24
+ACCEPT bucket total=112/250 object=100441 count=22/23 attempt=25
+ACCEPT bucket total=113/250 object=100441 count=23/23 attempt=26
+[2026-09-16 11:47:39.988] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=114/250 object=100444 count=1/22 attempt=1
+ACCEPT bucket total=115/250 object=100444 count=2/22 attempt=2
+ACCEPT bucket total=116/250 object=100444 count=3/22 attempt=4
+ACCEPT bucket total=117/250 object=100444 count=4/22 attempt=5
+invalid observation bucket/100444: No finite visible target-object pixels
+ACCEPT bucket total=118/250 object=100444 count=5/22 attempt=8
+ACCEPT bucket total=119/250 object=100444 count=6/22 attempt=9
+ACCEPT bucket total=120/250 object=100444 count=7/22 attempt=10
+ACCEPT bucket total=121/250 object=100444 count=8/22 attempt=14
+ACCEPT bucket total=122/250 object=100444 count=9/22 attempt=16
+ACCEPT bucket total=123/250 object=100444 count=10/22 attempt=19
+ACCEPT bucket total=124/250 object=100444 count=11/22 attempt=20
+ACCEPT bucket total=125/250 object=100444 count=12/22 attempt=22
+ACCEPT bucket total=126/250 object=100444 count=13/22 attempt=23
+ACCEPT bucket total=127/250 object=100444 count=14/22 attempt=25
+ACCEPT bucket total=128/250 object=100444 count=15/22 attempt=26
+ACCEPT bucket total=129/250 object=100444 count=16/22 attempt=27
+ACCEPT bucket total=130/250 object=100444 count=17/22 attempt=28
+ACCEPT bucket total=131/250 object=100444 count=18/22 attempt=31
+ACCEPT bucket total=132/250 object=100444 count=19/22 attempt=33
+ACCEPT bucket total=133/250 object=100444 count=20/22 attempt=34
+ACCEPT bucket total=134/250 object=100444 count=21/22 attempt=36
+ACCEPT bucket total=135/250 object=100444 count=22/22 attempt=37
+[2026-09-16 11:51:10.182] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=136/250 object=100446 count=1/23 attempt=1
+ACCEPT bucket total=137/250 object=100446 count=2/23 attempt=2
+ACCEPT bucket total=138/250 object=100446 count=3/23 attempt=6
+ACCEPT bucket total=139/250 object=100446 count=4/23 attempt=7
+ACCEPT bucket total=140/250 object=100446 count=5/23 attempt=10
+ACCEPT bucket total=141/250 object=100446 count=6/23 attempt=11
+ACCEPT bucket total=142/250 object=100446 count=7/23 attempt=12
+ACCEPT bucket total=143/250 object=100446 count=8/23 attempt=13
+ACCEPT bucket total=144/250 object=100446 count=9/23 attempt=14
+ACCEPT bucket total=145/250 object=100446 count=10/23 attempt=15
+ACCEPT bucket total=146/250 object=100446 count=11/23 attempt=17
+ACCEPT bucket total=147/250 object=100446 count=12/23 attempt=18
+ACCEPT bucket total=148/250 object=100446 count=13/23 attempt=19
+ACCEPT bucket total=149/250 object=100446 count=14/23 attempt=20
+ACCEPT bucket total=150/250 object=100446 count=15/23 attempt=21
+ACCEPT bucket total=151/250 object=100446 count=16/23 attempt=23
+ACCEPT bucket total=152/250 object=100446 count=17/23 attempt=25
+ACCEPT bucket total=153/250 object=100446 count=18/23 attempt=28
+ACCEPT bucket total=154/250 object=100446 count=19/23 attempt=29
+ACCEPT bucket total=155/250 object=100446 count=20/23 attempt=30
+ACCEPT bucket total=156/250 object=100446 count=21/23 attempt=32
+ACCEPT bucket total=157/250 object=100446 count=22/23 attempt=33
+ACCEPT bucket total=158/250 object=100446 count=23/23 attempt=36
+[2026-09-16 11:54:35.075] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=159/250 object=100448 count=1/23 attempt=1
+ACCEPT bucket total=160/250 object=100448 count=2/23 attempt=2
+ACCEPT bucket total=161/250 object=100448 count=3/23 attempt=3
+ACCEPT bucket total=162/250 object=100448 count=4/23 attempt=4
+ACCEPT bucket total=163/250 object=100448 count=5/23 attempt=5
+ACCEPT bucket total=164/250 object=100448 count=6/23 attempt=6
+ACCEPT bucket total=165/250 object=100448 count=7/23 attempt=7
+ACCEPT bucket total=166/250 object=100448 count=8/23 attempt=8
+ACCEPT bucket total=167/250 object=100448 count=9/23 attempt=9
+ACCEPT bucket total=168/250 object=100448 count=10/23 attempt=10
+ACCEPT bucket total=169/250 object=100448 count=11/23 attempt=11
+ACCEPT bucket total=170/250 object=100448 count=12/23 attempt=12
+ACCEPT bucket total=171/250 object=100448 count=13/23 attempt=13
+invalid observation bucket/100448: No finite visible target-object pixels
+ACCEPT bucket total=172/250 object=100448 count=14/23 attempt=15
+ACCEPT bucket total=173/250 object=100448 count=15/23 attempt=16
+ACCEPT bucket total=174/250 object=100448 count=16/23 attempt=17
+ACCEPT bucket total=175/250 object=100448 count=17/23 attempt=18
+ACCEPT bucket total=176/250 object=100448 count=18/23 attempt=19
+ACCEPT bucket total=177/250 object=100448 count=19/23 attempt=20
+ACCEPT bucket total=178/250 object=100448 count=20/23 attempt=21
+ACCEPT bucket total=179/250 object=100448 count=21/23 attempt=22
+ACCEPT bucket total=180/250 object=100448 count=22/23 attempt=23
+ACCEPT bucket total=181/250 object=100448 count=23/23 attempt=24
+[2026-09-16 11:57:33.254] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=182/250 object=100454 count=1/23 attempt=1
+ACCEPT bucket total=183/250 object=100454 count=2/23 attempt=2
+ACCEPT bucket total=184/250 object=100454 count=3/23 attempt=3
+ACCEPT bucket total=185/250 object=100454 count=4/23 attempt=4
+ACCEPT bucket total=186/250 object=100454 count=5/23 attempt=5
+ACCEPT bucket total=187/250 object=100454 count=6/23 attempt=6
+ACCEPT bucket total=188/250 object=100454 count=7/23 attempt=7
+ACCEPT bucket total=189/250 object=100454 count=8/23 attempt=8
+ACCEPT bucket total=190/250 object=100454 count=9/23 attempt=9
+ACCEPT bucket total=191/250 object=100454 count=10/23 attempt=10
+ACCEPT bucket total=192/250 object=100454 count=11/23 attempt=11
+ACCEPT bucket total=193/250 object=100454 count=12/23 attempt=12
+ACCEPT bucket total=194/250 object=100454 count=13/23 attempt=13
+ACCEPT bucket total=195/250 object=100454 count=14/23 attempt=16
+ACCEPT bucket total=196/250 object=100454 count=15/23 attempt=17
+ACCEPT bucket total=197/250 object=100454 count=16/23 attempt=18
+ACCEPT bucket total=198/250 object=100454 count=17/23 attempt=19
+ACCEPT bucket total=199/250 object=100454 count=18/23 attempt=20
+ACCEPT bucket total=200/250 object=100454 count=19/23 attempt=21
+ACCEPT bucket total=201/250 object=100454 count=20/23 attempt=22
+ACCEPT bucket total=202/250 object=100454 count=21/23 attempt=23
+ACCEPT bucket total=203/250 object=100454 count=22/23 attempt=24
+ACCEPT bucket total=204/250 object=100454 count=23/23 attempt=25
+[2026-09-16 12:00:38.129] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=205/250 object=100461 count=1/23 attempt=2
+ACCEPT bucket total=206/250 object=100461 count=2/23 attempt=3
+ACCEPT bucket total=207/250 object=100461 count=3/23 attempt=5
+ACCEPT bucket total=208/250 object=100461 count=4/23 attempt=6
+ACCEPT bucket total=209/250 object=100461 count=5/23 attempt=8
+ACCEPT bucket total=210/250 object=100461 count=6/23 attempt=10
+ACCEPT bucket total=211/250 object=100461 count=7/23 attempt=12
+ACCEPT bucket total=212/250 object=100461 count=8/23 attempt=17
+ACCEPT bucket total=213/250 object=100461 count=9/23 attempt=18
+ACCEPT bucket total=214/250 object=100461 count=10/23 attempt=19
+ACCEPT bucket total=215/250 object=100461 count=11/23 attempt=21
+ACCEPT bucket total=216/250 object=100461 count=12/23 attempt=23
+ACCEPT bucket total=217/250 object=100461 count=13/23 attempt=24
+ACCEPT bucket total=218/250 object=100461 count=14/23 attempt=26
+ACCEPT bucket total=219/250 object=100461 count=15/23 attempt=33
+ACCEPT bucket total=220/250 object=100461 count=16/23 attempt=36
+ACCEPT bucket total=221/250 object=100461 count=17/23 attempt=39
+ACCEPT bucket total=222/250 object=100461 count=18/23 attempt=41
+ACCEPT bucket total=223/250 object=100461 count=19/23 attempt=45
+ACCEPT bucket total=224/250 object=100461 count=20/23 attempt=46
+ACCEPT bucket total=225/250 object=100461 count=21/23 attempt=50
+ACCEPT bucket total=226/250 object=100461 count=22/23 attempt=54
+ACCEPT bucket total=227/250 object=100461 count=23/23 attempt=55
+[2026-09-16 12:04:43.870] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[BucketEnv] change_instance_when_reset=True
+ACCEPT bucket total=228/250 object=100462 count=1/23 attempt=4
+ACCEPT bucket total=229/250 object=100462 count=2/23 attempt=18
+ACCEPT bucket total=230/250 object=100462 count=3/23 attempt=22
+ACCEPT bucket total=231/250 object=100462 count=4/23 attempt=23
+ACCEPT bucket total=232/250 object=100462 count=5/23 attempt=24
+ACCEPT bucket total=233/250 object=100462 count=6/23 attempt=25
+ACCEPT bucket total=234/250 object=100462 count=7/23 attempt=53
+ACCEPT bucket total=235/250 object=100462 count=8/23 attempt=54
+ACCEPT bucket total=236/250 object=100462 count=9/23 attempt=55
+ACCEPT bucket total=237/250 object=100462 count=10/23 attempt=63
+ACCEPT bucket total=238/250 object=100462 count=11/23 attempt=65
+ACCEPT bucket total=239/250 object=100462 count=12/23 attempt=87
+ACCEPT bucket total=240/250 object=100462 count=13/23 attempt=97
+ACCEPT bucket total=241/250 object=100462 count=14/23 attempt=105
+ACCEPT bucket total=242/250 object=100462 count=15/23 attempt=106
+ACCEPT bucket total=243/250 object=100462 count=16/23 attempt=107
+ACCEPT bucket total=244/250 object=100462 count=17/23 attempt=108
+ACCEPT bucket total=245/250 object=100462 count=18/23 attempt=109
+ACCEPT bucket total=246/250 object=100462 count=19/23 attempt=115
+ACCEPT bucket total=247/250 object=100462 count=20/23 attempt=116
+ACCEPT bucket total=248/250 object=100462 count=21/23 attempt=120
+ACCEPT bucket total=249/250 object=100462 count=22/23 attempt=121
+ACCEPT bucket total=250/250 object=100462 count=23/23 attempt=127
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.

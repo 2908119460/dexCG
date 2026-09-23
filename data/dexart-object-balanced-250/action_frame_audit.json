@@ -1,0 +1,262 @@
+{
+  "faucet": {
+    "jacobian_com_finite_difference_max_error": 0.00010147690773010254,
+    "jacobian_linear_reference_point": "end-link center of mass",
+    "end_link": "link6",
+    "end_link_com_local_m": [
+      0.0,
+      0.0006399999838322401,
+      -0.009519999846816063
+    ],
+    "base_equals_link_base": true,
+    "world_from_base": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "action_normalization_roundtrip_max_error": 0.0,
+    "velocity_limits": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "control_time_step_seconds": 0.04000000189989805
+  },
+  "bucket": {
+    "jacobian_com_finite_difference_max_error": 0.00010147690773010254,
+    "jacobian_linear_reference_point": "end-link center of mass",
+    "end_link": "link6",
+    "end_link_com_local_m": [
+      0.0,
+      0.0006399999838322401,
+      -0.009519999846816063
+    ],
+    "base_equals_link_base": true,
+    "world_from_base": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.30000001192092896
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "action_normalization_roundtrip_max_error": 0.0,
+    "velocity_limits": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "control_time_step_seconds": 0.04000000189989805
+  },
+  "laptop": {
+    "jacobian_com_finite_difference_max_error": 0.00010147690773010254,
+    "jacobian_linear_reference_point": "end-link center of mass",
+    "end_link": "link6",
+    "end_link_com_local_m": [
+      0.0,
+      0.0006399999838322401,
+      -0.009519999846816063
+    ],
+    "base_equals_link_base": true,
+    "world_from_base": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "action_normalization_roundtrip_max_error": 0.0,
+    "velocity_limits": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "control_time_step_seconds": 0.04000000189989805
+  },
+  "toilet": {
+    "jacobian_com_finite_difference_max_error": 0.00010147690773010254,
+    "jacobian_linear_reference_point": "end-link center of mass",
+    "end_link": "link6",
+    "end_link_com_local_m": [
+      0.0,
+      0.0006399999838322401,
+      -0.009519999846816063
+    ],
+    "base_equals_link_base": true,
+    "world_from_base": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.4000000059604645
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "action_normalization_roundtrip_max_error": 0.0,
+    "velocity_limits": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "control_time_step_seconds": 0.04000000189989805
+  }
+}
