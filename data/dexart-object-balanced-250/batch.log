@@ -1,0 +1,9 @@
+Starting/resuming bucket on GPU 2
+Starting/resuming faucet on GPU 4
+Finished bucket: exit=0
+Starting/resuming toilet on GPU 2
+Finished faucet: exit=0
+Starting/resuming laptop on GPU 4
+Finished toilet: exit=0
+Finished laptop: exit=0
+All 1,000 episodes collected and all four dataset audits passed.

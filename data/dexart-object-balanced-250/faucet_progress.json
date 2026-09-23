@@ -1,0 +1,106 @@
+{
+  "audited_frames": 74014,
+  "config_sha256": "1e9cb5452555ed9dc51be26dfb7d5c1d005e7c5419858cf994efa84bdaaf23e7",
+  "coordinate_audit_maxima": {
+    "angular_velocity_roundtrip": 0.0,
+    "camera_transform_max_error": 0.0,
+    "contact_world_roundtrip_max_error_m": 2.9802322387695312e-08,
+    "depth_max_error_m": 0.0,
+    "linear_velocity_roundtrip": 0.0,
+    "palm_world_roundtrip_max_error_m": 2.9802322387695312e-08,
+    "pixel_reprojection_max_error_pixels": 0.0019448345729173866,
+    "point_world_roundtrip_max_error_m": 2.9802322387695312e-08
+  },
+  "objects": {
+    "1011": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 37,
+      "invalid_observations": 0,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "1053": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 43,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "1288": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 39,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "1343": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 59,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "1370": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 38,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "1466": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 45,
+      "invalid_observations": 2,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "148": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 45,
+      "invalid_observations": 0,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "693": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 48,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "822": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 38,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    },
+    "857": {
+      "accepted": 22,
+      "annotation_failures": 0,
+      "attempts": 44,
+      "invalid_observations": 0,
+      "quota": 22,
+      "simulator_successes": 22
+    },
+    "991": {
+      "accepted": 23,
+      "annotation_failures": 0,
+      "attempts": 39,
+      "invalid_observations": 0,
+      "quota": 23,
+      "simulator_successes": 23
+    }
+  },
+  "status": "complete",
+  "task": "faucet"
+}

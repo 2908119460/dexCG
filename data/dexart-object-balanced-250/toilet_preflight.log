@@ -1,0 +1,48 @@
+/data/users/zhouyike/dexCG/.venv/lib/python3.11/site-packages/sapien/core/renderer_config.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+/data/users/zhouyike/dexCG/third_party/dexart/stable_baselines3/common/save_util.py:166: UserWarning: Could not deserialize object clip_range. Consider using `custom_objects` argument to replace this object.
+  warnings.warn(
+[ToiletEnv] change_instance_when_reset=True
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+extractor use state = True
+PointNetSmall
+ACCEPT toilet total=1/250 object=102677 count=1/14 attempt=1
+[2026-09-16 11:23:22.993] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:25.007] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:27.882] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:29.681] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:30.490] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:33.102] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:33.836] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:35.946] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:37.976] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:38.706] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:39.010] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:39.486] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:40.103] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:40.447] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:40.749] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[2026-09-16 11:23:40.979] [svulkan2] [warning] A second renderer will share the same internal context with the first one. Arguments passed to constructor will be ignored.
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+[ToiletEnv] change_instance_when_reset=True
+sys:1: DeprecationWarning: Call to deprecated function (or staticmethod) _destroy.
